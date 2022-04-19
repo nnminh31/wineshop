@@ -1,0 +1,34 @@
+0000000000000000000000000000000000000000 fc939c0cbc56ee4a8f3dbfbfaf458ae7aa3433c4 conghc-miichisoft <conghc@miichisoft.net> 1649439991 +0700	commit (initial): create a project wineshop
+fc939c0cbc56ee4a8f3dbfbfaf458ae7aa3433c4 0000000000000000000000000000000000000000 conghc-miichisoft <conghc@miichisoft.net> 1649439999 +0700	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 fc939c0cbc56ee4a8f3dbfbfaf458ae7aa3433c4 conghc-miichisoft <conghc@miichisoft.net> 1649439999 +0700	Branch: renamed refs/heads/master to refs/heads/main
+fc939c0cbc56ee4a8f3dbfbfaf458ae7aa3433c4 8b7fe070ce1172348488ebc60ba503f06d251804 conghc-miichisoft <conghc@miichisoft.net> 1649442484 +0700	commit: fix route for wweb
+8b7fe070ce1172348488ebc60ba503f06d251804 2152fac09315a61a7e495b530f4fe2a1e4bcd73e conghc-miichisoft <conghc@miichisoft.net> 1649442592 +0700	commit (amend): fix routes for web
+2152fac09315a61a7e495b530f4fe2a1e4bcd73e fc939c0cbc56ee4a8f3dbfbfaf458ae7aa3433c4 conghc-miichisoft <conghc@miichisoft.net> 1649442626 +0700	reset: moving to fc939c0
+fc939c0cbc56ee4a8f3dbfbfaf458ae7aa3433c4 b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649442715 +0700	commit (amend): fix routes for web
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649443241 +0700	checkout: moving from main to fix_abc
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df 1c4a3f4759960e49135e9b9da2579ba3459c5f2c conghc-miichisoft <conghc@miichisoft.net> 1649443270 +0700	commit: dcmcmcmcmmcmc
+1c4a3f4759960e49135e9b9da2579ba3459c5f2c a4334ea8be405d07bf89b123f3c57c37522d8e99 conghc-miichisoft <conghc@miichisoft.net> 1649443502 +0700	pull origin main: Fast-forward
+a4334ea8be405d07bf89b123f3c57c37522d8e99 b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649444298 +0700	checkout: moving from fix_abc to main
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df a4334ea8be405d07bf89b123f3c57c37522d8e99 conghc-miichisoft <conghc@miichisoft.net> 1649444313 +0700	pull origin main: Fast-forward
+a4334ea8be405d07bf89b123f3c57c37522d8e99 b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649444384 +0700	reset: moving to b92497b
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649444608 +0700	reset: moving to HEAD
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649444623 +0700	reset: moving to b92497b75d7dacb4ab7c6faab7110f205f9bb0df
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649444632 +0700	reset: moving to b92497b75d7dacb4ab7c6faab7110f205f9bb0df
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df b92497b75d7dacb4ab7c6faab7110f205f9bb0df conghc-miichisoft <conghc@miichisoft.net> 1649444640 +0700	reset: moving to b92497b75d7dacb4ab7c6faab7110f205f9bb0df
+b92497b75d7dacb4ab7c6faab7110f205f9bb0df 0000000000000000000000000000000000000000 conghc-miichisoft <conghc@miichisoft.net> 1649444693 +0700
+0000000000000000000000000000000000000000 5ffc33d1ce7fd0137206770739888df146f8bb9e conghc-miichisoft <conghc@miichisoft.net> 1649444762 +0700	commit (initial): create a project wineshop
+5ffc33d1ce7fd0137206770739888df146f8bb9e 21ad29a63d983c5ca1183d52c46d3952f826a9a5 conghc-miichisoft <conghc@miichisoft.net> 1649444976 +0700	commit: sssssssssssss
+21ad29a63d983c5ca1183d52c46d3952f826a9a5 5ffc33d1ce7fd0137206770739888df146f8bb9e conghc-miichisoft <conghc@miichisoft.net> 1649445026 +0700	reset: moving to HEAD~1
+5ffc33d1ce7fd0137206770739888df146f8bb9e 902ba1198f6b1a86b054fd6f1762b6b7080275ac conghc-miichisoft <conghc@miichisoft.net> 1649522738 +0700	commit: design and build databases
+902ba1198f6b1a86b054fd6f1762b6b7080275ac 975b88f056b10959092ed80eb56ab78065b894c5 conghc-miichisoft <conghc@miichisoft.net> 1649658304 +0700	commit: add scren login admin
+975b88f056b10959092ed80eb56ab78065b894c5 277aa8ddc91f8369a364544576f0a5b2884d0994 conghc-miichisoft <conghc@miichisoft.net> 1650045992 +0700	commit: categoryRecursive
+277aa8ddc91f8369a364544576f0a5b2884d0994 53551d88d680c94e3e73bad3fd0443de868d6010 conghc-miichisoft <conghc@miichisoft.net> 1650215913 +0700	commit: add model brand
+53551d88d680c94e3e73bad3fd0443de868d6010 3dbfb2a53ea8ba4e0199893a35d455d60a578355 conghc-miichisoft <conghc@miichisoft.net> 1650219901 +0700	commit: install library doctrine/dbal
+3dbfb2a53ea8ba4e0199893a35d455d60a578355 c34e66f7bdf0a164dc35390bd7acbbf98eb8ab69 conghc-miichisoft <conghc@miichisoft.net> 1650219945 +0700	commit: add api list and create category
+c34e66f7bdf0a164dc35390bd7acbbf98eb8ab69 e2928605c31b122e252bc97fc4f88dfa30dc93e3 conghc-miichisoft <conghc@miichisoft.net> 1650382413 +0700	commit: test
+e2928605c31b122e252bc97fc4f88dfa30dc93e3 e2928605c31b122e252bc97fc4f88dfa30dc93e3 conghc-miichisoft <conghc@miichisoft.net> 1650382438 +0700	checkout: moving from main to init_project
+e2928605c31b122e252bc97fc4f88dfa30dc93e3 c93704de044908473a31c91901d7cded0f0dea38 conghc-miichisoft <conghc@miichisoft.net> 1650382616 +0700	commit: init project
+c93704de044908473a31c91901d7cded0f0dea38 0000000000000000000000000000000000000000 conghc-miichisoft <conghc@miichisoft.net> 1650382622 +0700	Branch: renamed refs/heads/init_project to refs/heads/main
+0000000000000000000000000000000000000000 c93704de044908473a31c91901d7cded0f0dea38 conghc-miichisoft <conghc@miichisoft.net> 1650382622 +0700	Branch: renamed refs/heads/init_project to refs/heads/main
+c93704de044908473a31c91901d7cded0f0dea38 0000000000000000000000000000000000000000 conghc-miichisoft <conghc@miichisoft.net> 1650382696 +0700	Branch: renamed refs/heads/main to refs/heads/main
+c93704de044908473a31c91901d7cded0f0dea38 c93704de044908473a31c91901d7cded0f0dea38 conghc-miichisoft <conghc@miichisoft.net> 1650382696 +0700	Branch: renamed refs/heads/main to refs/heads/main
