@@ -1,4 +1,0 @@
-0000000000000000000000000000000000000000 e2928605c31b122e252bc97fc4f88dfa30dc93e3 conghc-miichisoft <conghc@miichisoft.net> 1650382438 +0700	branch: Created from HEAD
-e2928605c31b122e252bc97fc4f88dfa30dc93e3 c93704de044908473a31c91901d7cded0f0dea38 conghc-miichisoft <conghc@miichisoft.net> 1650382616 +0700	commit: init project
-c93704de044908473a31c91901d7cded0f0dea38 c93704de044908473a31c91901d7cded0f0dea38 conghc-miichisoft <conghc@miichisoft.net> 1650382622 +0700	Branch: renamed refs/heads/init_project to refs/heads/main
-c93704de044908473a31c91901d7cded0f0dea38 c93704de044908473a31c91901d7cded0f0dea38 conghc-miichisoft <conghc@miichisoft.net> 1650382696 +0700	Branch: renamed refs/heads/main to refs/heads/main
