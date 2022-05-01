@@ -175,7 +175,7 @@ Create user
             <div class="p-4 text-right border-top mobile-hidden">
                 <button type="submit" class="btn btn-link px-3 btn-success">
                     <!-- <i class="fas fa-code me-md-2"></i> -->
-                    <span class="d-none d-md-inline-block" style="color: #fff">
+                    <span class="d-md-inline-block" style="color: #fff">
                         Submit
                     </span>
                 </button>

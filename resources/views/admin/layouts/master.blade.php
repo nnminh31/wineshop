@@ -26,6 +26,18 @@
         .dataTables_info {
             display: none;
         }
+        @media only screen and (max-width: 576px) {
+            .next_previous{
+                width: 50% !important;
+            }
+        }
+        .icon-next a:hover, .icon-prev a:hover, .icon-next a, .icon-prev a{
+            float: left;
+            padding: 0.375rem 0;
+        }
+        .icon-next a.disabled {
+            color: #aaa;
+        }
     </style>
 </head>
 
@@ -65,7 +77,7 @@
 
             <!-- Nav Item - Products Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="{{route('admin.products.index')}}">
                     <i class="fas fa-solid fa-box"></i>
                     <span>Products</span>
                 </a>
@@ -330,12 +342,54 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    <style>
+                        .icon-prev a:hover {
+                            color: red
+                        }
+                    </style>
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">@yield('block')</h1>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 next_previous">
+                            <h1 class="h3 mb-2 text-gray-800">@yield('block')</h1>
+                        </div>
+                        @if(isset($prev) && isset($next))
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 next_previous">
+                            <div class="" style="float: right">
+                                <span class="icon-prev" aria-hidden="true" style="float: left; margin-right: 10px">
+                                    <a class="btn <?php if($prev->count() != 0){
+                                                        echo '';
+                                                    }else echo 'disabled';  
+                                                    ?>" href="<?php if($prev->count() != 0){
+                                                        echo $prev[0]->slug;
+                                                    }else echo 'javascript:void(0)';  
+                                                    ?>" style="<?php if($prev->count() != 0){
+                                                        echo "";
+                                                    }else echo "cursor: default;";  
+                                                    ?>">
+                                        <i class="fas fa-arrow-left" style="font-size: 18px;"></i>
+                                    </a>
+                                </span>
+                                <span class="icon-next" aria-hidden="true" style="float: left">
+                                    <a class="btn <?php if($next->count() != 0){
+                                                        echo '';
+                                                    }else echo 'disabled';  
+                                                    ?>" href="<?php if($next->count() != 0){
+                                                        echo $next[0]->slug;
+                                                    }else echo 'javascript:void(0)';  
+                                                    ?>" style="<?php if($next->count() != 0){
+                                                        echo "";
+                                                    }else echo "cursor: default;";  
+                                                    ?>">
+                                        <i class="fas fa-arrow-right" style="font-size: 18px;"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
 
                     <!-- DataTales Example -->
-                    @yield('content') 
+                    @yield('content')
 
                 </div>
                 <!-- /.container-fluid -->

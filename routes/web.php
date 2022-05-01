@@ -26,11 +26,8 @@ use App\Http\Controllers\User\UserController;
 // Website
 Route::group(['prefix'=>'/'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-});
-
-Route::group(['prefix'=>'product/'], function(){
-    Route::post('/index', [ProductController::class, 'index'])->name('product');
+    Route::get('/dang-nhap', [AuthController::class, 'login'])->name('login');
+    Route::get('san-pham/', [ProductController::class,'show'])->name('product');
 });
 
 // Admin
@@ -59,6 +56,13 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name("admin.categories.index");
         Route::match(['get', 'post'], '/create', [CategoryController::class, 'create'])->name("admin.categories.add");
         Route::match(['get', 'post'], '/edit/{slug}', [CategoryController::class, 'update'])->name("admin.categories.edit");
+        // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
+    });
+    // Category
+    Route::prefix('products')->group(function () {
+        Route::get('/', [ProductController::class, 'index'])->name("admin.products.index");
+        Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name("admin.products.add");
+        Route::match(['get', 'post'], '/edit/{slug}', [ProductController::class, 'update'])->name("admin.products.edit");
         // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
     });
 });

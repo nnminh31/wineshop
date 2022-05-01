@@ -28,6 +28,9 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if ($request->getMethod() == 'GET') {
+            if(Auth::guard('admin')->check()){
+                return redirect()->route('admin.users.index'); 
+            }
             return view('admin.pages.auth.login');
         }
         $account = [
