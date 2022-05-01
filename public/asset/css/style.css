@@ -986,6 +986,172 @@ footer .social-network li a:first-child {
 }
 /* End Call now */
 
+/* Product Detail*/
+.wrapper {
+    padding: 30px 0;
+}
+.content-carousel {
+    display: block;
+    margin: 0 auto;
+}
+.title-page {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    color: #800020;
+}
+.product-detail .title-page {
+    margin-bottom: 10px;
+}
+.product-detail h1.title-page {
+    color: #333;
+}
+.price {
+    color: #800020;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 10px 0;
+    font-family: 'Helvetica Neue';
+}
+.product-detail .price {
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid #f8f8f8;
+    background: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding: 15px 0;
+}
+.product-detail ul {
+    margin-bottom: 10px;
+}
+.product-detail ul li {
+    background: url(https://ruouthuonghieu.com/wp-content/themes/base/assets/images/picture/icon-li.png) no-repeat left 10px;
+    font-size: 16px;
+    padding: 5px 0 5px 20px;
+}
+.product-detail .shop, .product-detail .shop .p1, .product-detail .shop .p2, .product-detail ul li {
+    font-size: 13px;
+}
+.box-1 {
+    border-top: 1px solid #f8f8f8;
+}
+.box-1 {
+    border: none;
+}
+.shop {
+    border-right: 1px solid #f8f8f8;
+}
+.product-detail .shop, .product-detail .shop .p1, .product-detail .shop .p2, .product-detail ul li {
+    font-size: 13px;
+}
+.p1 {
+    font-size: 24px;
+    color: #212121;
+}
+.shop .p1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.logo-bn, .box-1 .shop .p1, .box-1 .col-md-12:last-child {
+    display: none !important;
+}
+.product-detail .shop, .product-detail .shop .p1, .product-detail .shop .p2, .product-detail ul li {
+    font-size: 13px;
+}
+.mtop20 {
+    margin-top: 20px;
+}
+.label-shop {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+}
+.mtop10 {
+    margin-top: 10px;
+}
+.mgt-10 {
+    margin-top: 10px;
+}
+.clor {
+    color: rgba(51, 51, 51, 0.7);
+}
+.soci {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+.soci a {
+    color: #b9b9b9;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.product-info {
+    margin-bottom: 20px;
+    position: relative;
+    max-height: 767px;
+    min-height: 80px;
+    overflow: hidden;
+}
+.product-info {
+    max-height: 100%;
+    margin-top: 65px;
+}
+.product-info h4 {
+    background: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #f8f8f8;
+    margin: 0;
+    padding: 20px 0;
+}
+.product-info .cache {
+    background: #fff;
+    padding: 20px 30px;
+    font-size: 13px;
+}
+.product-info .cache {
+    padding: 20px 0;
+}
+.product-info p, .product-info p span {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.69;
+    font-family: inherit!important;
+    font-weight: normal!important;
+}
+.product-info p span:last-child {
+    margin-bottom: 0;
+}
+.product-related h3 {
+    background: #fff;
+    border-bottom: 1px solid #f8f8f8;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 0;
+}
+.list {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.w-20 {
+    flex: 0 0 20%;
+    -webkit-flex: 0 0 20%;
+    max-width: 20%;
+}
+.product-related .product-item {
+    border: 1px solid #ebebeb !important;
+}
+.product-related .product-item .product-wrap h3 {
+    height: 86px;
+    padding-bottom: 0;
+}
+p.link-detail {
+    margin-bottom: 0
+}
+/* End Product Detail*/
 /* Responsive  for 768 px*/
 
 @media screen and (max-width: 767px){

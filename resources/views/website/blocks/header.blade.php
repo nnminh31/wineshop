@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="logo">
-                        <a href="https://ruouthuonghieu.com/" class="custom-logo-link" rel="home" aria-current="page">
+                        <a href="{{route('home')}}" class="custom-logo-link" rel="home" aria-current="page">
                             <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/06/logo.svg" class="custom-logo" alt="Bán rượu chính hãng – Giỏ quà tết sang trọng">
                         </a>
                         <a id="cd-menu-trigger" href="#0" class="">

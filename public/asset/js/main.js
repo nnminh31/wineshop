@@ -43,11 +43,14 @@ $('.slider-banner.slider-general.owl-carousel .owl-nav:nth-child(2) .owl-next').
 })
 
 jQuery(document).ready(function ($) {
-    var $lateral_menu_trigger = $('#cd-menu-trigger'), $content_wrapper = $('.cd-main-content'), $navigation = $('header')
+    var $lateral_menu_trigger = $('#cd-menu-trigger'), $content_wrapper = $('.cd-main-content'), $navigation = $('header'), $footer = $('.footer');
     $lateral_menu_trigger.on('click', function (event) {
         event.preventDefault()
         $lateral_menu_trigger.toggleClass('is-clicked')
         $navigation.toggleClass('lateral-menu-is-open')
+        $footer.toggleClass('lateral-menu-is-open').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+            $('body').toggleClass('overflow-hidden')
+        })
         $content_wrapper.toggleClass('lateral-menu-is-open').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
             $('body').toggleClass('overflow-hidden')
         })

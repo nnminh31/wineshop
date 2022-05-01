@@ -34,6 +34,7 @@ class ProductController extends Controller
             $brands = Brand::all();
             return view('admin.pages.product.add', compact('list_cat', 'brands'));
         }
+        dd($request->all());
         $dataProductCreate = [
             'name' => $request->product_name,
             'price' => $request->product_prỉce,
