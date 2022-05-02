@@ -18,6 +18,7 @@ List brand
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Type</th>
                         <th>Creator</th>
                         <th>Created_at</th>
                     </tr>
@@ -39,7 +40,8 @@ List brand
                                 }
                                 ?>
                             </a></td>
-                        <td><a href="{{route('admin.brands.edit', $brand->slug)}}">{{$brand->name}}</a></td>
+                        <td><a href="{{route('admin.brands.edit', $brand->slug)}}">{{$brand->type}}</a></td>
+                        <td><a href="{{route('admin.brands.edit', $brand->slug)}}">{{$brand->user->name}}</a></td>
                         <td><a href="{{route('admin.brands.edit', $brand->slug)}}">{{$brand->created_at}}</a></td>
                     </tr>
                     @endforeach
@@ -49,11 +51,13 @@ List brand
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Type</th>
                         <th>Creator</th>
                         <th>Created_at</th>
                     </tr>
                 </tfoot>
             </table>
+            {{$brands->links('vendor.pagination.custom')}}
         </div>
     </div>
 </div>

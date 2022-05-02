@@ -201,87 +201,26 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
                             <div role="tabpanel" class="tab-pane fade in show active" id="tab-1">
                                 <div class="brand-list">
                                     <div class="brand-banner">
-
-                                        <a href="https://ruouthuonghieu.com/tin-tuc/10-nhan-hieu-whisky-scotch-noi-tieng/" title="">
-                                            <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/08/Banner_5.png" alt="">
-
+                                        @foreach($brands as $brand)
+                                        @if($brand->ordinal == 1 && $brand->type == "Rượu mạnh")
+                                        <a href="javascript:void(0)" title="{{$brand->name}}">
+                                            <img src="{{asset('/images/brands/'.$brand->icon)}}" alt="{{$brand->name}}">
                                         </a>
+                                        @endif
+                                        @endforeach
                                     </div>
                                     <!--  -->
                                     <div class="brand-s">
                                         <ul class="brand-logo">
-
+                                            @foreach($brands as $brand)
+                                            @if($brand->ordinal == null && $brand->type == "Rượu mạnh")
                                             <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/ballantines/" title="Ballantines">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/ballentines.jpg" alt="">
+                                                <a href="javascript:void(0)" title="Ballantines">
+                                                    <img src="{{asset('/images/brands/'.$brand->icon)}}" alt="">
                                                 </a>
-
                                             </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/beluga/" title="Beluga">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/beluga_noble_logo.jpg" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/glenfiddich/" title="Glenfiddich">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/gle.jpg" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/hennessy/" title="Hennessy">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/hennessy.jpg" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/chivas/" title="CHIVAS">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/07/Chivas.png" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/ruou-manh/single-malt-whisky/macallan/?order=asc" title="">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/maccalan.jpg" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/jack-daniels/" title="Jack Daniel">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/jack-daniel.jpg" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/johnnie-walker/" title="Johnnie Walker">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/johnnie-walker.jpg" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/martell/" title="Martell">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/logo-martell-vsop.jpg" alt="">
-                                                </a>
-
-                                            </li>
+                                            @endif
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -291,87 +230,26 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
                             <div role="tabpanel" class="tab-pane fade" id="tab-2">
                                 <div class="brand-list">
                                     <div class="brand-banner">
-
-
-                                        <a href="" title="">
-                                            <img src="https://ruouthuonghieu.com/wp-content/themes/base/assets/images/picture/xbrand-banner.jpg.pagespeed.ic.HGCatNwk5U.webp" alt="" title="">
-
+                                        @foreach($brands as $brand)
+                                        @if($brand->ordinal == 1 && $brand->type == "Rượu vang")
+                                        <a href="javascript:void(0)" title="{{$brand->name}}">
+                                            <img src="{{asset('/images/brands/'.$brand->icon)}}" alt="{{$brand->name}}">
                                         </a>
+                                        @endif
+                                        @endforeach
                                     </div>
+                                    <!--  -->
                                     <div class="brand-s">
                                         <ul class="brand-logo">
-
+                                            @foreach($brands as $brand)
+                                            @if($brand->ordinal == null && $brand->type == "Rượu vang")
                                             <li>
-                                                <a href="https://ruouthuonghieu.com/?s=CHATEAUNEUF&amp;post_type=product" title="Chateauneuf du Pape">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xchateauneuf-du-pape.jpg.pagespeed.ic.sBW5vhExfP.webp" alt="">
+                                                <a href="javascript:void(0)" title="Ballantines">
+                                                    <img src="{{asset('/images/brands/'.$brand->icon)}}" alt="">
                                                 </a>
-
                                             </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=kaiken&amp;post_type=product" title="Kaiken">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xkaiken.jpg.pagespeed.ic.7JacA1-Imi.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=montes&amp;post_type=product" title="Montes Wine">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xlogo_montes_blanco.jpg.pagespeed.ic.YJetjqrzah.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=1865&amp;post_type=product" title="">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xlogo-1865.jpg.pagespeed.ic.0xDS2rQeEy.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=piccini&amp;post_type=product" title="Piccini">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xlogo-piccini-500px.jpg.pagespeed.ic.7azqiBlA5H.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=margaux&amp;post_type=product" title="Margaux">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xMargaux.jpg.pagespeed.ic.HoMAHJSewW.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=moet&amp;post_type=product" title="Moet &amp; Chandon">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xmoet.jpg.pagespeed.ic.g3RAFz4re4.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=opus&amp;post_type=product" title="Opus One">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xopus-one.jpg.pagespeed.ic.3jfVnVhEGq.webp" alt="">
-                                                </a>
-
-                                            </li>
-
-                                            <li>
-                                                <a href="https://ruouthuonghieu.com/?s=penfolds&amp;post_type=product" title="Penfolds">
-
-                                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2019/04/xPenfolds-logo.jpg.pagespeed.ic.1kNHRzfNuc.webp" alt="">
-                                                </a>
-
-                                            </li>
+                                            @endif
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

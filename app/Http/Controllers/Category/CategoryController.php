@@ -13,8 +13,8 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Category::paginate(5);
-        return view('admin.pages.category.index', compact('categories'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $categories = Category::latest()->paginate(5);
+        return view('admin.pages.category.index', compact('categories'));
     }
 
     
@@ -47,6 +47,9 @@ class CategoryController extends Controller
     public function update(Request $request, $slug) {
         if ($request->getMethod() == 'GET') {
             $category = Category::where('slug', $slug)->first();
+            if (!$category) {
+                abort(404);
+            }
             $list_cat = $this->getCategory();
             return view('admin.pages.category.edit', compact('category', 'list_cat'));
         }

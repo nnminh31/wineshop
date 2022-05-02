@@ -54,6 +54,7 @@ List category
                     </tr>
                 </tfoot>
             </table>
+            {{$categories->links('vendor.pagination.custom')}}
         </div>
     </div>
 </div>

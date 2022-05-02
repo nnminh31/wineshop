@@ -14,8 +14,8 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $products = Product::latest()->paginate(10);
-        return view('admin.pages.product.index', compact('products'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $products = Product::latest()->orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.pages.product.index', compact('products'));
     }
 
     public function show($slug="")
@@ -34,10 +34,10 @@ class ProductController extends Controller
             $brands = Brand::all();
             return view('admin.pages.product.add', compact('list_cat', 'brands'));
         }
-        dd($request->all());
+
         $dataProductCreate = [
             'name' => $request->product_name,
-            'price' => $request->product_prỉce,
+            'price' => str_replace( ',', '', $request->product_prỉce),
             'capacity' => $request->product_capacity,
             'concentration' =>  $request->product_concentration,
             'country' =>  $request->product_country,
@@ -60,11 +60,12 @@ class ProductController extends Controller
 
             $product = Product::create($dataProductCreate);
 
-            return redirect()->route('admin.products.index')->with('message', 'Create a product successfully');
         } else {
             $dataProductCreate['image'] = 'default.svg';
             $product = Product::create($dataProductCreate);
         }
+
+        return redirect()->route('admin.products.index')->with('message', 'Create a product successfully');
     }
 
     public function update(Request $request, $slug)
@@ -85,7 +86,7 @@ class ProductController extends Controller
         }
         $dataProductUpdate = [
             'name' => $request->product_name,
-            'price' => $request->product_prỉce,
+            'price' => str_replace( ',', '', $request->product_prỉce),
             'capacity' => $request->product_capacity,
             'concentration' =>  $request->product_concentration,
             'country' =>  $request->product_country,

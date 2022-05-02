@@ -451,7 +451,8 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "paging": false
+                "paging": false,
+                "order": [[ 1, "desc" ]] 
             });
         });
     </script>

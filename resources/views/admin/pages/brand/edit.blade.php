@@ -6,7 +6,8 @@
 {{$brand->name}}
 @endsection
 @section('content')
-<form action="{{route('admin.brands.edit', $brand->id)}}" method="Post">
+<script src="//code.jquery.com/jquery.js"></script>
+<form action="{{route('admin.brands.edit', $brand->id)}}" method="Post" enctype="multipart/form-data">
     @csrf
     <section class="pb-4">
         <div class="bg-white border rounded-5">
@@ -15,11 +16,19 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card mb-4">
-                            <div class="card-body text-center">
-                                <img src="https://cdn.shortpixel.ai/client/q_lossless,ret_img/https://evamom.com/wp-content/uploads/2019/02/siderbar-eva-mom-02-img.jpg" alt="avatar" class="rounded-circle img-fluid" style="width: 250px;">
+                        <div class="card-body text-center">
+                                <img src="{{asset('images/brands/'.$brand->icon)}}" onerror="this.src='https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg'" alt="avatar" class="rounded-circle img-fluid" id="img-avatar" style="width: 250px; height: 250px">
                                 <h5 class="my-3" id="fix_name">Free Shipping</h5>
+                                <input type="file" id="uploadProductImage" style="display:none;" accept="image/x-png,image/gif,image/jpeg" name="icon" onchange="document.getElementById('img-avatar').src = window.URL.createObjectURL(this.files[0])">
                                 <!-- <p class="text-muted mb-1" id="fix_email">example@example.com</p>
                                 <p class="text-muted mb-2" id="fix_phone">0386334588</p> -->
+                                <input type="button" value="Sửa ảnh" id="upload_product_image">
+                                <script>
+                                    $('#upload_product_image').click(function(e) {
+                                        e.preventDefault();
+                                        $("#uploadProductImage").trigger('click');
+                                    })
+                                </script>
                             </div>
                         </div>
                         <div class="card mb-4 mb-lg-0">
@@ -112,16 +121,6 @@
                                     </div>
                                 </div> -->
                                 <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">ordinal</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                            <input type="text" value="1">
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="row">

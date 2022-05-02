@@ -34,23 +34,32 @@ List product
                             <img src="{{asset('images/products/'.$product->image)}}" alt="{{$product->name}}" width="100px" height="auto" style=" margin-left: auto; margin-right: auto; display: block;">
                         </a></td>
                         <td <?php
-                            if ($product->description) {
+                            if ($product->description == null) {
                                 echo 'class="text-center"';
                             }
-                            ?> class="text-center"><a href="{{route('admin.products.edit', $product->slug)}}">
+                            ?>><a href="{{route('admin.products.edit', $product->slug)}}">
                                 <?php
-                                if ($product->description) {
+                                if ($product->description != null) {
                                     echo $product->description;
                                 } else {
                                     echo "----";
                                 }
                                 ?>
                             </a></td>
-                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->price}}</a></td>
-                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->category->name}}</a></td>
-                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->brand->name}}</a></td>
-                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->user->name}}</a></td>
-                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->created_at->format('Y-m-d')}}</a></td>
+                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{number_format($product->price, 0, ',', '.')}}</a></td>
+                        <td <?php
+                            if (!isset($product->category->name)) {
+                                echo 'class="text-center"';
+                            } ?>><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->category->name ?? '----'}}</a></td>
+                        <td <?php
+                            if (!isset($product->brand->name)) {
+                                echo 'class="text-center"';
+                            } ?>><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->brand->name ?? '----'}}</a></td>
+                        <td <?php
+                            if (!isset($product->user->name)) {
+                                echo 'class="text-center"';
+                            } ?>><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->user->name ?? '----'}}</a></td>
+                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->created_at}}</a></td>
                     </tr>
                     @endforeach
 
@@ -68,6 +77,7 @@ List product
                     </tr>
                 </tfoot>
             </table>
+            {{$products->links('vendor.pagination.custom')}}
         </div>
     </div>
 </div>

@@ -116,22 +116,28 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
-                                    <a href="https://ruouthuonghieu.com/">Quà Tặng Tết</a>
+                                @foreach($categories as $category)
+
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-{{$category->id}}">
+                                    <a href="https://ruouthuonghieu.com/">{{$category->name}}</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5642"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/hop-qua-tet/">Hộp &amp; Khay Quà Tết</a>
+                                        @if(count($category->childCategories))
+                                        @foreach($category->childCategories as $childCategory)
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-{{$childCategory->id}}"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/hop-qua-tet/">{{$childCategory->name}}</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5643"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/gio-qua-tet/">Giỏ Quà Tết</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5641"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/hop-ruou-tet/">Hộp Rượu Tết</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6148"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/qua-tet-gia-re/">Quà Tết Giá Rẻ</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5838"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/gio-qua-tet-doanh-nghiep/">Giỏ Quà Tết Doanh Nghiệp</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5847"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/ruou-tet/">Rượu Tết</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6061"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/banh-keo-nhap-khau/">Bánh kẹo nhập khẩu</a></li>
+                                                @if(count($childCategory->categories))
+                                                @foreach($childCategory->categories as $child)
+                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-{{$child->id}}"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/gio-qua-tet/" style="text-transform: capitalize;">{{$child->name}}</a></li>
+                                                @endforeach
+                                                @endif
                                             </ul>
                                         </li>
+                                        @endforeach
+                                        @endif
                                     </ul>
                                 </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
+                                @endforeach
+                                <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
                                     <a href="https://ruouthuonghieu.com/" aria-current="page">Rượu
                                         vang</a>
                                     <ul class="sub-menu">
@@ -340,7 +346,7 @@
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
                                     <a href="https://ruouthuonghieu.com/" aria-current="page">Liên
                                         hệ</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
