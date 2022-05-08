@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Role;
-
-
 use App\Models\User;
 
 class UserController extends Controller
@@ -30,7 +28,7 @@ class UserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => bcrypt($request->password),
-            'slug' => Str::slug($request->name),
+            'slug' => Str::slug($request->email),
             'role_id' => $request->role
         ]);
         return redirect()->route('admin.users.index')->with('message', 'Create a user successfully');

@@ -20,6 +20,7 @@ class ProductController extends Controller
 
     public function show($slug="")
     {
+        // session()->flush();
         $product = Product::where('slug', $slug)->first();
         if ($product) {
             $categories = Category::whereNull('parent_id')->with('childCategories')->get();

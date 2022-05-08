@@ -7,6 +7,7 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Brand\BrandController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Cart\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,23 @@ use App\Http\Controllers\User\UserController;
 // Website
 Route::group(['prefix'=>'/'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    // Login
     Route::match(['get', 'post'], '/dang-nhap', [AuthController::class, 'customer_login'])->name('login');
+    // Logout
     Route::get('/dang-xuat', [AuthController::class, 'customer_logout'])->name('logout');
+    // Register
     Route::match(['get', 'post'], '/dang-ky', [AuthController::class, 'customer_register'])->name('register');
+    // Chi tiết sản phẩm  
     Route::get('san-pham/{slug}', [ProductController::class,'show'])->name('product');
+    // Category
     Route::get('shop-ruou-uy-tin/danh-muc/{slug}', [CategoryController::class,'show'])->name('category');
+    // Thương hiệu
     Route::get('shop-ruou-uy-tin/thuong-hieu/{slug}', [BrandController::class,'show'])->name('brand');
+    // Tìm kiếm sản phẩm
     Route::get('tim-kiem', [HomeController::class, 'search'])->name('search');
+    // Giỏ hàng
+    Route::get('gio-hang', [CartController::class, 'index'])->name('cart');
+    Route::post('/add-product-to-cart', [CartController::class, 'create'])->name('cart.create');
 });
 
 // Admin

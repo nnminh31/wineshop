@@ -12,7 +12,7 @@ List user
         <a href="{{route('admin.users.add')}}" style="float: right">Add</a>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
+        <div class="table-responsive" id="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -43,6 +43,7 @@ List user
                 </tfoot>
             </table>
         </div>
+        {{$users->links('vendor.pagination.custom')}}
     </div>
 </div>
 @endsection

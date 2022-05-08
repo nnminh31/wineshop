@@ -12,7 +12,7 @@ List brand
         <a href="{{route('admin.brands.add')}}" style="float: right">Add</a>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
+        <div class="table-responsive" id="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -57,8 +57,8 @@ List brand
                     </tr>
                 </tfoot>
             </table>
-            {{$brands->links('vendor.pagination.custom')}}
         </div>
+        {{$brands->links('vendor.pagination.custom')}}
     </div>
 </div>
 

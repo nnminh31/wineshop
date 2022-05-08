@@ -75,9 +75,8 @@
                     </div>
                 </div>
                 <div class="col-md-4 offset-md-1 flex-center">
-                    <div class="header-search search">
-
-                        <form role="search" method="get" class="woocommerce-product-search" action="{{route('search')}}">
+                    <div class="header-search search">                        
+                        <form role="search" method="get" class="woocommerce-product-search" action="{{route('search')}}" autocomplete="off">
                             <label class="screen-reader-text" for="woocommerce-product-search-field-0">Tìm
                                 kiếm:</label>
                             <input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Tên hoặc mã sản phẩm" value="{{isset($_GET['s']) ? $_GET['s'] : ''}}" name="s">

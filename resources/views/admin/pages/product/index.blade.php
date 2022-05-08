@@ -6,24 +6,25 @@ Manage product
 List product
 @endsection
 @section('content')
+
 <div class="card shadow mb-4">
     <div class="card-header py-3" style="float: left">
         <h6 class="m-0 font-weight-bold text-primary" style="float: left">Category</h6>
         <a href="{{route('admin.products.add')}}" style="float: right">Add</a>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <div class="table-responsive" id="table-responsive" style="overflow-x:auto;">
+            <table id="" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Brand</th>
-                        <th>Creator</th>
-                        <th>Created_at</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Creator</th>
+                        <th scope="col">Created_at</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,8 +32,8 @@ List product
                     <tr>
                         <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->name}}</a></td>
                         <td><a href="{{route('admin.products.edit', $product->slug)}}" class="text-center">
-                            <img src="{{asset('images/products/'.$product->image)}}" alt="{{$product->name}}" width="100px" height="auto" style=" margin-left: auto; margin-right: auto; display: block;">
-                        </a></td>
+                                <img src="{{asset('images/products/'.$product->image)}}" alt="{{$product->name}}" width="100px" height="auto" style=" margin-left: auto; margin-right: auto; display: block;">
+                            </a></td>
                         <td <?php
                             if ($product->description == null) {
                                 echo 'class="text-center"';
@@ -66,7 +67,7 @@ List product
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Name</th>
+                        <th>Name</th>
                         <th>Image</th>
                         <th>Description</th>
                         <th>Price</th>
@@ -77,9 +78,8 @@ List product
                     </tr>
                 </tfoot>
             </table>
-            {{$products->links('vendor.pagination.custom')}}
         </div>
+        {{$products->links('vendor.pagination.custom')}}
     </div>
 </div>
-
 @endsection

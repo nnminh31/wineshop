@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Category;
 
@@ -93,6 +94,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'phone' => "",
             'role_id' => 2,
+            'slug' => Str::slug($request->email),
             'password' => bcrypt($request->password)
         ]);
         return response()->json(['success' => true]);

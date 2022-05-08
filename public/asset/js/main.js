@@ -109,15 +109,21 @@ jQuery(document).ready(function ($) {
         var scrollTrigger = 800, backToTop = function () {
             var scrollTop = $(window).scrollTop();
             if (scrollTop > scrollTrigger) {
-                $('#back-to-top').addClass('show');
+                $('#back-to-top').addClass('show').css({
+                    'opacity': 1,
+                    'visibility': 'visible'
+                });
             } else {
-                $('#back-to-top').removeClass('show');
+                $('#back-to-top').removeClass('show').css({
+                    'opacity': 0,
+                    'visibility': 'hidden'
+                });
             }
         };
         backToTop();
         $(window).on('scroll', function () {
             backToTop();
         });
-        $('#back-to-top').on('click', function (e) { e.preventDefault(); $('html,body').animate({ scrollTop: 0 }, 3000); });
+        $('#back-to-top').on('click', function (e) { e.preventDefault(); $('html,body').animate({ scrollTop: 0 }, 2000); });
     }
 })

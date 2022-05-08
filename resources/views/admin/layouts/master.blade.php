@@ -26,17 +26,47 @@
         .dataTables_info {
             display: none;
         }
+
         @media only screen and (max-width: 576px) {
-            .next_previous{
+            .next_previous {
                 width: 50% !important;
             }
         }
-        .icon-next a:hover, .icon-prev a:hover, .icon-next a, .icon-prev a{
+
+        .icon-next a:hover,
+        .icon-prev a:hover,
+        .icon-next a,
+        .icon-prev a {
             float: left;
             padding: 0.375rem 0;
         }
+
         .icon-next a.disabled {
             color: #aaa;
+        }
+    </style>
+    <style>
+        .table-responsive::-webkit-scrollbar {
+            -webkit-appearance: none;
+        }
+
+        .table-responsive::-webkit-scrollbar:vertical {
+            width: 12px;
+        }
+
+        .table-responsive::-webkit-scrollbar:horizontal {
+            height: 12px;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 10px;
+            border: 2px solid #ffffff;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #ffffff;
         }
     </style>
 </head>
@@ -356,30 +386,30 @@
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 next_previous">
                             <div class="" style="float: right">
                                 <span class="icon-prev" aria-hidden="true" style="float: left; margin-right: 10px">
-                                    <a class="btn <?php if($prev->count() != 0){
+                                    <a class="btn <?php if ($prev->count() != 0) {
                                                         echo '';
-                                                    }else echo 'disabled';  
-                                                    ?>" href="<?php if($prev->count() != 0){
-                                                        echo $prev[0]->slug;
-                                                    }else echo 'javascript:void(0)';  
-                                                    ?>" style="<?php if($prev->count() != 0){
-                                                        echo "";
-                                                    }else echo "cursor: default;";  
-                                                    ?>">
+                                                    } else echo 'disabled';
+                                                    ?>" href="<?php if ($prev->count() != 0) {
+                                                                    echo $prev[0]->slug;
+                                                                } else echo 'javascript:void(0)';
+                                                                ?>" style="<?php if ($prev->count() != 0) {
+                                                                    echo "";
+                                                                } else echo "cursor: default;";
+                                                                ?>">
                                         <i class="fas fa-arrow-left" style="font-size: 18px;"></i>
                                     </a>
                                 </span>
                                 <span class="icon-next" aria-hidden="true" style="float: left">
-                                    <a class="btn <?php if($next->count() != 0){
+                                    <a class="btn <?php if ($next->count() != 0) {
                                                         echo '';
-                                                    }else echo 'disabled';  
-                                                    ?>" href="<?php if($next->count() != 0){
-                                                        echo $next[0]->slug;
-                                                    }else echo 'javascript:void(0)';  
-                                                    ?>" style="<?php if($next->count() != 0){
-                                                        echo "";
-                                                    }else echo "cursor: default;";  
-                                                    ?>">
+                                                    } else echo 'disabled';
+                                                    ?>" href="<?php if ($next->count() != 0) {
+                                                                    echo $next[0]->slug;
+                                                                } else echo 'javascript:void(0)';
+                                                                ?>" style="<?php if ($next->count() != 0) {
+                                                                    echo "";
+                                                                } else echo "cursor: default;";
+                                                                ?>">
                                         <i class="fas fa-arrow-right" style="font-size: 18px;"></i>
                                     </a>
                                 </span>
@@ -452,9 +482,21 @@
         $(document).ready(function() {
             $('#example').DataTable({
                 "paging": false,
-                "order": [[ 1, "desc" ]] 
+                "order": [
+                    [1, "desc"]
+                ]
             });
         });
+    </script>
+    <script>
+        var div = document.getElementById('table-responsive');
+
+        var hasHorizontalScrollbar = div.scrollWidth > div.clientWidth;
+        var hasVerticalScrollbar = div.scrollHeight > div.clientHeight;
+
+        if (hasHorizontalScrollbar) {
+            div.style.marginBottom = "15px"
+        }
     </script>
 
 </body>

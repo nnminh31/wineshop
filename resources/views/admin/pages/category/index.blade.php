@@ -12,7 +12,7 @@ List category
         <a href="{{route('admin.categories.add')}}" style="float: right">Add</a>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
+        <div class="table-responsive" id="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -54,8 +54,8 @@ List category
                     </tr>
                 </tfoot>
             </table>
-            {{$categories->links('vendor.pagination.custom')}}
         </div>
+        {{$categories->links('vendor.pagination.custom')}}
     </div>
 </div>
 

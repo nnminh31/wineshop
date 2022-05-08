@@ -73,6 +73,12 @@
                             <span class="price_sale_{{$product->id}}">{{number_format($product->price, 0, ',', '.')}}</span>
                             <span class="">₫</span>
                         </p>
+                        <div class="description" style="overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">
+                            {{strip_tags(trim(html_entity_decode($product->description)))}}
+                        </div>
+                        <div class="see-more" style="margin-top: 10px">
+                            <a class="see-detail" href="#block-tab-infor" style="color: #f34111">[Xem thêm]</a>
+                        </div>
                         <ul>
                             @if($product->country)
                             <li>
@@ -109,7 +115,8 @@
                                 </div>
                                 <div class="form-product col-md-12">
 
-                                    <form action="" method="POST" role="form">
+                                    <form data-url="{{route('cart.create')}}" role="form" id="add_product_to_cart">
+                                        @csrf
                                         <div class="form-group form_button_details">
                                             <div class="custom input_number_product custom-btn-number form-control">
                                                 <button class="btn_num num_1 button button_qty btn-minus cart_update" data-id="{{$product->id}}" type="button">-</button>
@@ -119,7 +126,7 @@
                                             <div class="button_actions">
                                                 <input class="hidden" type="hidden" name="variantId" value="{{$product->id}}">
 
-                                                <button type="submit" class="btn btn-lg  btn-cart button_cart_buy_enable add_cart btn_buy" data-url="http://cute0pets.tk/add-product-to-cart/24" title="Mua hàng">
+                                                <button type="submit" class="btn btn-lg  btn-cart button_cart_buy_enable add_cart btn_buy" data-id="{{$product->id}}" title="Mua hàng">
                                                     <span class="btn-content">Mua hàng</span>
                                                 </button>
                                             </div>
@@ -148,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" id="block-tab-infor">
                     <div class="product-info">
                         <h4>THÔNG TIN SẢN PHẨM</h4>
                         <div class="cache">
@@ -164,7 +171,6 @@
                 <div class="col-md-12">
                     <div class="product-related">
                         <h3>SẢN PHẨM LIÊN QUAN</h3>
-                        <input type="text" value="1" pattern="[0-9]*">
                         <div class="list flex">
                             @foreach($related_products as $related_product)
                             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
@@ -193,76 +199,12 @@
     <!-- End Wrapper -->
 </main>
 <script>
-    var product_qty = document.querySelector("input[name='product_qty']");
-    if (product_qty.value <= 1) {
-        $(".btn_num.num_1").prop('disabled', true)
-    } else {
-        $(".btn_num.num_1").prop('disabled', false)
-    }
-    product_qty.onblur = function() {
-        if (product_qty.value <= 0 || product_qty.value == "") {
-            $(".btn_num.num_1").prop('disabled', true)
-            product_qty.value = 1
-        } else {
-            $(".btn_num.num_1").prop('disabled', false)
-            product_qty.value = product_qty.value
-        }
-    };
-    product_qty.oninput = function() {
-        if (product_qty.value < 0) {
-            product_qty.value = Math.abs(product_qty.value);
-        }
-        if (product_qty.value > 1) {
-            $(".btn_num.num_1").prop('disabled', false)
-        }
-    }
-    
-    // product_qty.oninput = function() {
-    //     if (product_qty.value <= 1) {
-    //         $(".btn_num.num_1").prop('disabled', true)
-    //     } else {
-    //         $(".btn_num.num_1").prop('disabled', false)
-    //     }
-    // };
-    $(document).ready(function() {
-        // $(document).on('click', '.add_cart', addToCart)
-        $(document).on('click', '.btn-plus', plus)
-        $(document).on('click', '.btn-minus', minus)
-        // $(document).on('click', '.cart_update', cartUpdate)
-        // $(document).on('click', '.remove-cart-item', removeCart)
-    })
-
-    function minus() {
-
-        let id = $(this).data('id')
-        var qty = $(".input-quantity-" + id)
-        var price = $(".price_sale_" + id)
-        for (let i = 0; i <= 100; i++) {
-            if (i === 100) {
-                break;
-            }
-        }
-        var number = (parseInt(qty.val()) - 1);
-        if (number <= 1){
-            qty.val(1);
-            $(".btn_num.num_1").prop('disabled', true)
-        } else {
-            qty.val(number);
-        }
-    }
-
-    function plus() {
-        let id = $(this).data('id')
-        var qty = $(".input-quantity-" + id)
-        for (let i = 0; i <= 100; i++) {
-            if (i === 100) {
-                break;
-            }
-        }
-        var number = (parseInt(qty.val()) + 1);
-        $(".btn_num.num_1").prop('disabled', false)
-        qty.val(number);
-    }
+    $('.see-detail').click(function(e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: $("#block-tab-infor").offset().top,
+        }, 700);
+        return false;
+    });
 </script>
-
 @endsection
