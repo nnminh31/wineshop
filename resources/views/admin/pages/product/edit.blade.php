@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_prỉce" name="product_prỉce" type="text" value="{{number_format($product->price, 0, ',', '.')}}" placeholder="">
+                                            <input id="product_prỉce" name="product_prỉce" type="text" value="{{number_format($product->price, 0, ',', ',')}}" placeholder="">
                                         </p>
                                     </div>
                                 </div>

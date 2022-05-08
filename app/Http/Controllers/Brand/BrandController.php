@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Product;
 
 class BrandController extends Controller
 {
@@ -16,6 +18,18 @@ class BrandController extends Controller
         return view('admin.pages.brand.index', compact('brands'));
     }
     
+    public function show($slug="")
+    {
+        $brand = Brand::where('slug', $slug)->first();
+        if ($brand) {
+            $categories = Category::whereNull('parent_id')->with('childCategories')->get();
+            $products = Product::latest()->where('brand_id', $brand->id)->paginate(5);
+            $brands = Brand::latest()->get();
+            return view('website.pages.brand.index', compact('brand', 'categories', 'brands', 'products')); 
+        }
+        return abort(404);
+    }
+
     public function create(Request $request)
     {
         if ($request->getMethod() == 'GET') {

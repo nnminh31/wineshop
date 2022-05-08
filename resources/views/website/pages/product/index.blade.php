@@ -1,8 +1,21 @@
 @extends('website.layouts.master')
 @section('title')
-Sản phẩm
+{{$product->name}}
 @endsection
 @section('content')
+<script src="//code.jquery.com/jquery.js"></script>
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
 <main class="cd-main-content">
     <!-- Banner -->
     <div class="banner">
@@ -12,12 +25,12 @@ Sản phẩm
                     <div class="owl-stage">
                         <div class="owl-item">
                             <a href="javascript:void(0)">
-                                <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/07/xFJ_1.jpg.pagespeed.ic.Codx1Wq-dS.webp" class="img-fluid w-100" alt="" srcset="">
+                                <img src="{{asset('/images/banners/banner1.jpg')}}" class="img-fluid w-100" alt="" srcset="">
                             </a>
                         </div>
                         <div class="owl-item">
                             <a href="javascript:void(0)">
-                                <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/07/xFJ_1.jpg.pagespeed.ic.Codx1Wq-dS.webp" class="img-fluid w-100" alt="" srcset="">
+                                <img src="{{asset('/images/banners/banner1.jpg')}}" class="img-fluid w-100" alt="" srcset="">
                             </a>
                         </div>
                     </div>
@@ -43,9 +56,9 @@ Sản phẩm
                     <div class="product-gallery">
                         <div class="content-carousel">
                             <div>
-                                <a href="https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08.png" data-fancybox=" images" title="">
+                                <a href="javascript:void(0)" title="{{$product->name}}">
 
-                                    <img width="600" height="600" src="https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08.png 600w, https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08-200x200.png 200w, https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08-300x300.png 300w, https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08-100x100.png 100w" sizes="(max-width: 600px) 100vw, 600px">
+                                    <img width="576" height="576" src="{{asset('/images/products/'.$product->image)}}" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="{{asset('/images/products/'.$product->image)}} 600w, {{asset('/images/products/'.$product->image)}} 200w, {{asset('/images/products/'.$product->image)}} 300w, {{asset('/images/products/'.$product->image)}} 100w" sizes="(max-width: 600px) 100vw, 600px">
                                 </a>
                             </div>
                         </div>
@@ -55,21 +68,30 @@ Sản phẩm
                 <!-- Product Info -->
                 <div class="col-md-6">
                     <div class="product-detail">
-                        <h1 class="title-page">RƯỢU GIN BEEFEATER</h1>
-                        <p class="price"><span class="">350,000&nbsp;<span class="">₫</span></span></p>
+                        <h1 class="title-page">{{$product->name}}</h1>
+                        <p class="price">
+                            <span class="price_sale_{{$product->id}}">{{number_format($product->price, 0, ',', '.')}}</span>
+                            <span class="">₫</span>
+                        </p>
                         <ul>
+                            @if($product->country)
                             <li>
                                 Quốc Gia:
-                                <a href="https://ruouthuonghieu.com/quoc-gia/anh/" rel="tag">Anh</a>
+                                <a href="javascript:void(0)" rel="tag">{{$product->country}}</a>
                             </li>
+                            @endif
+                            @if($product->concentration)
                             <li>
                                 Nồng Độ:
-                                <a href="https://ruouthuonghieu.com/nong-do/40/" rel="tag">40%</a>
+                                <a href="javascript:void(0)" rel="tag">{{$product->concentration}}%</a>
                             </li>
+                            @endif
+                            @if($product->capacity)
                             <li>
                                 Dung Tích:
-                                <a href="https://ruouthuonghieu.com/dung-tich/750ml/" rel="tag">750ml</a>
+                                <a href="javascript:void(0)" rel="tag">{{$product->capacity}}ml</a>
                             </li>
+                            @endif
                         </ul>
 
 
@@ -85,14 +107,39 @@ Sản phẩm
                                         <li>Shop rượu và thực phẩm Jungle Market: 369 Hai Bà Trưng, Phường 8, Quận 3, Thành phố Hồ Chí Minh <b>Hotline: 082 3579 369 / 082 3979 369</b></li>
                                     </ul>
                                 </div>
+                                <div class="form-product col-md-12">
+
+                                    <form action="" method="POST" role="form">
+                                        <div class="form-group form_button_details">
+                                            <div class="custom input_number_product custom-btn-number form-control">
+                                                <button class="btn_num num_1 button button_qty btn-minus cart_update" data-id="{{$product->id}}" type="button">-</button>
+                                                <input type="number" id="qtym" name="product_qty" value="1" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control prd_quantity cart_product_qty_{{$product->id}} quantity input-quantity-{{$product->id}}" data-id="{{$product->id}}">
+                                                <button class="btn_num num_2 button button_qty btn-plus cart_update" data-id="{{$product->id}}" type="button">+</button>
+                                            </div>
+                                            <div class="button_actions">
+                                                <input class="hidden" type="hidden" name="variantId" value="{{$product->id}}">
+
+                                                <button type="submit" class="btn btn-lg  btn-cart button_cart_buy_enable add_cart btn_buy" data-url="http://cute0pets.tk/add-product-to-cart/24" title="Mua hàng">
+                                                    <span class="btn-content">Mua hàng</span>
+                                                </button>
+                                            </div>
+                                            <div class="chatshop">
+                                                <a href="https://www.messenger.com/t/136319063654266/?messaging_source=source%3Apages%3Amessage_shortlink">Chat
+                                                    với shop</a>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
                                 <div class="col-md-12">
                                     <div class="flex-center mgt-10">
                                         <span class="clor">CHIA SẺ:</span>
                                         <p class="soci">
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fruouthuonghieu.com%2Fsan-pham%2Fruou-gin-beefeater" target="_blank" title="" class="fa fa-facebook"></a>
-                                            <a href="https://plus.google.com/share?url=https%3A%2F%2Fruouthuonghieu.com%2Fsan-pham%2Fruou-gin-beefeater" target="_blank" title="" class="fa fa-google-plus"></a>
-                                            <a href="https://twitter.com/home?status=https%3A%2F%2Fruouthuonghieu.com%2Fsan-pham%2Fruou-gin-beefeater" target="_blank" title="" class="fa fa-twitter"></a>
-                                            <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fruouthuonghieu.com%2Fsan-pham%2Fruou-gin-beefeater&amp;media=https://ruouthuonghieu.com/wp-content/uploads/2020/05/RPC_08.png&amp;description=" title="" class="fa fa-pinterest" target="_blank"></a>
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{route('product', $product->slug)}}" target="_blank" title="" class="fa fa-facebook"></a>
+                                            <a href="https://plus.google.com/share?url={{route('product', $product->slug)}}" target="_blank" title="" class="fa fa-google-plus"></a>
+                                            <a href="https://twitter.com/home?status={{route('product', $product->slug)}}" target="_blank" title="" class="fa fa-twitter"></a>
+                                            <a href="https://pinterest.com/pin/create/button/?url={{route('product', $product->slug)}}&amp;media={{asset('/images/products/'.$product->image)}}&amp;description=" title="" class="fa fa-pinterest" target="_blank"></a>
                                         </p>
                                     </div>
 
@@ -105,100 +152,117 @@ Sản phẩm
                     <div class="product-info">
                         <h4>THÔNG TIN SẢN PHẨM</h4>
                         <div class="cache">
-                            <p style="text-align: justify;"><span style="font-size: 14px; font-family: helvetica, arial, sans-serif;">Rượu Gin Beefeater là một loại rượu Gin hàng đầu thế giới được phát triển bởi James Burrough vào năm 1820, nhà máy đầu tiên tại thành phố Chelsea, thủ đô London của Anh Quốc là khai sinh và cũng đóng vai trò rất lớn đối với rượu Gin nói chung và dòng London Dry Gin nói riêng. Và rượu Gin Beefeater là một thương hiệu đã đồng hành từ buổi bình minh lịch sử phát triển của rượu Gin cho đến hôm nay.</span></p>
-                            <div style="text-align: justify;">
-                                <div dir="auto"><span style="font-size: 14px; font-family: helvetica, arial, sans-serif;">Nếu nhắc đến rượu Gin thì Rượu Beefeater mang tính biểu tượng rượu mạnh của Anh Quốc .Có đến 9 loại thảo mộc khác nhau dùng để sản xuất rượu bao gồm trái cây, gia vị vỏ cam, những nguyên liệu này được ngâm 24h trước khi chưng cất và tiếp đến là quá trình chưng cất mất 8h để hoàn thành . Rượu London Dry Gin Beefeater mang mùi hương rất độc đáo – mùi hương đặc trưng của bất kỳ chai London Dry Gin nào, đó là mùi quả Bách Xù. Nó còn có mùi của Cam Quýt, Cam Thảo, Hạnh Nhân, rễ cây Bạnh Chỉ, hạt Rau Mùi, hạt cây Bạnh Chỉ và rễ cây Orris…sẽ tổng hòa thành nhiều tầng hương khác nhau đầy mê hoặc.</span></div>
-                            </div>
-                            <p style="text-align: justify;"><span style="font-size: 14px; font-family: helvetica, arial, sans-serif;">Mùi: hương thơm nồng nàn của trái cây, cam thảo, rau mùi, thoáng hương cây bách xù và nước khoáng.</span></p>
-                            <p style="text-align: justify;"><span style="font-size: 14px; font-family: helvetica, arial, sans-serif;">Vị: hương vị ngọt ngào đặc trưng của cam Seville, cam thảo, hạnh nhân, vỏ chanh, cây bách xù dại và rau mùi. Dư vị nhẹ nhàng, dài lâu.</span></p>
-                            <p style="text-align: justify;"><span style="font-size: 14px; font-family: helvetica, arial, sans-serif;">Rượu được đóng chai và phân phối chủ yếu tại Anh bởi công ty James Burrough. Beefeater đã đạt Huy chương vàng tại cuộc thi International Wine and Spirits Competition năm 2000.</span></p>
+                            {!!$product->description!!}
                         </div>
                     </div>
                 </div>
                 <!-- End Product Info -->
-                <div class="product-related">
-                    <h3>SẢN PHẨM LIÊN QUAN</h3>
-                    <div class="list flex">
-                        <div class="w-20">
-                            <div class="product-item">
-                                <a href="" title="" class="product-img">
-                                    <img width="300" height="300" src="https://ruouthuonghieu.com/wp-content/uploads/2018/03/FILE-CHINH-ANH-MAU-RUOUTHUONGHIEU-23-300x300.jpg" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
-                                </a>
-                                <div class="product-wrap">
-                                    <h3><a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT</a></h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-related">
+                        <h3>SẢN PHẨM LIÊN QUAN</h3>
+                        <input type="text" value="1" pattern="[0-9]*">
+                        <div class="list flex">
+                            @foreach($related_products as $related_product)
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="product-item">
+                                    <a href="" title="" class="product-img">
+                                        <img width="300" height="300" src="{{asset('/images/products/'.$related_product->image)}}" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
+                                    </a>
+                                    <div class="product-wrap">
+                                        <h3><a href="{{route('product', $related_product->slug)}}" title="{{$related_product->name}}">{{$related_product->name}}</a></h3>
 
 
-                                    <p class="price price-list"><span class="woocommerce-Price-amount amount">320,000&nbsp;<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
+                                        <p class="price price-list"><span class="woocommerce-Price-amount amount">{{number_format($related_product->price, 0, ',', '.')}}&nbsp;<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
 
-                                    <p class="link-detail"> <a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">Chi tiết</a></p>
+                                        <p class="link-detail"> <a href="{{route('product', $related_product->slug)}}" title="{{$related_product->name}}">Chi tiết</a></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="w-20">
-                            <div class="product-item">
-                                <a href="" title="" class="product-img">
-                                    <img width="300" height="300" src="https://ruouthuonghieu.com/wp-content/uploads/2018/03/FILE-CHINH-ANH-MAU-RUOUTHUONGHIEU-23-300x300.jpg" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
-                                </a>
-                                <div class="product-wrap">
-                                    <h3><a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT</a></h3>
-
-
-                                    <p class="price price-list"><span class="woocommerce-Price-amount amount">320,000&nbsp;<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
-
-                                    <p class="link-detail"> <a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">Chi tiết</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-20">
-                            <div class="product-item">
-                                <a href="" title="" class="product-img">
-                                    <img width="300" height="300" src="https://ruouthuonghieu.com/wp-content/uploads/2018/03/FILE-CHINH-ANH-MAU-RUOUTHUONGHIEU-23-300x300.jpg" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
-                                </a>
-                                <div class="product-wrap">
-                                    <h3><a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT</a></h3>
-
-
-                                    <p class="price price-list"><span class="woocommerce-Price-amount amount">320,000&nbsp;<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
-
-                                    <p class="link-detail"> <a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">Chi tiết</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-20">
-                            <div class="product-item">
-                                <a href="" title="" class="product-img">
-                                    <img width="300" height="300" src="https://ruouthuonghieu.com/wp-content/uploads/2018/03/FILE-CHINH-ANH-MAU-RUOUTHUONGHIEU-23-300x300.jpg" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
-                                </a>
-                                <div class="product-wrap">
-                                    <h3><a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT</a></h3>
-
-
-                                    <p class="price price-list"><span class="woocommerce-Price-amount amount">320,000&nbsp;<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
-
-                                    <p class="link-detail"> <a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">Chi tiết</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-20">
-                            <div class="product-item">
-                                <a href="" title="" class="product-img">
-                                    <img width="300" height="300" src="https://ruouthuonghieu.com/wp-content/uploads/2018/03/FILE-CHINH-ANH-MAU-RUOUTHUONGHIEU-23-300x300.jpg" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
-                                </a>
-                                <div class="product-wrap">
-                                    <h3><a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT</a></h3>
-
-
-                                    <p class="price price-list"><span class="woocommerce-Price-amount amount">320,000&nbsp;<span class="woocommerce-Price-currencySymbol">₫</span></span></p>
-
-                                    <p class="link-detail"> <a href="https://ruouthuonghieu.com/san-pham/ruou-vang-do-chile-luis-felipe-edwards-merlot/" title="RƯỢU VANG ĐỎ CHILE LUIS FELIPE EDWARDS MERLOT">Chi tiết</a></p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <!-- End Wrapper -->
 </main>
+<script>
+    var product_qty = document.querySelector("input[name='product_qty']");
+    if (product_qty.value <= 1) {
+        $(".btn_num.num_1").prop('disabled', true)
+    } else {
+        $(".btn_num.num_1").prop('disabled', false)
+    }
+    product_qty.onblur = function() {
+        if (product_qty.value <= 0 || product_qty.value == "") {
+            $(".btn_num.num_1").prop('disabled', true)
+            product_qty.value = 1
+        } else {
+            $(".btn_num.num_1").prop('disabled', false)
+            product_qty.value = product_qty.value
+        }
+    };
+    product_qty.oninput = function() {
+        if (product_qty.value < 0) {
+            product_qty.value = Math.abs(product_qty.value);
+        }
+        if (product_qty.value > 1) {
+            $(".btn_num.num_1").prop('disabled', false)
+        }
+    }
+    
+    // product_qty.oninput = function() {
+    //     if (product_qty.value <= 1) {
+    //         $(".btn_num.num_1").prop('disabled', true)
+    //     } else {
+    //         $(".btn_num.num_1").prop('disabled', false)
+    //     }
+    // };
+    $(document).ready(function() {
+        // $(document).on('click', '.add_cart', addToCart)
+        $(document).on('click', '.btn-plus', plus)
+        $(document).on('click', '.btn-minus', minus)
+        // $(document).on('click', '.cart_update', cartUpdate)
+        // $(document).on('click', '.remove-cart-item', removeCart)
+    })
+
+    function minus() {
+
+        let id = $(this).data('id')
+        var qty = $(".input-quantity-" + id)
+        var price = $(".price_sale_" + id)
+        for (let i = 0; i <= 100; i++) {
+            if (i === 100) {
+                break;
+            }
+        }
+        var number = (parseInt(qty.val()) - 1);
+        if (number <= 1){
+            qty.val(1);
+            $(".btn_num.num_1").prop('disabled', true)
+        } else {
+            qty.val(number);
+        }
+    }
+
+    function plus() {
+        let id = $(this).data('id')
+        var qty = $(".input-quantity-" + id)
+        for (let i = 0; i <= 100; i++) {
+            if (i === 100) {
+                break;
+            }
+        }
+        var number = (parseInt(qty.val()) + 1);
+        $(".btn_num.num_1").prop('disabled', false)
+        qty.val(number);
+    }
+</script>
+
 @endsection

@@ -19,15 +19,16 @@ use App\Http\Controllers\User\UserController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // Website
 Route::group(['prefix'=>'/'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/dang-nhap', [AuthController::class, 'login'])->name('login');
-    Route::get('san-pham/', [ProductController::class,'show'])->name('product');
+    Route::match(['get', 'post'], '/dang-nhap', [AuthController::class, 'customer_login'])->name('login');
+    Route::get('/dang-xuat', [AuthController::class, 'customer_logout'])->name('logout');
+    Route::match(['get', 'post'], '/dang-ky', [AuthController::class, 'customer_register'])->name('register');
+    Route::get('san-pham/{slug}', [ProductController::class,'show'])->name('product');
+    Route::get('shop-ruou-uy-tin/danh-muc/{slug}', [CategoryController::class,'show'])->name('category');
+    Route::get('shop-ruou-uy-tin/thuong-hieu/{slug}', [BrandController::class,'show'])->name('brand');
+    Route::get('tim-kiem', [HomeController::class, 'search'])->name('search');
 });
 
 // Admin

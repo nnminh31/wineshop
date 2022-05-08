@@ -29,18 +29,24 @@
                             <li class="">
                                 Follow Us:
                                 <div class="socials-link">
-                                    <a href="https://www.facebook.com/shopruoucaithunggo">
-                                        <i class="fa fa-facebook-square"></i>
+                                    @if (Auth::guard('web')->check())
+                                    <a href="javascript:void(0)" class="" style="display: flex; align-items: center; margin-right: 10px;">
+                                        <i class="fa fa-user" style="font-size: 14px;"></i>
+                                        {{Auth::guard('web')->user()->name}}
                                     </a>
-                                    <a href="https://www.instagram.com/junglelifegroup/">
-                                        <i class="fa fa-instagram"></i>
+                                    <a href="{{route('logout')}}" style="display: flex; align-items: center">
+                                        <i class="fa fa-sign-out" style="font-size: 14px;"></i>
+                                        Thoát
                                     </a>
-                                    <a href="https://www.youtube.com/channel/UCYU3jc-voaCqvOztsA77L2Q/featured?view_as=public">
-                                        <i class="fa fa-youtube-play"></i>
-                                    </a>
-                                    <a href="https://www.tiktok.com/@junglelifegroup">
-                                        <img src="data:image/webp;base64,UklGRh4BAABXRUJQVlA4TBIBAAAvE8AEECcjkE3uz91iiFDYtm2bqmR3p4ERgiJQBQECAAklVUHLIgUK0ldQIKYAsGwIQJiuQ1imOmKbBGmqCEIAJCDItm062rHtpG3btu2OceY/ic8hRPR/ArAuSBpkcDisuWnNOBlVkrcHZynGte0Ca/ramsjainuz5J6lc1u+RGsJhvRkiF39tm6m5fNI9cMN3QOr6l0cNxa7/nB/6qSt7yNY0QFk28s9f1hlCIR8pLRN9Fatha4vpAqml3/4/3uHe/PyhVQ1+znlugWMyh+0GqzzeQ2MyRtUzax+yMMrsCOKSpvdvZHX49iBNtlvYj6iWUaa0iZ+7VpwrCmMkc47Ns/0sliautGb3w6TH5LaG1gD" alt="">
-                                    </a>
+                                    @else
+                                        <a href="{{route('login')}}">
+                                            Đăng nhập
+                                        </a>
+                                        <a href="javascript:void(0)">|</a>
+                                        <a href="{{route('register')}}">
+                                            Đăng ký
+                                        </a>
+                                    @endif
                                 </div>
                             </li>
                         </ul>
@@ -58,7 +64,7 @@
                 <div class="col-md-3">
                     <div class="logo">
                         <a href="{{route('home')}}" class="custom-logo-link" rel="home" aria-current="page">
-                            <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/06/logo.svg" class="custom-logo" alt="Bán rượu chính hãng – Giỏ quà tết sang trọng">
+                            <img src="{{asset('/images/logos/logo.svg')}}" class="custom-logo" alt="Bán rượu chính hãng – Giỏ quà tết sang trọng">
                         </a>
                         <a id="cd-menu-trigger" href="#0" class="">
                             <span class="cd-menu-icon"></span>
@@ -71,10 +77,10 @@
                 <div class="col-md-4 offset-md-1 flex-center">
                     <div class="header-search search">
 
-                        <form role="search" method="get" class="woocommerce-product-search" action="https://ruouthuonghieu.com/">
+                        <form role="search" method="get" class="woocommerce-product-search" action="{{route('search')}}">
                             <label class="screen-reader-text" for="woocommerce-product-search-field-0">Tìm
                                 kiếm:</label>
-                            <input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Tên hoặc mã sản phẩm" value="" name="s">
+                            <input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Tên hoặc mã sản phẩm" value="{{isset($_GET['s']) ? $_GET['s'] : ''}}" name="s">
                             <button type="submit" value="Tìm kiếm"><i class="fa fa-search"></i></button>
                             <input type="hidden" name="post_type" value="product">
                         </form>
@@ -95,7 +101,7 @@
                         <div class="header-nav">
                             <ul id="primary-menu" class="menu">
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
-                                    <a href="https://ruouthuonghieu.com/" aria-current="page">Home</a>
+                                    <a href="{{route('home')}}" aria-current="page">Home</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-636">
                                             <a href="https://ruouthuonghieu.com/chung-toi/">Chúng
@@ -119,15 +125,15 @@
                                 @foreach($categories as $category)
 
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-{{$category->id}}">
-                                    <a href="https://ruouthuonghieu.com/">{{$category->name}}</a>
+                                    <a href="{{route('category', $category->slug)}}">{{$category->name}}</a>
                                     <ul class="sub-menu">
                                         @if(count($category->childCategories))
                                         @foreach($category->childCategories as $childCategory)
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-{{$childCategory->id}}"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/hop-qua-tet/">{{$childCategory->name}}</a>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-{{$childCategory->id}}"><a href="{{route('category', $childCategory->slug)}}">{{$childCategory->name}}</a>
                                             <ul class="sub-menu">
                                                 @if(count($childCategory->categories))
                                                 @foreach($childCategory->categories as $child)
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-{{$child->id}}"><a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/gio-qua-tet/" style="text-transform: capitalize;">{{$child->name}}</a></li>
+                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-{{$child->id}}"><a href="{{route('category', $child->slug)}}" style="text-transform: capitalize;">{{$child->name}}</a></li>
                                                 @endforeach
                                                 @endif
                                             </ul>

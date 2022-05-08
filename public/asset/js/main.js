@@ -1,8 +1,8 @@
 var slider_banner_owl = $('.slider-banner').owlCarousel({
     loop: true,
-    autoplay: false,
-    // autoplayTimeout: 3000,
-    autoplayHoverPause: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
     dots: false,
     // margin: 0,
     items: 1,
@@ -16,7 +16,9 @@ var slider_banner_owl = $('.slider-banner').owlCarousel({
 })
 $('.product-slider').owlCarousel({
     loop: true,
-    autoplay: false,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
     items: 5,
     dots: false,
     responsive: {
@@ -75,6 +77,18 @@ jQuery(document).ready(function ($) {
     //         $navigation.removeClass('lateral-menu-is-open')
     //         $content_wrapper.removeClass('lateral-menu-is-open')
     //     })
+    var filter = document.getElementsByClassName("filter");
+    for (var i = 0; i < filter.length; i++) {
+        filter[i].addEventListener("click", function () {
+            this.querySelector('h3').classList.toggle("active");
+            var panel = this.querySelector('.item-filt');
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
     // Check scroll
     function checkScrolled() {
         if ($(window).scrollTop() > 1) {

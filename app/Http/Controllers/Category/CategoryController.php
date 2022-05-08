@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Components\Recursive;
 use App\Models\Category;
+use App\Models\Brand;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -23,6 +25,26 @@ class CategoryController extends Controller
         $recursive = new Recursive($data);
         $list_cat = $recursive->categoryRecursive(); 
         return $list_cat; 
+    }
+
+    public function show($slug="")
+    {
+        $category = Category::where('slug', $slug)->first();
+        if ($category) {
+            $categories = Category::whereNull('parent_id')->with('childCategories')->get();
+            $ids = [];
+            array_push($ids, $category->id);
+            foreach ($category->childCategories as $childCategory):
+                array_push($ids, $childCategory->id);
+                foreach($childCategory->categories as $child):
+                    array_push($ids, $child->id);
+                endforeach;
+            endforeach;
+            $products = Product::latest()->whereIn('category_id', $ids)->paginate(5);
+            $brands = Brand::latest()->get();
+            return view('website.pages.category.index', compact('category', 'categories', 'brands', 'products')); 
+        }
+        return abort(404);
     }
 
     public function create(Request $request)

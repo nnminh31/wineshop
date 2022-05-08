@@ -20,11 +20,13 @@ class ProductController extends Controller
 
     public function show($slug="")
     {
-        // $product = Product::where('slug', $slug)->first();
-        // if ($product) {
-        return view('website.pages.product.index'); 
-        // }
-        // return abort(404);
+        $product = Product::where('slug', $slug)->first();
+        if ($product) {
+            $categories = Category::whereNull('parent_id')->with('childCategories')->get();
+            $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit(6)->get();
+            return view('website.pages.product.index', compact('product', 'categories', 'related_products')); 
+        }
+        return abort(404);
     }
 
     public function create(Request $request)
