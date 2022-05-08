@@ -2054,6 +2054,10 @@ h3 {
         padding: 0;
     }
 
+    div.banner img {
+        padding: 0 10px;
+    }
+
     .slider-banner .owl-item>a {
         display: block;
     }
