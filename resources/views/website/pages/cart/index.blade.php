@@ -48,17 +48,47 @@ Giỏ hàng
                                 <div style="width: 15%" class="a-center">Thành tiền</div>
                             </div>
                             <div class="cart-tbody">
-                                <div class="item-cart productid-61019412">
-                                    <div style="width: 17%" class="image"><a class="product-image" title="Thức ăn cho chó Nature Gourmet lọ 400g Mix thịt rau củ sấy - CutePets" href="/thuc-an-cho-cho-nature-gourmet-lo-400g-mix-thit-rau-cu-say"><img width="75" height="auto" alt="Thức ăn cho chó Nature Gourmet lọ 400g Mix thịt rau củ sấy - CutePets" src="//bizweb.dktcdn.net/thumb/small/100/307/433/products/thuc-an-cho-cho-nature-gourmet-lo-400g-mix-thit-rau-cu-say-3.jpg"></a></div>
-                                    <div style="width: 33%" class="prd_name">
-                                        <h2 class="product-name"> <a class="text2line" href="/thuc-an-cho-cho-nature-gourmet-lo-400g-mix-thit-rau-cu-say">Thức ăn cho chó Nature Gourmet lọ 400g Mix thịt rau củ sấy - CutePets</a><span class="variant-title" style="display: none;">Default Title</span> </h2><a class="button remove-item remove-item-cart" title="Xóa" href="javascript:;" data-id="61019412"><span><i class="fa fa-trash" aria-hidden="true"></i><span>Xóa sản phẩm</span></span></a>
+                                @php
+                                    $total = 0;
+                                @endphp
+                                @foreach(session()->get('cart') as $id => $cartItem)
+                                    @php
+                                        $total += $cartItem['price'] * $cartItem['quantity']
+                                    @endphp
+                                    <div class="item-cart productid-{{$cartItem['id']}}">
+                                        <div style="width: 17%" class="image">
+                                            <a class="product-image" title="{{$cartItem['name']}}" href="/thuc-an-cho-cho-nature-gourmet-lo-400g-mix-thit-rau-cu-say">
+                                                <img width="75" height="auto" alt="{{$cartItem['name']}}" src="{{asset('/images/products/'.$cartItem['image'])}}">
+                                            </a>
+                                        </div>
+                                        <div style="width: 33%" class="prd_name">
+                                            <h2 class="product-name">
+                                                <a class="text2line" href="{{route('product', $cartItem['slug'])}}">{{$cartItem['name']}}</a>
+                                                <span class="variant-title" style="display: none;">Default Title</span>
+                                            </h2>
+                                            <a class="button remove-item remove-item-cart" title="Xóa" href="javascript:;" data-id="{{$cartItem['id']}}">
+                                                <span>
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    <span>Xóa sản phẩm</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div style="width: 15%" class="a-center">
+                                            <span class="item-price">
+                                                <span class="price">{{number_format($cartItem['price'], 0, ',', '.')}}₫</span>
+                                            </span>
+                                        </div>
+                                        <div style="width: 20%" class="a-center">
+                                            <div class="input_qty_pr">
+                                                <input class="productID" type="hidden" name="productID" value="{{$cartItem['id']}}">
+                                                <button disabled="" class="btn_num num_1 reduced_pop items-count btn-minus" data-id="{{$cartItem['id']}}" type="button">–</button>
+                                                <input type="number" maxlength="12" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="input-text number-sidebar input_pop input_pop qtyItem{{$cartItem['id']}} input-quantity-{{$cartItem['id']}}" id="qtyItem{{$cartItem['id']}}" name="product_qty" class="product_qty" size="4" value="{{$cartItem['quantity'] ?? 1}}">
+                                                <button class="btn_num num_2 increase_pop items-count btn-plus" data-id="{{$cartItem['id']}}" type="button">+</button>
+                                            </div>
+                                        </div>
+                                        <div style="width: 15%" class="a-center"><span class="cart-price"> <span class="price">{{number_format($cartItem['price'] * $cartItem['quantity'] , 0, ',', '.')}}₫</span> </span></div>
                                     </div>
-                                    <div style="width: 15%" class="a-center"><span class="item-price"> <span class="price">90.000₫</span></span></div>
-                                    <div style="width: 20%" class="a-center">
-                                        <div class="input_qty_pr"><input class="variantID" type="hidden" name="variantId" value="61019412"><button disabled="" class=" reduced_pop items-count btn-minus" type="button">–</button><input type="text" maxlength="12" min="1" onchange="if(this.value == 0)this.value=1;" class="input-text number-sidebar input_pop input_pop qtyItem61019412" id="qtyItem61019412" name="Lines" size="4" value="1"><button class="increase_pop items-count btn-plus" type="button">+</button></div>
-                                    </div>
-                                    <div style="width: 15%" class="a-center"><span class="cart-price"> <span class="price">90.000₫</span> </span></div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </form>
@@ -78,7 +108,7 @@ Giỏ hàng
                                                 </td>
                                                 <td class="a-right">
                                                     <strong>
-                                                        <span class="totals_price price" style="display: inline">90.000₫</span>
+                                                        <span class="totals_price price" style="display: inline">{{number_format($total, 0, ',', '.')}}₫</span>
                                                     </strong>
                                                 </td>
                                             </tr>
@@ -88,7 +118,7 @@ Giỏ hàng
                                                 </td>
                                                 <td class="a-right">
                                                     <strong>
-                                                        <span class="totals_price_second totals_price price" style="display: inline">90.000₫</span>
+                                                        <span class="totals_price_second totals_price price" style="display: inline">{{number_format($total, 0, ',', '.')}}₫</span>
                                                     </strong>
                                                 </td>
                                             </tr>
@@ -124,7 +154,8 @@ Giỏ hàng
                 <!-- End Title cart -->
                 <div class="header-cart-content" style="background:#fff;">
                     <div class="cart_page_mobile content-product-list">
-                        <div class="item-product item productid-191">
+                        @foreach(session()->get('cart') as $id => $cartItem)
+                        <div class="item-product item productid-{{$cartItem['id']}}">
                             <div class="item-product-cart-mobile">
                                 <a href class="product-images1" title="">
                                     <img style="height: auto" alt="" width="80" height="150" alt src="https://bizweb.dktcdn.net/thumb/small/100/307/433/products/thuc-an-cho-cho-nature-gourmet-lo-400g-mix-thit-rau-cu-say-3.jpg">
@@ -140,12 +171,13 @@ Giỏ hàng
                                 <div class="txt_center input_qty_cart">
                                     <input class="productID" type="hidden" name="productID" value="191">
                                     <button class="btn_num num_1 reduced items-count1 btn-minus cart_update" data-id="191" type="button">–</button>
-                                    <input type="number" maxlength="12" min="1" class="input-text number-sidebar1 input_pop input_pop quantity input-quantity-191" name="product_qty" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" size="4" value="1" data-id="191" style="border: 1px solid #e1e1e1; outline: none">
+                                    <input type="number" maxlength="12" min="1" class="input-text number-sidebar1 input_pop input_pop quantity input-quantity-191" name="product_qty" class="product_qty" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" size="4" value="1" data-id="191" style="border: 1px solid #e1e1e1; outline: none">
                                     <button class="btn_num num_2 increase items-count1 btn-plus cart_update" data-id="191" type="button">+</button>
                                 </div>
                                 <a class="button remove-item remove-item-cart" href="javascript:;" data-id="111">Xóa</a>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     <div class="header-cart-price">
                         <div class="title-cart">

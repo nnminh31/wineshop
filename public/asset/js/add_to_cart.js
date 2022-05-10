@@ -1,4 +1,4 @@
-var product_qty = document.querySelector("input[name='product_qty']");
+var product_qty =$("input[name=product_qty]");
 if (product_qty.value <= 1) {
     $(".btn_num.num_1").prop('disabled', true)
 } else {
@@ -22,13 +22,13 @@ product_qty.oninput = function () {
     }
 }
 
-// product_qty.oninput = function() {
-//     if (product_qty.value <= 1) {
-//         $(".btn_num.num_1").prop('disabled', true)
-//     } else {
-//         $(".btn_num.num_1").prop('disabled', false)
-//     }
-// };
+product_qty.oninput = function() {
+    if (product_qty.value <= 1) {
+        $(".btn_num.num_1").prop('disabled', true)
+    } else {
+        $(".btn_num.num_1").prop('disabled', false)
+    }
+};
 $(document).ready(function () {
     $(document).on('submit', '#add_product_to_cart', addToCart)
     $(document).on('click', '.btn-plus', plus)
