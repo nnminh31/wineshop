@@ -199,7 +199,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script src="{{asset('asset/js/main.js')}}"></script>
-        <script type="text/javascript" src="{{asset('asset/js/add_to_cart.js')}}"></script>
 </body>
 
 </html>

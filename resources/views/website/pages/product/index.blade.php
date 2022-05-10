@@ -198,6 +198,7 @@
     </div>
     <!-- End Wrapper -->
 </main>
+<script type="text/javascript" src="{{asset('asset/js/add_to_cart.js')}}"></script>
 <script>
     $('.see-detail').click(function(e) {
         e.preventDefault();
