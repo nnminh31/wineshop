@@ -12,7 +12,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        dd(session()->get('cart'));
+        // dd(session()->get('cart'));
         // dd(session()->flush());
         $categories = Category::whereNull('parent_id')->with('childCategories')->get();
         return view('website.pages.cart.index', compact('categories'));   
@@ -59,5 +59,32 @@ class CartController extends Controller
             'total_carts' => number_format($total_carts, 0, ',','.')." ₫"
         ]);
 
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->id;
+        $carts = session()->get('cart');
+        $carts[$request->id]['quantity'] = $request->quantity;
+        session()->put('cart', $carts);
+        $data = [];
+        foreach ($carts as $cart):
+            $product = Product::find($cart["id"]);
+            $data = [
+                'id' =>$product->id,
+                'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => $request->quantity,
+                'brand' => $product->brand->name ?? "No brand",
+                'category' => $product->category->name ?? "No category",
+            ];
+        endforeach;
+
+        return response()->json([
+            'items' => $data,
+            'message' => "Sản phẩm đã được thêm vào giỏ hàng",
+            // 'total_items' =>  $total_items,
+            // 'total_carts' => number_format($total_carts, 0, ',','.')." ₫"
+        ]);
     }
 }

@@ -3,6 +3,34 @@
 {{$product->name}}
 @endsection
 @section('content')
+
+<style>
+    .swal-modal .swal-text {
+        text-align: center;
+    }
+    .stopScroll {
+        overflow-y: hidden;
+    }
+    .swal2-cancel { 
+        color: #474c5f !important;
+        background-color: #ebebeb !important;
+        border-color: #dc3545 !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+    .btn-proceed-checkout {
+        background: #f34111 !important;
+        border: 1px solid #f34111 !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+    .btn-proceed-checkout:hover {
+        background: #fff !important;
+        border: 1px solid #f34111 !important;
+        color: #f34111 !important;
+    }
+    .order-1 { order: 1; }
+    .order-2 { order: 2; }
+
+</style>
 <script src="//code.jquery.com/jquery.js"></script>
 <style>
     input::-webkit-outer-spin-button,
@@ -199,6 +227,11 @@
     <!-- End Wrapper -->
 </main>
 <script type="text/javascript" src="{{asset('asset/js/add_to_cart.js')}}"></script>
+<script>
+    function redirect_to_url() {
+        redirect("{{route('cart')}}")
+    }
+</script>
 <script>
     $('.see-detail').click(function(e) {
         e.preventDefault();

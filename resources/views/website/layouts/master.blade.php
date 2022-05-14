@@ -18,7 +18,20 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
         <!-- Style custom css -->
         <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <style>
+                #loader {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: 100%;
+                        background: rgba(0,0,0,0.75) url(http://www.marcorpsa.com/ee/images/loading2.gif) no-repeat center center;
+                        z-index: 10000;
+                }
+        </style>
 </head>
 
 <body class="">
@@ -32,6 +45,7 @@
                 <!-- Footer -->
                 @include('website.blocks.footer')
                 <!-- End Footer -->
+                <div id="loader"></div>
                 <!-- Back to top -->
                    <a href="#" id="back-to-top" class=""><i class="fa fa-chevron-up"></i> </a>
                 <!-- End Back to top -->
@@ -199,6 +213,19 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script src="{{asset('asset/js/main.js')}}"></script>
+        <!-- <script>
+                var spinner = $('#loader');
+                // spinner.show();
+                $.ajax({
+                        url: 't2228.php',
+                        data: $(this).serialize(),
+                        method: 'post',
+                        dataType: 'JSON'
+                }).done(function(resp) {
+                        spinner.hide();
+                        alert(resp.status);
+                });
+        </script> -->
 </body>
 
 </html>

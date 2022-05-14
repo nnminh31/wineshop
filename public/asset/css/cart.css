@@ -2,11 +2,19 @@
     .cart-desktop {
         padding: 0 40px !important;
     }
+    .col-md-6 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
     .container {
         width: 750px;
+    }
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 

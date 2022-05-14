@@ -1,18 +1,19 @@
-var product_qty =$("input[name=product_qty]");
-if (product_qty.value <= 1) {
+var product_qty = $("input[name=product_qty]");
+
+if (product_qty.val() <= 1) {
     $(".btn_num.num_1").prop('disabled', true)
 } else {
     $(".btn_num.num_1").prop('disabled', false)
 }
-product_qty.onblur = function () {
-    if (product_qty.value <= 0 || product_qty.value == "") {
+product_qty.blur(function() {
+    if (product_qty.val() <= 0 || product_qty.val() == "") {
         $(".btn_num.num_1").prop('disabled', true)
-        product_qty.value = 1
+        product_qty.val(1)
     } else {
         $(".btn_num.num_1").prop('disabled', false)
-        product_qty.value = product_qty.value
+        product_qty.val(product_qty.value) 
     }
-};
+});
 product_qty.oninput = function () {
     if (product_qty.value < 0) {
         product_qty.value = Math.abs(product_qty.value);
@@ -69,6 +70,15 @@ function plus() {
     qty.val(number);
 }
 
+function redirect(url) {
+   return window.location.href = url;
+}
+
+function sleep(delay) {
+    let start = new Date().getTime();
+    while (new Date().getTime() < start + delay);
+}
+
 // Add product to cart
 function addToCart(e) {
     e.preventDefault();
@@ -86,8 +96,66 @@ function addToCart(e) {
       },
       success: function (data) {
         console.log(data)
+        sleep(1000)
+        $("body").addClass("stopScroll")
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            html: "Bạn đã thêm <a style='color: #800020;'> [ " + `${data.items.name}` + " ] </a> vào giỏ hàng thành công !",
+            // timer: 1500,
+            showConfirmButton: true,
+            showCancelButton: true,
+            cancelButtonText: "Tiếp tục mua hàng",
+            confirmButtonText: 'Thực hiện thanh toán',
+            customClass: {
+                actions: 'my-actions',
+                cancelButton: 'order-1 btn btn-danger',
+                confirmButton: 'order-2 btn btn-success btn-proceed-checkout',
+            },
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                redirect_to_url()
+            }
+            $("body").removeClass("stopScroll")
+        });
         $('#vnt-menu-fixed ul li.cart>a .sl').text(data.total_items)
       }
     })
-  }
-  
+}
+
+// Update product in cart
+function updateCart(e) {
+    e.preventDefault();
+    let urlCart = $(this).data('url')
+    $.ajax({
+        type: "Post",
+        url: urlCart,
+        dataType: 'json',
+        data: {
+            _token: $("input[name=_token]").val(),
+            id: id,
+            quantity: quantity
+        },
+        success: function (data) {
+
+        }
+    })
+}
+
+// Remove a product from cart
+function removeProductFromCart(event) {
+    e.preventDefault();
+    let urlCart = $(this).data('url')
+    $.ajax({
+        type: "Post",
+        url: urlCart,
+        dataType: 'json',
+        data: {
+            _token: $("input[name=_token]").val(),
+            id: id,
+        },
+        success: function (data) {
+            $('#vnt-menu-fixed ul li.cart>a .sl').text(data.total_items)
+        }
+    })
+}

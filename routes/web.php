@@ -40,6 +40,7 @@ Route::group(['prefix'=>'/'], function(){
     // Giỏ hàng
     Route::get('gio-hang', [CartController::class, 'index'])->name('cart');
     Route::post('/add-product-to-cart', [CartController::class, 'create'])->name('cart.create');
+    Route::post('/update-cart', [CartController::class, 'update'])->name('cart.update');
 });
 
 // Admin
