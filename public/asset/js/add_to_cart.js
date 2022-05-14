@@ -1,30 +1,31 @@
-var product_qty = $("input[name=product_qty]");
+var product_qty = $("input.product_qty");
 
-if (product_qty.val() <= 1) {
-    $(".btn_num.num_1").prop('disabled', true)
-} else {
-    $(".btn_num.num_1").prop('disabled', false)
-}
+// if (product_qty.val() <= 1) {
+//     $(".btn_num.num_1").prop('disabled', true)
+//     product_qty.val(1)
+// } else {
+//     $(".btn_num.num_1").prop('disabled', false)
+// }
 product_qty.blur(function() {
-    if (product_qty.val() <= 0 || product_qty.val() == "") {
+    if (product_qty.val() <= 0) {
         $(".btn_num.num_1").prop('disabled', true)
         product_qty.val(1)
     } else {
         $(".btn_num.num_1").prop('disabled', false)
-        product_qty.val(product_qty.value) 
+        product_qty.val(product_qty.val()) 
     }
 });
 product_qty.oninput = function () {
-    if (product_qty.value < 0) {
-        product_qty.value = Math.abs(product_qty.value);
+    if (product_qty.val() <= 0) {
+        product_qty.val() = Math.abs(product_qty.val());
     }
-    if (product_qty.value > 1) {
+    if (product_qty.val() > 1) {
         $(".btn_num.num_1").prop('disabled', false)
     }
 }
 
 product_qty.oninput = function() {
-    if (product_qty.value <= 1) {
+    if (product_qty.val() <= 1) {
         $(".btn_num.num_1").prop('disabled', true)
     } else {
         $(".btn_num.num_1").prop('disabled', false)
@@ -34,7 +35,9 @@ $(document).ready(function () {
     $(document).on('submit', '#add_product_to_cart', addToCart)
     $(document).on('click', '.btn-plus', plus)
     $(document).on('click', '.btn-minus', minus)
-    // $(document).on('click', '.cart_update', cartUpdate)
+    $(document).on('click', '.cart_update', updateCart)
+    $(document).on('blur', '.product_qty', updateInputCart)
+    // $(document).on('blur', '#input_pop2', updateInput2Cart)
     // $(document).on('click', '.remove-cart-item', removeCart)
 })
 
@@ -122,11 +125,16 @@ function addToCart(e) {
       }
     })
 }
+$(document).ready(function() {
+    $(document).ajaxStart(function () {
+        $("#loader").show();
+    }).ajaxStop(function () {  
+        $('#loader').hide();  
+    });
+});
 
 // Update product in cart
-function updateCart(e) {
-    e.preventDefault();
-    let urlCart = $(this).data('url')
+function update_qty(urlCart, id, quantity) {
     $.ajax({
         type: "Post",
         url: urlCart,
@@ -137,9 +145,32 @@ function updateCart(e) {
             quantity: quantity
         },
         success: function (data) {
-
+            console.log(data)
+            // console.log(data.items)
+            $(".cart-price .price").each(function(index, element) {
+                $(this).text(data.items[index].amount)
+            })
+            $(".totals_price").text(data.total_carts)
         }
     })
+}
+function updateCart() {
+    let urlCart = $('.update_cart_url').data('url')
+    let id = $(this).data('id')
+    let quantity = $(this).parents('.input_qty_cart').find('input.product_qty').val();
+    update_qty(urlCart, id, quantity)   
+}
+
+function updateInputCart() {
+    let urlCart = $('.update_cart_url').data('url')
+    let id = $(this).data('id')
+    let quantity = $(this).val();
+    $("input.product_qty").val(quantity)
+    if (quantity <= 1 ) {
+        quantity = 1
+    }
+    update_qty(urlCart, id, quantity)
+
 }
 
 // Remove a product from cart

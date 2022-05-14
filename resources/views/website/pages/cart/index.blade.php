@@ -37,7 +37,8 @@ Giỏ hàng
             <div class="col-main cart_desktop_page cart-page">
                 @if(session()->get('cart') != null)
                     <div class="cart page_cart hidden-xs">
-                        <form action="" class="margin-bottom-0">
+                        <form data-url="{{route('cart.update')}}" class="margin-bottom-0 update_cart_url" id="update_cart_url">
+                            @csrf
                             <div class="bg-scroll">
                                 <div class="cart-thead">
                                     <div style="width: 17%">Ảnh sản phẩm</div>
@@ -78,11 +79,11 @@ Giỏ hàng
                                                 </span>
                                             </div>
                                             <div style="width: 20%" class="a-center">
-                                                <div class="input_qty_pr">
+                                                <div class="input_qty_pr input_qty_cart">
                                                     <input class="productID" type="hidden" name="productID" value="{{$cartItem['id']}}">
-                                                    <button disabled="" class="btn_num num_1 reduced_pop items-count btn-minus" data-id="{{$cartItem['id']}}" type="button">–</button>
-                                                    <input type="number" maxlength="12" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="input-text number-sidebar input_pop input_pop qtyItem{{$cartItem['id']}} input-quantity-{{$cartItem['id']}}" id="qtyItem{{$cartItem['id']}}" name="product_qty" class="product_qty" size="4" value="{{$cartItem['quantity'] ?? 1}}">
-                                                    <button class="btn_num num_2 increase_pop items-count btn-plus" data-id="{{$cartItem['id']}}" type="button">+</button>
+                                                    <button disabled="" class="btn_num num_1 reduced_pop items-count btn-minus cart_update" data-id="{{$cartItem['id']}}" data-id="{{$id}}" type="button">–</button>
+                                                    <input data-id="{{$id}}" type="number" maxlength="12" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="input-text number-sidebar input_pop input_pop qtyItem{{$cartItem['id']}} input-quantity-{{$cartItem['id']}} product_qty" id="qtyItem{{$cartItem['id']}}" name="product_qty" size="4" value="{{$cartItem['quantity'] ?? 1}}">
+                                                    <button class="btn_num num_2 increase_pop items-count btn-plus cart_update" data-id="{{$cartItem['id']}}" data-id="{{$id}}" type="button">+</button>
                                                 </div>
                                             </div>
                                             <div style="width: 15%" class="a-center"><span class="cart-price"> <span class="price">{{number_format($cartItem['price'] * $cartItem['quantity'] , 0, ',', '.')}}₫</span> </span></div>
@@ -147,7 +148,8 @@ Giỏ hàng
         <!-- End Desktop Cart -->
         <!-- Mobile Cart -->
         <div class="cart-mobile d-md-none d-lg-none">
-            <form action="" novalidate class="margin-bottom-0">
+            <form data-url="{{route('cart.update')}}" class="margin-bottom-0 update_cart_url" novalidate>
+                @csrf
                 <!-- Title cart -->
                 <div class="header-cart" style="background:#fff;">
                     <div class="title-cart">
@@ -178,7 +180,8 @@ Giỏ hàng
                                 <div class="txt_center input_qty_cart">
                                     <input class="productID" type="hidden" name="productID" value="{{$cartItem['id']}}">
                                     <button class="btn_num num_1 reduced items-count1 btn-minus cart_update" data-id="{{$cartItem['id']}}" type="button">–</button>
-                                    <input type="number" maxlength="12" min="1" class="input-text number-sidebar1 input_pop input_pop quantity input-quantity-{{$cartItem['id']}}" name="product_qty" class="product_qty" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" size="4" value="{{$cartItem['quantity'] ?? 1}}" data-id="191" style="border: 1px solid #e1e1e1; outline: none">
+                                    <input id="#input-pop-2" data-id="{{$cartItem['id']}}" type="number" maxlength="12" min="1" class="input-text number-sidebar1 input_pop input_pop quantity input-quantity-{{$cartItem['id']}} product_qty"  oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" size="4" value="{{$cartItem['quantity'] ?? 1}}" style="border: 1px solid #e1e1e1; outline: none">
+                                    <!-- <input type="text" value="{{$cartItem['quantity']}}"> -->
                                     <button class="btn_num num_2 increase items-count1 btn-plus cart_update" data-id="{{$cartItem['id']}}" type="button">+</button>
                                 </div>
                                 <a class="button remove-item remove-item-cart" href="javascript:;" data-id="111">Xóa</a>
@@ -189,7 +192,7 @@ Giỏ hàng
                     <div class="header-cart-price">
                         <div class="title-cart">
                             <h3 class="text-xs-left" style="color: #323c3f; letter-spacing: .01em; margin-top: 20px; margin-bottom: 10px">Tổng tiền</h3>
-                            <a class="text-xs-right pull-right totals_price_mobile" href="">45.000₫</a>
+                            <a class="text-xs-right pull-right totals_price_mobile totals_price" href="">{{number_format($total, 0, ',', '.')}}₫</a>
                         </div>
                         <div class="checkout">
                             <a href="" class="btn btn-proceed-checkout-mobile" style="color: #fff;background-color: #f34111; border: none; outline: none">

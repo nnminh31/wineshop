@@ -222,6 +222,32 @@
         text-align: center;
         padding: 0px;
     }
+    #vnt-menu-fixed>ul>li>a {
+        width: 35px;
+        height: 35px;
+    }
+    #vnt-menu-fixed>ul>li>a span {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    #vnt-menu-fixed ul li.cart>a .sl {
+        width: 12px;
+        height: 12px;
+        font-size: 10px;
+        line-height: 9px;
+        top: 7px;
+    }
+    #vnt-menu-fixed>ul>li>a>img {
+        max-height: 20px;
+        max-width: 20px;
+    }
+    #vnt-menu-fixed ul li.cart>a .sl {
+        width: 12px;
+        height: 12px;
+        font-size: 13px;
+        line-height: 9px;
+        top: 2px;
+    
 }
 .header-cart .title-cart h3 {
     font-size: 16px;
