@@ -40,7 +40,8 @@ Route::group(['prefix'=>'/'], function(){
     // Giỏ hàng
     Route::get('gio-hang', [CartController::class, 'index'])->name('cart');
     Route::post('/add-product-to-cart', [CartController::class, 'create'])->name('cart.create');
-    Route::post('/update-cart', [CartController::class, 'update'])->name('cart.update');
+    Route::match(['get', 'post'], '/update-cart', [CartController::class, 'update'])->name('cart.update');
+    Route::match(['get', 'delete'], '/remove-cart', [CartController::class, 'remove'])->name('cart.remove');
 });
 
 // Admin
@@ -48,7 +49,7 @@ Route::get('admin', function (){{
     return redirect()->route('admin.login');
 }});
 Route::match(['get', 'post'],'admin/login', [AuthController::class, 'login'])->name("admin.login");
-
+Route::get('admin/logout', [AuthController::class, 'logout'])->name("admin.logout");
 Route::middleware('auth:admin')->prefix('admin')->group(function () {
     // User
     Route::prefix('users')->group(function () {

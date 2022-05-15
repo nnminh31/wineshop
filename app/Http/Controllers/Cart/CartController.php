@@ -10,7 +10,7 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // dd(session()->get('cart'));
         // dd(session()->flush());
@@ -61,12 +61,15 @@ class CartController extends Controller
             ]);
         } catch (\Throwable $th) {
             session()->flush();
-            dd($th);
+            // dd($th);
         }
     }
 
     public function update(Request $request)
     {
+        if ($request->getMethod() == 'GET') {
+            return redirect()->route('cart');
+        }
         $total_items = 0;
         $total_carts = 0;
         $id = $request->id;
@@ -105,7 +108,55 @@ class CartController extends Controller
             ]);
         } catch (\Throwable $th) {
             session()->flush();
-            dd($th);
+            // dd($th);
+        }
+    }
+
+    public function remove(Request $request)
+    {   
+        try {
+            if ($request->getMethod() == 'GET') {
+                return redirect()->route('cart');
+            }
+            if($request->id){
+                $total_items = 0;
+                $total_carts = 0;
+                $carts=session()->get('cart');
+                unset($carts[$request->id]);
+                session()->put('cart', $carts);
+                foreach(session()->get('cart') as $id => $cartItem) {
+                    $total_items++;
+                    $total_carts += $cartItem['quantity'] * $cartItem['price'];
+                }
+                $data = [];
+                foreach ($carts as $cart):
+                    $amount = 0;
+                    $product = Product::find($cart["id"]);
+                    $amount = $carts[$cart["id"]]['price'] * $carts[$cart["id"]]['quantity'];
+                    $item = [
+                        'id' => $product->id ?? $product->id,
+                        'name' => $product->name ?? $product->name,
+                        'price' => number_format($product->price, 0, ',','.')."₫" ?? 0,
+                        'amount' => number_format($amount, 0, ',','.')."₫" ?? 0,
+                        'image' => $product->image ?? 0,
+                        'link' => route('product', $product->slug),
+                        'quantity' => $request->quantity ?? 1,
+                        'brand' => $product->brand->name ?? "No brand",
+                        'category' => $product->category->name ?? "No category",
+                    ];
+                    array_push($data, $item);
+                endforeach;
+                sleep(1.5);
+                return response()->json([
+                    'total_items' =>  $total_items,
+                    'items' => $data,
+                    'message' => "Update product from cart successfully",
+                    'total_carts' => number_format($total_carts, 0, ',','.')." ₫"
+                ]);
+            }   
+        } catch (\Throwable $th) {
+            session()->flush();
+            // dd($th);
         }
     }
 }

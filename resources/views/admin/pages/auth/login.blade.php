@@ -6,15 +6,15 @@
                 <use xlink:href="#icon-lock" />
             </svg>Đăng nhập</h2>
     </header>
-    <div class="alert">
-        @if(session()->has('message'))
-            <div style="color:red; margin-bottom: 20px">
-                {{ session()->get('message') }}
-            </div>
-        @endif
-    </div>
     <form action="{{route('admin.login')}}" method="POST" class="form login" autocomplete="off">
         @csrf
+        <div class="alert">
+            @if(session()->has('message'))
+                <div style="color:red; margin-bottom: 20px">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
+        </div>
         <div class="form__field">
             <label for="login__username"><svg class="icon">
                     <use xlink:href="#icon-user"></use>

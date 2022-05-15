@@ -66,7 +66,7 @@ Giỏ hàng
                                                     <a class="text2line" href="{{route('product', $cartItem['slug'])}}">{{$cartItem['name']}}</a>
                                                     <span class="variant-title" style="display: none;">Default Title</span>
                                                 </h2>
-                                                <a class="button remove-item remove-item-cart" title="Xóa" href="javascript:;" data-id="{{$cartItem['id']}}">
+                                                <a class="button remove-item remove-item-cart" data-url="{{route('cart.remove')}}" title="Xóa" href="javascript:;" data-id="{{$cartItem['id']}}">
                                                     <span>
                                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                                         <span>Xóa sản phẩm</span>
@@ -81,9 +81,9 @@ Giỏ hàng
                                             <div style="width: 20%" class="a-center">
                                                 <div class="input_qty_pr input_qty_cart">
                                                     <input class="productID" type="hidden" name="productID" value="{{$cartItem['id']}}">
-                                                    <button disabled="" class="btn_num num_1 reduced_pop items-count btn-minus cart_update" data-id="{{$cartItem['id']}}" data-id="{{$id}}" type="button">–</button>
-                                                    <input data-id="{{$id}}" type="number" maxlength="12" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="input-text number-sidebar input_pop input_pop qtyItem{{$cartItem['id']}} input-quantity-{{$cartItem['id']}} product_qty" id="qtyItem{{$cartItem['id']}}" name="product_qty" size="4" value="{{$cartItem['quantity'] ?? 1}}">
-                                                    <button class="btn_num num_2 increase_pop items-count btn-plus cart_update" data-id="{{$cartItem['id']}}" data-id="{{$id}}" type="button">+</button>
+                                                    <button class="btn_num num_1 reduced_pop items-count btn-minus cart_update" data-id="{{$cartItem['id']}}" type="button">–</button>
+                                                    <input data-id="{{$id}}" type="number" maxlength="12" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="input-text number-sidebar input_pop input_pop qtyItem{{$cartItem['id']}} input-quantity-{{$cartItem['id']}} product_qty" id="qtyItem{{$cartItem['id']}}" name="product_qty1" size="4" value="{{$cartItem['quantity'] ?? 1}}">
+                                                    <button class="btn_num num_2 increase_pop items-count btn-plus cart_update" data-id="{{$cartItem['id']}}" type="button">+</button>
                                                 </div>
                                             </div>
                                             <div style="width: 15%" class="a-center"><span class="cart-price"> <span class="price">{{number_format($cartItem['price'] * $cartItem['quantity'] , 0, ',', '.')}}₫</span> </span></div>
@@ -180,11 +180,11 @@ Giỏ hàng
                                 <div class="txt_center input_qty_cart">
                                     <input class="productID" type="hidden" name="productID" value="{{$cartItem['id']}}">
                                     <button class="btn_num num_1 reduced items-count1 btn-minus cart_update" data-id="{{$cartItem['id']}}" type="button">–</button>
-                                    <input id="#input-pop-2" data-id="{{$cartItem['id']}}" type="number" maxlength="12" min="1" class="input-text number-sidebar1 input_pop input_pop quantity input-quantity-{{$cartItem['id']}} product_qty"  oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" size="4" value="{{$cartItem['quantity'] ?? 1}}" style="border: 1px solid #e1e1e1; outline: none">
+                                    <input data-id="{{$cartItem['id']}}" type="number" maxlength="12" min="1" class="input-text number-sidebar1 input_pop input_pop quantity input-quantity-{{$cartItem['id']}} product_qty"  oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" size="4" name="product_qty2" value="{{$cartItem['quantity'] ?? 1}}" style="border: 1px solid #e1e1e1; outline: none">
                                     <!-- <input type="text" value="{{$cartItem['quantity']}}"> -->
                                     <button class="btn_num num_2 increase items-count1 btn-plus cart_update" data-id="{{$cartItem['id']}}" type="button">+</button>
                                 </div>
-                                <a class="button remove-item remove-item-cart" href="javascript:;" data-id="111">Xóa</a>
+                                <a class="button remove-item remove-item-cart" href="javascript:;" data-url="{{route('cart.remove')}}" data-id="{{$id}}">Xóa</a>
                             </div>
                         </div>
                         @endforeach

@@ -52,6 +52,18 @@ class AuthController extends Controller
         }
     }
 
+    public function logout(Request $request)
+    {
+        if ($request->getMethod() == 'GET') {
+            // if(Auth::guard('web')->check()){
+            //     return redirect()->route('home');
+            // }
+            Auth::guard('admin')->logout();
+            return redirect()->route('admin.login');
+        }
+       
+    }
+
     public function customer_login(Request $request)
     {
         if ($request->getMethod() == 'GET') {
