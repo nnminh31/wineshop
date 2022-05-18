@@ -203,7 +203,7 @@
                             @foreach($related_products as $related_product)
                             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                                 <div class="product-item">
-                                    <a href="" title="" class="product-img">
+                                    <a href="{{route('product', $related_product->slug)}}" title="" class="product-img">
                                         <img width="300" height="300" src="{{asset('/images/products/'.$related_product->image)}}" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
                                     </a>
                                     <div class="product-wrap">

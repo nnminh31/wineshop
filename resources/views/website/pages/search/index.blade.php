@@ -126,7 +126,7 @@ You searched for {{isset($_GET['s']) ? $_GET['s'] : ''}}
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <h1 class="title-page" style="text-transform: uppercase;">Kết quả tìm kiếm: "{{$_GET['s']}}"</h1>
+                    <h1 class="title-page" style="text-transform: uppercase;">Kết quả tìm kiếm: "{{isset($_GET['s']) ? $_GET['s'] : ''}}"</h1>
                     <div class="sort-page">
                         <div class="row">
                             <div class="col-md-5 col-sm-6">
