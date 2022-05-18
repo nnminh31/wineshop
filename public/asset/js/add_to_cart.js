@@ -205,6 +205,11 @@ function removeProductFromCart() {
                 $(this).text(data.items[index].amount)
             })
             $(".totals_price").text(data.total_carts)
+            $('#vnt-menu-fixed ul li.cart>a .sl').text(data.total_items)
+            if (!data.items.length) {
+                $('.btn-proceed-checkout').prop('disabled', true)
+                $('.btn-proceed-checkout-mobile').addClass('disabled')
+            }
         }
     })
 }

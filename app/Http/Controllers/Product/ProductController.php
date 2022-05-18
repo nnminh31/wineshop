@@ -25,6 +25,8 @@ class ProductController extends Controller
         if ($product) {
             $categories = Category::whereNull('parent_id')->with('childCategories')->get();
             $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit(6)->get();
+            // $categories = $product->category_id;
+            // $category_id = Category::find($product->category_id)->parent_id;
             return view('website.pages.product.index', compact('product', 'categories', 'related_products')); 
         }
         return abort(404);

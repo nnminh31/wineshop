@@ -18,6 +18,7 @@ List order
                     <tr>
                         <th>No</th>
                         <th>Order Date</th>
+                        <th>Customer</th>
                         <th>Status</th>
                         <th>Amount</th>
                         <th>Process</th>
@@ -26,23 +27,16 @@ List order
                 <tbody>
                     @foreach($orders as $order)
                     <tr>
-                        <td><a href="">{{$brand->name}}</a></td>
-                        <td <?php
-                            if ($brand->description) {
-                                echo 'class="text-center"';
-                            }
-                            ?> class="text-center"><a href="{{route('admin.brands.edit', $brand->slug)}}">
-                                <?php
-                                if ($brand->description) {
-                                    echo $brand->description;
-                                } else {
-                                    echo "----";
-                                }
-                                ?>
-                            </a></td>
-                        <td><a href="">{{$brand->type}}</a></td>
-                        <td><a href="">{{$brand->user->name}}</a></td>
-                        <td><a href="">{{$brand->created_at}}</a></td>
+                        <td><a href="">{{$order->name}}</a></td>
+                        <td class="text-center">
+                            <a href="">
+                                {{$order->created_at}}
+                            </a>
+                        </td>
+                        <td><a href="">{{$order->user->name}}</a></td>
+                        <td><a href="">{{$order->status}}</a></td>
+                        <td><a href="">{{$order->status}}</a></td>
+                        <td><a href="">{{$order->status}}</a></td>
                     </tr>
                     @endforeach
 
@@ -58,7 +52,7 @@ List order
                 </tfoot>
             </table>
         </div>
-        {{$brands->links('vendor.pagination.custom')}}
+        {{$orders->links('vendor.pagination.custom')}}
     </div>
 </div>
 

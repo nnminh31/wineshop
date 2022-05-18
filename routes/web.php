@@ -8,6 +8,7 @@ use App\Http\Controllers\Brand\BrandController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Cart\CartController;
+use App\Http\Controllers\Order\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,13 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name("admin.products.index");
         Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name("admin.products.add");
         Route::match(['get', 'post'], '/edit/{slug}', [ProductController::class, 'update'])->name("admin.products.edit");
+        // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
+    });
+    // Order
+    Route::prefix('orders')->group(function () {
+        Route::get('/', [OrderController::class, 'index'])->name("admin.orders.index");
+        // Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name("admin.products.add");
+        // Route::match(['get', 'post'], '/edit/{slug}', [ProductController::class, 'update'])->name("admin.products.edit");
         // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
     });
 });
