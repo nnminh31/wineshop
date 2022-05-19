@@ -43,6 +43,8 @@ Route::group(['prefix'=>'/'], function(){
     Route::post('/add-product-to-cart', [CartController::class, 'create'])->name('cart.create');
     Route::match(['get', 'post'], '/update-cart', [CartController::class, 'update'])->name('cart.update');
     Route::match(['get', 'delete'], '/remove-cart', [CartController::class, 'remove'])->name('cart.remove');
+    // Checkout - Thanh toán
+    Route::get('/thanh-toan-don-hang', [OrderController::class, 'checkout'])->name('cart');
 });
 
 // Admin
