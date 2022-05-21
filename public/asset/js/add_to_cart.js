@@ -106,7 +106,7 @@ function addToCart(e) {
             position: "center",
             icon: "success",
             html: "Bạn đã thêm <a style='color: #800020;'> [ " + `${data.items.name}` + " ] </a> vào giỏ hàng thành công !",
-            // timer: 1500,
+            timer: 1500,
             showConfirmButton: true,
             showCancelButton: true,
             cancelButtonText: "Tiếp tục mua hàng",

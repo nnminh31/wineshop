@@ -12,6 +12,11 @@ List user
         <a href="{{route('admin.users.add')}}" style="float: right">Add</a>
     </div>
     <div class="card-body">
+        <style>
+            th, td {
+                text-align: center
+            }
+        </style>
         <div class="table-responsive" id="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
@@ -27,7 +32,11 @@ List user
                     <tr>
                         <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->name}}</a></td>
                         <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->email}}</a></td>
+                        @if($user->phone)
                         <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->phone}}</a></td>
+                        @else
+                        <td class="text-center"><a href="{{route('admin.users.edit', $user->email)}}">---</a></td>
+                        @endif
                         <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->role->name}}</a></td>
                     </tr>
                     @endforeach

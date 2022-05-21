@@ -12,9 +12,35 @@ use App\Models\User;
 class OrderController extends Controller
 {
     public function index(Request $request)
+    {   
+        if ($request->getMethod() == 'GET') {
+            $orders = Order::latest()->orderBy('created_at', 'desc')->paginate(10);
+            return view('admin.pages.order.index', compact('orders'));
+        }
+        if($request->id){
+            Order::find($request->id)->update(
+                [
+                    'processer_id' => auth()->guard('admin')->user()->id,
+                    'status' => 1
+                ]
+            );
+            return response()->json([
+                'order_id' => Order::find($request->id)->id,
+                'status' => "Confirm",
+                'processer_name' => auth()->guard('admin')->user()->name
+            ]);
+        }
+    }
+
+    public function update(Request $request, $id)
     {
-        $orders = Order::latest()->orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.pages.order.index', compact('orders'));
+        if ($request->getMethod() == 'GET') {
+            // $count = Order::where('status', 0)->count();
+            $order = Order::find($id);
+            $prev = Order::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            $next = Order::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            return view('admin.pages.order.edit', compact('order', 'prev', 'next'));
+        }      
     }
 
     public function checkout(Request $request)

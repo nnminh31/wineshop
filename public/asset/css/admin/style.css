@@ -1,0 +1,108 @@
+.order-headding {
+    margin: 0;
+}
+.order_date .color_main {
+    padding-left: 30px;
+}
+.order_date .color_main .fa {
+    color: #f34111;
+}
+a.color_main {
+    color: #575454 !important;
+    text-decoration: none !important;
+    background: transparent;
+}
+.margin-top-20 {
+    margin-top: 20px !important;
+}
+.title-head {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 9px;
+    color: #f34111;
+    text-decoration: none;
+}
+p {
+    margin: 0 0 15px 0;
+}
+#order_payment .address.note i, #order_shipping .address.note i {
+    color: #f34111;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.address a.color_main:hover, a.color_main:hover {
+    color: #f34111 !important;
+}
+
+#order_details .thead-default {
+    border-top: 1px solid #ddd;
+}
+
+th, td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    color: #1c1c1c;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.totalorders {
+    background: #fff;
+    border-color: #e1e1e1;
+}
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+    .table-responsive-block table, .table-responsive-block thead, .table-responsive-block tbody, .table-responsive-block th, .table-responsive-block td, .table-responsive-block tr {
+        display: block;
+    }
+    .table-responsive-block tr {
+        background: #fff;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+    .table-responsive-block thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .table-responsive-block td {
+        border: none;
+        position: relative;
+        padding-left: 40% !important;
+        text-align: right;
+        font-weight: 400;
+    }
+    .table>tbody>tr>td:nth-of-type(1) {
+        border-top: none;
+    }
+    .table-responsive-block td:before {
+        position: absolute;
+        top: 13px;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        white-space: nowrap;
+        font-weight: 400;
+    }
+    .table-responsive-block #order_details td:nth-of-type(1):before {
+        content: "Sản phẩm";
+    }
+    .table-responsive-block #order_details td:nth-of-type(2):before {
+        content: "Mã sản phẩm";
+    }
+    .table-responsive-block #order_details td:nth-of-type(3):before {
+        content: "Giá";
+    }
+    .table-responsive-block #order_details td:nth-of-type(4):before {
+        content: "Số lượng";
+    }
+    .table-responsive-block #order_details td:nth-of-type(5):before {
+        content: "Tổng";
+    }
+}

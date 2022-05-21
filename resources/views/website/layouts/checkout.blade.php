@@ -108,7 +108,7 @@
                         dataType: 'JSON',
                         success: function (respone) {
                             if (respone) {
-                                window.location.href = "http://cute0pets.tk/thong-tin-hoa-don.html"
+                                window.location.href = "{{('success')}}"
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {

@@ -85,9 +85,9 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
     });
     // Order
     Route::prefix('orders')->group(function () {
-        Route::get('/', [OrderController::class, 'index'])->name("admin.orders.index");
+        Route::match(['get', 'put'], '/', [OrderController::class, 'index'])->name("admin.orders.index");
         // Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name("admin.products.add");
-        // Route::match(['get', 'post'], '/edit/{slug}', [ProductController::class, 'update'])->name("admin.products.edit");
+        Route::match(['get', 'post'], '/edit/{id}', [OrderController::class, 'update'])->name("admin.orders.edit");
         // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
     });
 });
