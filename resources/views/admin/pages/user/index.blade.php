@@ -25,10 +25,10 @@ List user
                 <tbody>
                     @foreach($users as $user)
                     <tr>
-                        <td><a href="{{route('admin.users.edit', $user->slug)}}">{{$user->name}}</a></td>
-                        <td><a href="{{route('admin.users.edit', $user->slug)}}">{{$user->email}}</a></td>
-                        <td><a href="{{route('admin.users.edit', $user->slug)}}">{{$user->phone}}</a></td>
-                        <td><a href="{{route('admin.users.edit', $user->slug)}}">{{$user->role->name}}</a></td>
+                        <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->name}}</a></td>
+                        <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->email}}</a></td>
+                        <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->phone}}</a></td>
+                        <td><a href="{{route('admin.users.edit', $user->email)}}">{{$user->role->name}}</a></td>
                     </tr>
                     @endforeach
 

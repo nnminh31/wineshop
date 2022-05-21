@@ -28,7 +28,7 @@ class UserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => bcrypt($request->password),
-            'slug' => Str::slug($request->email),
+            'slug' => $request->email,
             'role_id' => $request->role
         ]);
         return redirect()->route('admin.users.index')->with('message', 'Create a user successfully');
@@ -45,13 +45,13 @@ class UserController extends Controller
         $user = User::where('id', $slug)->take(1)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
-            'slug' => Str::slug($request->name),
+            'phone' => $request->phone ? $request->phone : "",
+            'slug' => $request->email,
             // 'password' => bcrypt($request->password),
             'role_id' => $request->role
         ]);
-        $slug = User::find($user)->slug;
-        return redirect()->route('admin.users.edit', $slug)->with('message', 'Create a user successfully');
+        $user = User::findOrFail($slug);
+        return redirect()->route('admin.users.edit', $user->slug)->with('message', 'Create a user successfully');
 
     }
 }
