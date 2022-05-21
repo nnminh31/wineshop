@@ -159,8 +159,7 @@
                                                 </button>
                                             </div>
                                             <div class="chatshop">
-                                                <a href="https://www.messenger.com/t/136319063654266/?messaging_source=source%3Apages%3Amessage_shortlink">Chat
-                                                    với shop</a>
+                                                <a href="https://www.messenger.com/t/100010397464106">Chat với shop</a>
                                             </div>
 
                                         </div>

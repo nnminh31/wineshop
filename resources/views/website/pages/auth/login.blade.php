@@ -49,6 +49,7 @@
                                         <input class="form-control" name="password" type="password" required>
                                     </div> <!-- input-group.// -->
                                 </div>
+                                <input type="hidden" name="returnUrl" value="{{isset($_GET['returnUrl']) ? $_GET['returnUrl'] : ''}}">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -82,11 +83,15 @@
                     _token: $("input[name=_token]").val(),
                     email: $("input[name=email]").val(),
                     password: $("input[name=password]").val(),
+                    returnUrl: $("input[name=returnUrl]").val(),
                 },
                 success: function(response) {
                     if (response.success) {
                         var seconds = 1;
-
+                        if (response.check) {
+                            document.getElementById("login_form").reset()
+                            window.location.href = "{{route('checkout')}}"
+                        }
                         startTimer(seconds)
                     } else {
                         $("#alert_error").addClass('show').css('display', 'block');

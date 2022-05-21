@@ -129,9 +129,14 @@ Giỏ hàng
                                                 <button class="btn btn-white f-left" title="Tiếp tục mua hàng" type="button" onclick="window.location.href='/collections/all'">
                                                     <span>Tiếp tục mua hàng</span>
                                                 </button>
-                                                <button class="btn btn-primary button btn-proceed-checkout f-right" title="Thực hiện thanh toán" type="button" onclick="window.location.href='/checkout'">
+                                                <button class="btn btn-primary button btn-proceed-checkout f-right" title="Thực hiện thanh toán" type="button" onclick="checkout()">
                                                     <span>Thực hiện thanh toán</span>
                                                 </button>
+                                                <script>
+                                                    var checkout = () => {
+                                                        window.location.href="{{route('checkout')}}"
+                                                    }
+                                                </script>
                                             </li>
                                         </ul>
                                     </div>

@@ -79,6 +79,10 @@ class AuthController extends Controller
         ];
        
         if (Auth::guard('web')->attempt($account) && Auth::guard('web')->user()->role->name == 'user') {
+
+            if ($request->returnUrl) {
+                return response()->json(['success' => true, 'check' => true]);
+            }
             return response()->json(['success' => true]);
         } else {
             return response()->json(['error' => true]);

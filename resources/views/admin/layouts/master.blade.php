@@ -116,7 +116,7 @@
 
             <!-- Nav Item - Orders Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="{{route('admin.orders.index')}}">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Orders</span>
                 </a>

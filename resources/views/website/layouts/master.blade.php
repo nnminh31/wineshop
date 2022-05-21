@@ -190,19 +190,19 @@
                                         </span>
                                 </li>
                                 <li>
-                                        <a href="http://m.me/bigsizethebs" target="_blank">
+                                        <a href="https://www.messenger.com/t/100010397464106" target="_blank">
                                                 <img alt="mess" src="{{asset('images/icons/mess.png')}}">
                                         </a>
                                         <span>
-                                                <a href="http://m.me/bigsizethebs" target="_blank">Chat cùng chúng tôi</a>
+                                                <a href="https://www.messenger.com/t/100010397464106" target="_blank">Chat cùng chúng tôi</a>
                                         </span>
                                 </li>
                                 <li>
-                                        <a href="https://zalo.me/1244613402445882530" target="_blank">
+                                        <a href="javascript:;" target="_blank">
                                                 <img alt="zalo" src="{{asset('images/icons/zalo.png')}}">
                                         </a> 
                                         <span>
-                                                <a href="https://zalo.me/1244613402445882530" target="_blank">Chat cùng chúng tôi</a>
+                                                <a href="javascript:;" target="_blank">Chat cùng chúng tôi</a>
                                         </span>
                                 </li>
                         </ul>

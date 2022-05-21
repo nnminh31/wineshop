@@ -1,0 +1,3584 @@
+.select2-container {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle
+  }
+  
+  .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none
+  }
+  
+  .select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 8px;
+    padding-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  
+  .select2-container .select2-selection--single .select2-selection__clear {
+    background-color: transparent;
+    border: none;
+    font-size: 1em
+  }
+  
+  .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
+    padding-right: 8px;
+    padding-left: 20px
+  }
+  
+  .select2-container .select2-selection--multiple {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    min-height: 32px;
+    user-select: none;
+    -webkit-user-select: none
+  }
+  
+  .select2-container .select2-selection--multiple .select2-selection__rendered {
+    display: inline;
+    list-style: none;
+    padding: 0
+  }
+  
+  .select2-container .select2-selection--multiple .select2-selection__clear {
+    background-color: transparent;
+    border: none;
+    font-size: 1em
+  }
+  
+  .select2-container .select2-search--inline .select2-search__field {
+    box-sizing: border-box;
+    border: none;
+    font-size: 100%;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 0
+  }
+  
+  .select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button {
+    -webkit-appearance: none
+  }
+  
+  .select2-dropdown {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    left: -100000px;
+    width: 100%;
+    z-index: 1051
+  }
+  
+  .select2-results {
+    display: block
+  }
+  
+  .select2-results__options {
+    list-style: none;
+    margin: 0;
+    padding: 0
+  }
+  
+  .select2-results__option {
+    padding: 6px;
+    user-select: none;
+    -webkit-user-select: none
+  }
+  
+  .select2-results__option--selectable {
+    cursor: pointer
+  }
+  
+  .select2-container--open .select2-dropdown {
+    left: 0
+  }
+  
+  .select2-container--open .select2-dropdown--above {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+  }
+  
+  .select2-container--open .select2-dropdown--below {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+  }
+  
+  .select2-search--dropdown {
+    display: block;
+    padding: 4px
+  }
+  
+  .select2-search--dropdown .select2-search__field {
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box
+  }
+  
+  .select2-search--dropdown .select2-search__field::-webkit-search-cancel-button {
+    -webkit-appearance: none
+  }
+  
+  .select2-search--dropdown.select2-search--hide {
+    display: none
+  }
+  
+  .select2-close-mask {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    min-width: 100%;
+    height: auto;
+    width: auto;
+    opacity: 0;
+    z-index: 99;
+    background-color: #fff;
+    filter: alpha(opacity=0)
+  }
+  
+  .select2-hidden-accessible {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important
+  }
+  
+  .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 28px
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__clear {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    height: 26px;
+    margin-right: 20px;
+    padding-right: 0
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #999
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    height: 0;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -2px;
+    position: absolute;
+    top: 50%;
+    width: 0
+  }
+  
+  .select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__clear {
+    float: left
+  }
+  
+  .select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__arrow {
+    left: 1px;
+    right: auto
+  }
+  
+  .select2-container--default.select2-container--disabled .select2-selection--single {
+    background-color: #eee;
+    cursor: default
+  }
+  
+  .select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear {
+    display: none
+  }
+  
+  .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #888 transparent;
+    border-width: 0 4px 5px 4px
+  }
+  
+  .select2-container--default .select2-selection--multiple {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: text;
+    padding-bottom: 5px;
+    padding-right: 5px
+  }
+  
+  .select2-container--default .select2-selection--multiple .select2-selection__clear {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
+    padding: 1px
+  }
+  
+  .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #e4e4e4;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 0
+  }
+  
+  .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    cursor: default;
+    padding-left: 2px;
+    padding-right: 5px
+  }
+  
+  .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid #aaa;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #999;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0 4px
+  }
+  
+  .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover, .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
+    background-color: #f1f1f1;
+    color: #333;
+    outline: none
+  }
+  
+  .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice {
+    margin-left: 5px;
+    margin-right: auto
+  }
+  
+  .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__display {
+    padding-left: 5px;
+    padding-right: 2px
+  }
+  
+  .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
+    border-left: 1px solid #aaa;
+    border-right: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+  }
+  
+  .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__clear {
+    float: left;
+    margin-left: 10px;
+    margin-right: auto
+  }
+  
+  .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: solid #000 1px;
+    outline: 0
+  }
+  
+  .select2-container--default.select2-container--disabled .select2-selection--multiple {
+    background-color: #eee;
+    cursor: default
+  }
+  
+  .select2-container--default.select2-container--disabled .select2-selection__choice__remove {
+    display: none
+  }
+  
+  .select2-container--default.select2-container--open.select2-container--above .select2-selection--single, .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+  }
+  
+  .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+  }
+  
+  .select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #aaa
+  }
+  
+  .select2-container--default .select2-search--inline .select2-search__field {
+    background: transparent;
+    border: none;
+    outline: 0;
+    box-shadow: none;
+    -webkit-appearance: textfield
+  }
+  
+  .select2-container--default .select2-results>.select2-results__options {
+    max-height: 200px;
+    overflow-y: auto
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option {
+    padding-left: 1em
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option .select2-results__group {
+    padding-left: 0
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option .select2-results__option {
+    margin-left: -1em;
+    padding-left: 2em
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+    margin-left: -2em;
+    padding-left: 3em
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+    margin-left: -3em;
+    padding-left: 4em
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+    margin-left: -4em;
+    padding-left: 5em
+  }
+  
+  .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+    margin-left: -5em;
+    padding-left: 6em
+  }
+  
+  .select2-container--default .select2-results__option--group {
+    padding: 0
+  }
+  
+  .select2-container--default .select2-results__option--disabled {
+    color: #999
+  }
+  
+  .select2-container--default .select2-results__option--selected {
+    background-color: #ddd
+  }
+  
+  .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #5897fb;
+    color: #fff
+  }
+  
+  .select2-container--default .select2-results__group {
+    cursor: default;
+    display: block;
+    padding: 6px
+  }
+  
+  .select2-container--classic .select2-selection--single {
+    background-color: #f7f7f7;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    outline: 0;
+    background-image: -webkit-linear-gradient(top, #fff 50%, #eee 100%);
+    background-image: -o-linear-gradient(top, #fff 50%, #eee 100%);
+    background-image: linear-gradient(to bottom, #fff 50%, #eee 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0)
+  }
+  
+  .select2-container--classic .select2-selection--single:focus {
+    border: 1px solid #5897fb
+  }
+  
+  .select2-container--classic .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 28px
+  }
+  
+  .select2-container--classic .select2-selection--single .select2-selection__clear {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    height: 26px;
+    margin-right: 20px
+  }
+  
+  .select2-container--classic .select2-selection--single .select2-selection__placeholder {
+    color: #999
+  }
+  
+  .select2-container--classic .select2-selection--single .select2-selection__arrow {
+    background-color: #ddd;
+    border: none;
+    border-left: 1px solid #aaa;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 26px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+    background-image: -webkit-linear-gradient(top, #eee 50%, #ccc 100%);
+    background-image: -o-linear-gradient(top, #eee 50%, #ccc 100%);
+    background-image: linear-gradient(to bottom, #eee 50%, #ccc 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC', GradientType=0)
+  }
+  
+  .select2-container--classic .select2-selection--single .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    height: 0;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -2px;
+    position: absolute;
+    top: 50%;
+    width: 0
+  }
+  
+  .select2-container--classic[dir="rtl"] .select2-selection--single .select2-selection__clear {
+    float: left
+  }
+  
+  .select2-container--classic[dir="rtl"] .select2-selection--single .select2-selection__arrow {
+    border: none;
+    border-right: 1px solid #aaa;
+    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    left: 1px;
+    right: auto
+  }
+  
+  .select2-container--classic.select2-container--open .select2-selection--single {
+    border: 1px solid #5897fb
+  }
+  
+  .select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow {
+    background: transparent;
+    border: none
+  }
+  
+  .select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #888 transparent;
+    border-width: 0 4px 5px 4px
+  }
+  
+  .select2-container--classic.select2-container--open.select2-container--above .select2-selection--single {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-image: -webkit-linear-gradient(top, #fff 0%, #eee 50%);
+    background-image: -o-linear-gradient(top, #fff 0%, #eee 50%);
+    background-image: linear-gradient(to bottom, #fff 0%, #eee 50%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0)
+  }
+  
+  .select2-container--classic.select2-container--open.select2-container--below .select2-selection--single {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-image: -webkit-linear-gradient(top, #eee 50%, #fff 100%);
+    background-image: -o-linear-gradient(top, #eee 50%, #fff 100%);
+    background-image: linear-gradient(to bottom, #eee 50%, #fff 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFFFFFFF', GradientType=0)
+  }
+  
+  .select2-container--classic .select2-selection--multiple {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: text;
+    outline: 0;
+    padding-bottom: 5px;
+    padding-right: 5px
+  }
+  
+  .select2-container--classic .select2-selection--multiple:focus {
+    border: 1px solid #5897fb
+  }
+  
+  .select2-container--classic .select2-selection--multiple .select2-selection__clear {
+    display: none
+  }
+  
+  .select2-container--classic .select2-selection--multiple .select2-selection__choice {
+    background-color: #e4e4e4;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 0
+  }
+  
+  .select2-container--classic .select2-selection--multiple .select2-selection__choice__display {
+    cursor: default;
+    padding-left: 2px;
+    padding-right: 5px
+  }
+  
+  .select2-container--classic .select2-selection--multiple .select2-selection__choice__remove {
+    background-color: transparent;
+    border: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #888;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0 4px
+  }
+  
+  .select2-container--classic .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: #555;
+    outline: none
+  }
+  
+  .select2-container--classic[dir="rtl"] .select2-selection--multiple .select2-selection__choice {
+    margin-left: 5px;
+    margin-right: auto
+  }
+  
+  .select2-container--classic[dir="rtl"] .select2-selection--multiple .select2-selection__choice__display {
+    padding-left: 5px;
+    padding-right: 2px
+  }
+  
+  .select2-container--classic[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+  }
+  
+  .select2-container--classic.select2-container--open .select2-selection--multiple {
+    border: 1px solid #5897fb
+  }
+  
+  .select2-container--classic.select2-container--open.select2-container--above .select2-selection--multiple {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+  }
+  
+  .select2-container--classic.select2-container--open.select2-container--below .select2-selection--multiple {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+  }
+  
+  .select2-container--classic .select2-search--dropdown .select2-search__field {
+    border: 1px solid #aaa;
+    outline: 0
+  }
+  
+  .select2-container--classic .select2-search--inline .select2-search__field {
+    outline: 0;
+    box-shadow: none
+  }
+  
+  .select2-container--classic .select2-dropdown {
+    background-color: #fff;
+    border: 1px solid transparent
+  }
+  
+  .select2-container--classic .select2-dropdown--above {
+    border-bottom: none
+  }
+  
+  .select2-container--classic .select2-dropdown--below {
+    border-top: none
+  }
+  
+  .select2-container--classic .select2-results>.select2-results__options {
+    max-height: 200px;
+    overflow-y: auto
+  }
+  
+  .select2-container--classic .select2-results__option--group {
+    padding: 0
+  }
+  
+  .select2-container--classic .select2-results__option--disabled {
+    color: #808080
+  }
+  
+  .select2-container--classic .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #3875d7;
+    color: #fff
+  }
+  
+  .select2-container--classic .select2-results__group {
+    cursor: default;
+    display: block;
+    padding: 6px
+  }
+  
+  .select2-container--classic.select2-container--open .select2-dropdown {
+    border-color: #5897fb
+  }
+  
+  /*!
+   *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+   *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+   */
+  
+  
+  
+  .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0)
+  }
+  
+  .fa-lg {
+    font-size: 1.33333333em;
+    line-height: .75em;
+    vertical-align: -15%
+  }
+  
+  .fa-2x {
+    font-size: 2em
+  }
+  
+  .fa-3x {
+    font-size: 3em
+  }
+  
+  .fa-4x {
+    font-size: 4em
+  }
+  
+  .fa-5x {
+    font-size: 5em
+  }
+  
+  .fa-fw {
+    width: 1.28571429em;
+    text-align: center
+  }
+  
+  .fa-ul {
+    padding-left: 0;
+    margin-left: 2.14285714em;
+    list-style-type: none
+  }
+  
+  .fa-ul>li {
+    position: relative
+  }
+  
+  .fa-li {
+    position: absolute;
+    left: -2.14285714em;
+    width: 2.14285714em;
+    top: .14285714em;
+    text-align: center
+  }
+  
+  .fa-li.fa-lg {
+    left: -1.85714286em
+  }
+  
+  .fa-border {
+    padding: .2em .25em .15em;
+    border: solid .08em #eee;
+    border-radius: .1em
+  }
+  
+  .fa-pull-left {
+    float: left
+  }
+  
+  .fa-pull-right {
+    float: right
+  }
+  
+  .fa.fa-pull-left {
+    margin-right: .3em
+  }
+  
+  .fa.fa-pull-right {
+    margin-left: .3em
+  }
+  
+  .pull-right {
+    float: right
+  }
+  
+  .pull-left {
+    float: left
+  }
+  
+  .fa.pull-left {
+    margin-right: .3em
+  }
+  
+  .fa.pull-right {
+    margin-left: .3em
+  }
+  
+  .fa-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear
+  }
+  
+  .fa-pulse {
+    -webkit-animation: fa-spin 1s infinite steps(8);
+    animation: fa-spin 1s infinite steps(8)
+  }
+  
+  @-webkit-keyframes fa-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg)
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg)
+    }
+  }
+  
+  @keyframes fa-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg)
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg)
+    }
+  }
+  
+  .fa-rotate-90 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg)
+  }
+  
+  .fa-rotate-180 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+  }
+  
+  .fa-rotate-270 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg)
+  }
+  
+  .fa-flip-horizontal {
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+    -webkit-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1)
+  }
+  
+  .fa-flip-vertical {
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+    -webkit-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1)
+  }
+  
+  :root .fa-rotate-90, :root .fa-rotate-180, :root .fa-rotate-270, :root .fa-flip-horizontal, :root .fa-flip-vertical {
+    filter: none
+  }
+  
+  .fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle
+  }
+  
+  .fa-stack-1x, .fa-stack-2x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center
+  }
+  
+  .fa-stack-1x {
+    line-height: inherit
+  }
+  
+  .fa-stack-2x {
+    font-size: 2em
+  }
+  
+  .fa-inverse {
+    color: #fff
+  }
+  
+  .fa-glass:before {
+    content: "Ă¯â‚¬â‚¬"
+  }
+  
+  .fa-music:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-search:before {
+    content: "Ă¯â‚¬â€"
+  }
+  
+  .fa-envelope-o:before {
+    content: "Ă¯â‚¬Æ’"
+  }
+  
+  .fa-heart:before {
+    content: "Ă¯â‚¬â€"
+  }
+  
+  .fa-star:before {
+    content: "Ă¯â‚¬â€¦"
+  }
+  
+  .fa-star-o:before {
+    content: "Ă¯â‚¬â€ "
+  }
+  
+  .fa-user:before {
+    content: "Ă¯â‚¬â€¡"
+  }
+  
+  .fa-film:before {
+    content: "Ă¯â‚¬Ë†"
+  }
+  
+  .fa-th-large:before {
+    content: "Ă¯â‚¬â€°"
+  }
+  
+  .fa-th:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-th-list:before {
+    content: "Ă¯â‚¬â€¹"
+  }
+  
+  .fa-check:before {
+    content: "Ă¯â‚¬Å’"
+  }
+  
+  .fa-remove:before, .fa-close:before, .fa-times:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-search-plus:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-search-minus:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-power-off:before {
+    content: "Ă¯â‚¬â€˜"
+  }
+  
+  .fa-signal:before {
+    content: "Ă¯â‚¬â€™"
+  }
+  
+  .fa-gear:before, .fa-cog:before {
+    content: "Ă¯â‚¬â€œ"
+  }
+  
+  .fa-trash-o:before {
+    content: "Ă¯â‚¬â€"
+  }
+  
+  .fa-home:before {
+    content: "Ă¯â‚¬â€¢"
+  }
+  
+  .fa-file-o:before {
+    content: "Ă¯â‚¬â€“"
+  }
+  
+  .fa-clock-o:before {
+    content: "Ă¯â‚¬â€”"
+  }
+  
+  .fa-road:before {
+    content: "Ă¯â‚¬Ëœ"
+  }
+  
+  .fa-download:before {
+    content: "Ă¯â‚¬â„¢"
+  }
+  
+  .fa-arrow-circle-o-down:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-arrow-circle-o-up:before {
+    content: "Ă¯â‚¬â€º"
+  }
+  
+  .fa-inbox:before {
+    content: "Ă¯â‚¬Å“"
+  }
+  
+  .fa-play-circle-o:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-rotate-right:before, .fa-repeat:before {
+    content: "Ă¯â‚¬Â"
+  }
+  
+  .fa-refresh:before {
+    content: "Ă¯â‚¬Â¡"
+  }
+  
+  .fa-list-alt:before {
+    content: "Ă¯â‚¬Â¢"
+  }
+  
+  .fa-lock:before {
+    content: "Ă¯â‚¬Â£"
+  }
+  
+  .fa-flag:before {
+    content: "Ă¯â‚¬Â¤"
+  }
+  
+  .fa-headphones:before {
+    content: "Ă¯â‚¬Â¥"
+  }
+  
+  .fa-volume-off:before {
+    content: "Ă¯â‚¬Â¦"
+  }
+  
+  .fa-volume-down:before {
+    content: "Ă¯â‚¬Â§"
+  }
+  
+  .fa-volume-up:before {
+    content: "Ă¯â‚¬Â¨"
+  }
+  
+  .fa-qrcode:before {
+    content: "Ă¯â‚¬Â©"
+  }
+  
+  .fa-barcode:before {
+    content: "Ă¯â‚¬Âª"
+  }
+  
+  .fa-tag:before {
+    content: "Ă¯â‚¬Â«"
+  }
+  
+  .fa-tags:before {
+    content: "Ă¯â‚¬Â¬"
+  }
+  
+  .fa-book:before {
+    content: "Ă¯â‚¬Â­"
+  }
+  
+  .fa-bookmark:before {
+    content: "Ă¯â‚¬Â®"
+  }
+  
+  .fa-print:before {
+    content: "Ă¯â‚¬Â¯"
+  }
+  
+  .fa-camera:before {
+    content: "Ă¯â‚¬Â°"
+  }
+  
+  .fa-font:before {
+    content: "Ă¯â‚¬Â±"
+  }
+  
+  .fa-bold:before {
+    content: "Ă¯â‚¬Â²"
+  }
+  
+  .fa-italic:before {
+    content: "Ă¯â‚¬Â³"
+  }
+  
+  .fa-text-height:before {
+    content: "Ă¯â‚¬Â´"
+  }
+  
+  .fa-text-width:before {
+    content: "Ă¯â‚¬Âµ"
+  }
+  
+  .fa-align-left:before {
+    content: "Ă¯â‚¬Â¶"
+  }
+  
+  .fa-align-center:before {
+    content: "Ă¯â‚¬Â·"
+  }
+  
+  .fa-align-right:before {
+    content: "Ă¯â‚¬Â¸"
+  }
+  
+  .fa-align-justify:before {
+    content: "Ă¯â‚¬Â¹"
+  }
+  
+  .fa-list:before {
+    content: "Ă¯â‚¬Âº"
+  }
+  
+  .fa-dedent:before, .fa-outdent:before {
+    content: "Ă¯â‚¬Â»"
+  }
+  
+  .fa-indent:before {
+    content: "Ă¯â‚¬Â¼"
+  }
+  
+  .fa-video-camera:before {
+    content: "Ă¯â‚¬Â½"
+  }
+  
+  .fa-photo:before, .fa-image:before, .fa-picture-o:before {
+    content: "Ă¯â‚¬Â¾"
+  }
+  
+  .fa-pencil:before {
+    content: "Ă¯Ââ‚¬"
+  }
+  
+  .fa-map-marker:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-adjust:before {
+    content: "Ă¯Ââ€"
+  }
+  
+  .fa-tint:before {
+    content: "Ă¯ÂÆ’"
+  }
+  
+  .fa-edit:before, .fa-pencil-square-o:before {
+    content: "Ă¯Ââ€"
+  }
+  
+  .fa-share-square-o:before {
+    content: "Ă¯Ââ€¦"
+  }
+  
+  .fa-check-square-o:before {
+    content: "Ă¯Ââ€ "
+  }
+  
+  .fa-arrows:before {
+    content: "Ă¯Ââ€¡"
+  }
+  
+  .fa-step-backward:before {
+    content: "Ă¯ÂË†"
+  }
+  
+  .fa-fast-backward:before {
+    content: "Ă¯Ââ€°"
+  }
+  
+  .fa-backward:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-play:before {
+    content: "Ă¯Ââ€¹"
+  }
+  
+  .fa-pause:before {
+    content: "Ă¯ÂÅ’"
+  }
+  
+  .fa-stop:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-forward:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-fast-forward:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-step-forward:before {
+    content: "Ă¯Ââ€˜"
+  }
+  
+  .fa-eject:before {
+    content: "Ă¯Ââ€™"
+  }
+  
+  .fa-chevron-left:before {
+    content: "Ă¯Ââ€œ"
+  }
+  
+  .fa-chevron-right:before {
+    content: "Ă¯Ââ€"
+  }
+  
+  .fa-plus-circle:before {
+    content: "Ă¯Ââ€¢"
+  }
+  
+  .fa-minus-circle:before {
+    content: "Ă¯Ââ€“"
+  }
+  
+  .fa-times-circle:before {
+    content: "Ă¯Ââ€”"
+  }
+  
+  .fa-check-circle:before {
+    content: "Ă¯ÂËœ"
+  }
+  
+  .fa-question-circle:before {
+    content: "Ă¯Ââ„¢"
+  }
+  
+  .fa-info-circle:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-crosshairs:before {
+    content: "Ă¯Ââ€º"
+  }
+  
+  .fa-times-circle-o:before {
+    content: "Ă¯ÂÅ“"
+  }
+  
+  .fa-check-circle-o:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-ban:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-arrow-left:before {
+    content: "Ă¯Â "
+  }
+  
+  .fa-arrow-right:before {
+    content: "Ă¯ÂÂ¡"
+  }
+  
+  .fa-arrow-up:before {
+    content: "Ă¯ÂÂ¢"
+  }
+  
+  .fa-arrow-down:before {
+    content: "Ă¯ÂÂ£"
+  }
+  
+  .fa-mail-forward:before, .fa-share:before {
+    content: "Ă¯ÂÂ¤"
+  }
+  
+  .fa-expand:before {
+    content: "Ă¯ÂÂ¥"
+  }
+  
+  .fa-compress:before {
+    content: "Ă¯ÂÂ¦"
+  }
+  
+  .fa-plus:before {
+    content: "Ă¯ÂÂ§"
+  }
+  
+  .fa-minus:before {
+    content: "Ă¯ÂÂ¨"
+  }
+  
+  .fa-asterisk:before {
+    content: "Ă¯ÂÂ©"
+  }
+  
+  .fa-exclamation-circle:before {
+    content: "Ă¯ÂÂª"
+  }
+  
+  .fa-gift:before {
+    content: "Ă¯ÂÂ«"
+  }
+  
+  .fa-leaf:before {
+    content: "Ă¯ÂÂ¬"
+  }
+  
+  .fa-fire:before {
+    content: "Ă¯ÂÂ­"
+  }
+  
+  .fa-eye:before {
+    content: "Ă¯ÂÂ®"
+  }
+  
+  .fa-eye-slash:before {
+    content: "Ă¯ÂÂ°"
+  }
+  
+  .fa-warning:before, .fa-exclamation-triangle:before {
+    content: "Ă¯ÂÂ±"
+  }
+  
+  .fa-plane:before {
+    content: "Ă¯ÂÂ²"
+  }
+  
+  .fa-calendar:before {
+    content: "Ă¯ÂÂ³"
+  }
+  
+  .fa-random:before {
+    content: "Ă¯ÂÂ´"
+  }
+  
+  .fa-comment:before {
+    content: "Ă¯ÂÂµ"
+  }
+  
+  .fa-magnet:before {
+    content: "Ă¯ÂÂ¶"
+  }
+  
+  .fa-chevron-up:before {
+    content: "Ă¯ÂÂ·"
+  }
+  
+  .fa-chevron-down:before {
+    content: "Ă¯ÂÂ¸"
+  }
+  
+  .fa-retweet:before {
+    content: "Ă¯ÂÂ¹"
+  }
+  
+  .fa-shopping-cart:before {
+    content: "Ă¯ÂÂº"
+  }
+  
+  .fa-folder:before {
+    content: "Ă¯ÂÂ»"
+  }
+  
+  .fa-folder-open:before {
+    content: "Ă¯ÂÂ¼"
+  }
+  
+  .fa-arrows-v:before {
+    content: "Ă¯ÂÂ½"
+  }
+  
+  .fa-arrows-h:before {
+    content: "Ă¯ÂÂ¾"
+  }
+  
+  .fa-bar-chart-o:before, .fa-bar-chart:before {
+    content: "Ă¯â€â‚¬"
+  }
+  
+  .fa-twitter-square:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-facebook-square:before {
+    content: "Ă¯â€â€"
+  }
+  
+  .fa-camera-retro:before {
+    content: "Ă¯â€Æ’"
+  }
+  
+  .fa-key:before {
+    content: "Ă¯â€â€"
+  }
+  
+  .fa-gears:before, .fa-cogs:before {
+    content: "Ă¯â€â€¦"
+  }
+  
+  .fa-comments:before {
+    content: "Ă¯â€â€ "
+  }
+  
+  .fa-thumbs-o-up:before {
+    content: "Ă¯â€â€¡"
+  }
+  
+  .fa-thumbs-o-down:before {
+    content: "Ă¯â€Ë†"
+  }
+  
+  .fa-star-half:before {
+    content: "Ă¯â€â€°"
+  }
+  
+  .fa-heart-o:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-sign-out:before {
+    content: "Ă¯â€â€¹"
+  }
+  
+  .fa-linkedin-square:before {
+    content: "Ă¯â€Å’"
+  }
+  
+  .fa-thumb-tack:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-external-link:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-sign-in:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-trophy:before {
+    content: "Ă¯â€â€˜"
+  }
+  
+  .fa-github-square:before {
+    content: "Ă¯â€â€™"
+  }
+  
+  .fa-upload:before {
+    content: "Ă¯â€â€œ"
+  }
+  
+  .fa-lemon-o:before {
+    content: "Ă¯â€â€"
+  }
+  
+  .fa-phone:before {
+    content: "Ă¯â€â€¢"
+  }
+  
+  .fa-square-o:before {
+    content: "Ă¯â€â€“"
+  }
+  
+  .fa-bookmark-o:before {
+    content: "Ă¯â€â€”"
+  }
+  
+  .fa-phone-square:before {
+    content: "Ă¯â€Ëœ"
+  }
+  
+  .fa-twitter:before {
+    content: "Ă¯â€â„¢"
+  }
+  
+  .fa-facebook-f:before, .fa-facebook:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-github:before {
+    content: "Ă¯â€â€º"
+  }
+  
+  .fa-unlock:before {
+    content: "Ă¯â€Å“"
+  }
+  
+  .fa-credit-card:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-feed:before, .fa-rss:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-hdd-o:before {
+    content: "Ă¯â€ "
+  }
+  
+  .fa-bullhorn:before {
+    content: "Ă¯â€Â¡"
+  }
+  
+  .fa-bell:before {
+    content: "Ă¯Æ’Â³"
+  }
+  
+  .fa-certificate:before {
+    content: "Ă¯â€Â£"
+  }
+  
+  .fa-hand-o-right:before {
+    content: "Ă¯â€Â¤"
+  }
+  
+  .fa-hand-o-left:before {
+    content: "Ă¯â€Â¥"
+  }
+  
+  .fa-hand-o-up:before {
+    content: "Ă¯â€Â¦"
+  }
+  
+  .fa-hand-o-down:before {
+    content: "Ă¯â€Â§"
+  }
+  
+  .fa-arrow-circle-left:before {
+    content: "Ă¯â€Â¨"
+  }
+  
+  .fa-arrow-circle-right:before {
+    content: "Ă¯â€Â©"
+  }
+  
+  .fa-arrow-circle-up:before {
+    content: "Ă¯â€Âª"
+  }
+  
+  .fa-arrow-circle-down:before {
+    content: "Ă¯â€Â«"
+  }
+  
+  .fa-globe:before {
+    content: "Ă¯â€Â¬"
+  }
+  
+  .fa-wrench:before {
+    content: "Ă¯â€Â­"
+  }
+  
+  .fa-tasks:before {
+    content: "Ă¯â€Â®"
+  }
+  
+  .fa-filter:before {
+    content: "Ă¯â€Â°"
+  }
+  
+  .fa-briefcase:before {
+    content: "Ă¯â€Â±"
+  }
+  
+  .fa-arrows-alt:before {
+    content: "Ă¯â€Â²"
+  }
+  
+  .fa-group:before, .fa-users:before {
+    content: "Ă¯Æ’â‚¬"
+  }
+  
+  .fa-chain:before, .fa-link:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-cloud:before {
+    content: "Ă¯Æ’â€"
+  }
+  
+  .fa-flask:before {
+    content: "Ă¯Æ’Æ’"
+  }
+  
+  .fa-cut:before, .fa-scissors:before {
+    content: "Ă¯Æ’â€"
+  }
+  
+  .fa-copy:before, .fa-files-o:before {
+    content: "Ă¯Æ’â€¦"
+  }
+  
+  .fa-paperclip:before {
+    content: "Ă¯Æ’â€ "
+  }
+  
+  .fa-save:before, .fa-floppy-o:before {
+    content: "Ă¯Æ’â€¡"
+  }
+  
+  .fa-square:before {
+    content: "Ă¯Æ’Ë†"
+  }
+  
+  .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "Ă¯Æ’â€°"
+  }
+  
+  .fa-list-ul:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-list-ol:before {
+    content: "Ă¯Æ’â€¹"
+  }
+  
+  .fa-strikethrough:before {
+    content: "Ă¯Æ’Å’"
+  }
+  
+  .fa-underline:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-table:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-magic:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-truck:before {
+    content: "Ă¯Æ’â€˜"
+  }
+  
+  .fa-pinterest:before {
+    content: "Ă¯Æ’â€™"
+  }
+  
+  .fa-pinterest-square:before {
+    content: "Ă¯Æ’â€œ"
+  }
+  
+  .fa-google-plus-square:before {
+    content: "Ă¯Æ’â€"
+  }
+  
+  .fa-google-plus:before {
+    content: "Ă¯Æ’â€¢"
+  }
+  
+  .fa-money:before {
+    content: "Ă¯Æ’â€“"
+  }
+  
+  .fa-caret-down:before {
+    content: "Ă¯Æ’â€”"
+  }
+  
+  .fa-caret-up:before {
+    content: "Ă¯Æ’Ëœ"
+  }
+  
+  .fa-caret-left:before {
+    content: "Ă¯Æ’â„¢"
+  }
+  
+  .fa-caret-right:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-columns:before {
+    content: "Ă¯Æ’â€º"
+  }
+  
+  .fa-unsorted:before, .fa-sort:before {
+    content: "Ă¯Æ’Å“"
+  }
+  
+  .fa-sort-down:before, .fa-sort-desc:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-sort-up:before, .fa-sort-asc:before {
+    content: "Ă¯Æ’Â"
+  }
+  
+  .fa-envelope:before {
+    content: "Ă¯Æ’ "
+  }
+  
+  .fa-linkedin:before {
+    content: "Ă¯Æ’Â¡"
+  }
+  
+  .fa-rotate-left:before, .fa-undo:before {
+    content: "Ă¯Æ’Â¢"
+  }
+  
+  .fa-legal:before, .fa-gavel:before {
+    content: "Ă¯Æ’Â£"
+  }
+  
+  .fa-dashboard:before, .fa-tachometer:before {
+    content: "Ă¯Æ’Â¤"
+  }
+  
+  .fa-comment-o:before {
+    content: "Ă¯Æ’Â¥"
+  }
+  
+  .fa-comments-o:before {
+    content: "Ă¯Æ’Â¦"
+  }
+  
+  .fa-flash:before, .fa-bolt:before {
+    content: "Ă¯Æ’Â§"
+  }
+  
+  .fa-sitemap:before {
+    content: "Ă¯Æ’Â¨"
+  }
+  
+  .fa-umbrella:before {
+    content: "Ă¯Æ’Â©"
+  }
+  
+  .fa-paste:before, .fa-clipboard:before {
+    content: "Ă¯Æ’Âª"
+  }
+  
+  .fa-lightbulb-o:before {
+    content: "Ă¯Æ’Â«"
+  }
+  
+  .fa-exchange:before {
+    content: "Ă¯Æ’Â¬"
+  }
+  
+  .fa-cloud-download:before {
+    content: "Ă¯Æ’Â­"
+  }
+  
+  .fa-cloud-upload:before {
+    content: "Ă¯Æ’Â®"
+  }
+  
+  .fa-user-md:before {
+    content: "Ă¯Æ’Â°"
+  }
+  
+  .fa-stethoscope:before {
+    content: "Ă¯Æ’Â±"
+  }
+  
+  .fa-suitcase:before {
+    content: "Ă¯Æ’Â²"
+  }
+  
+  .fa-bell-o:before {
+    content: "Ă¯â€Â¢"
+  }
+  
+  .fa-coffee:before {
+    content: "Ă¯Æ’Â´"
+  }
+  
+  .fa-cutlery:before {
+    content: "Ă¯Æ’Âµ"
+  }
+  
+  .fa-file-text-o:before {
+    content: "Ă¯Æ’Â¶"
+  }
+  
+  .fa-building-o:before {
+    content: "Ă¯Æ’Â·"
+  }
+  
+  .fa-hospital-o:before {
+    content: "Ă¯Æ’Â¸"
+  }
+  
+  .fa-ambulance:before {
+    content: "Ă¯Æ’Â¹"
+  }
+  
+  .fa-medkit:before {
+    content: "Ă¯Æ’Âº"
+  }
+  
+  .fa-fighter-jet:before {
+    content: "Ă¯Æ’Â»"
+  }
+  
+  .fa-beer:before {
+    content: "Ă¯Æ’Â¼"
+  }
+  
+  .fa-h-square:before {
+    content: "Ă¯Æ’Â½"
+  }
+  
+  .fa-plus-square:before {
+    content: "Ă¯Æ’Â¾"
+  }
+  
+  .fa-angle-double-left:before {
+    content: "Ă¯â€â‚¬"
+  }
+  
+  .fa-angle-double-right:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-angle-double-up:before {
+    content: "Ă¯â€â€"
+  }
+  
+  .fa-angle-double-down:before {
+    content: "Ă¯â€Æ’"
+  }
+  
+  .fa-angle-left:before {
+    content: "Ă¯â€â€"
+  }
+  
+  .fa-angle-right:before {
+    content: "Ă¯â€â€¦"
+  }
+  
+  .fa-angle-up:before {
+    content: "Ă¯â€â€ "
+  }
+  
+  .fa-angle-down:before {
+    content: "Ă¯â€â€¡"
+  }
+  
+  .fa-desktop:before {
+    content: "Ă¯â€Ë†"
+  }
+  
+  .fa-laptop:before {
+    content: "Ă¯â€â€°"
+  }
+  
+  .fa-tablet:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-mobile-phone:before, .fa-mobile:before {
+    content: "Ă¯â€â€¹"
+  }
+  
+  .fa-circle-o:before {
+    content: "Ă¯â€Å’"
+  }
+  
+  .fa-quote-left:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-quote-right:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-spinner:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-circle:before {
+    content: "Ă¯â€â€˜"
+  }
+  
+  .fa-mail-reply:before, .fa-reply:before {
+    content: "Ă¯â€â€™"
+  }
+  
+  .fa-github-alt:before {
+    content: "Ă¯â€â€œ"
+  }
+  
+  .fa-folder-o:before {
+    content: "Ă¯â€â€"
+  }
+  
+  .fa-folder-open-o:before {
+    content: "Ă¯â€â€¢"
+  }
+  
+  .fa-smile-o:before {
+    content: "Ă¯â€Ëœ"
+  }
+  
+  .fa-frown-o:before {
+    content: "Ă¯â€â„¢"
+  }
+  
+  .fa-meh-o:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-gamepad:before {
+    content: "Ă¯â€â€º"
+  }
+  
+  .fa-keyboard-o:before {
+    content: "Ă¯â€Å“"
+  }
+  
+  .fa-flag-o:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-flag-checkered:before {
+    content: "Ă¯â€Â"
+  }
+  
+  .fa-terminal:before {
+    content: "Ă¯â€ "
+  }
+  
+  .fa-code:before {
+    content: "Ă¯â€Â¡"
+  }
+  
+  .fa-mail-reply-all:before, .fa-reply-all:before {
+    content: "Ă¯â€Â¢"
+  }
+  
+  .fa-star-half-empty:before, .fa-star-half-full:before, .fa-star-half-o:before {
+    content: "Ă¯â€Â£"
+  }
+  
+  .fa-location-arrow:before {
+    content: "Ă¯â€Â¤"
+  }
+  
+  .fa-crop:before {
+    content: "Ă¯â€Â¥"
+  }
+  
+  .fa-code-fork:before {
+    content: "Ă¯â€Â¦"
+  }
+  
+  .fa-unlink:before, .fa-chain-broken:before {
+    content: "Ă¯â€Â§"
+  }
+  
+  .fa-question:before {
+    content: "Ă¯â€Â¨"
+  }
+  
+  .fa-info:before {
+    content: "Ă¯â€Â©"
+  }
+  
+  .fa-exclamation:before {
+    content: "Ă¯â€Âª"
+  }
+  
+  .fa-superscript:before {
+    content: "Ă¯â€Â«"
+  }
+  
+  .fa-subscript:before {
+    content: "Ă¯â€Â¬"
+  }
+  
+  .fa-eraser:before {
+    content: "Ă¯â€Â­"
+  }
+  
+  .fa-puzzle-piece:before {
+    content: "Ă¯â€Â®"
+  }
+  
+  .fa-microphone:before {
+    content: "Ă¯â€Â°"
+  }
+  
+  .fa-microphone-slash:before {
+    content: "Ă¯â€Â±"
+  }
+  
+  .fa-shield:before {
+    content: "Ă¯â€Â²"
+  }
+  
+  .fa-calendar-o:before {
+    content: "Ă¯â€Â³"
+  }
+  
+  .fa-fire-extinguisher:before {
+    content: "Ă¯â€Â´"
+  }
+  
+  .fa-rocket:before {
+    content: "Ă¯â€Âµ"
+  }
+  
+  .fa-maxcdn:before {
+    content: "Ă¯â€Â¶"
+  }
+  
+  .fa-chevron-circle-left:before {
+    content: "Ă¯â€Â·"
+  }
+  
+  .fa-chevron-circle-right:before {
+    content: "Ă¯â€Â¸"
+  }
+  
+  .fa-chevron-circle-up:before {
+    content: "Ă¯â€Â¹"
+  }
+  
+  .fa-chevron-circle-down:before {
+    content: "Ă¯â€Âº"
+  }
+  
+  .fa-html5:before {
+    content: "Ă¯â€Â»"
+  }
+  
+  .fa-css3:before {
+    content: "Ă¯â€Â¼"
+  }
+  
+  .fa-anchor:before {
+    content: "Ă¯â€Â½"
+  }
+  
+  .fa-unlock-alt:before {
+    content: "Ă¯â€Â¾"
+  }
+  
+  .fa-bullseye:before {
+    content: "Ă¯â€¦â‚¬"
+  }
+  
+  .fa-ellipsis-h:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-ellipsis-v:before {
+    content: "Ă¯â€¦â€"
+  }
+  
+  .fa-rss-square:before {
+    content: "Ă¯â€¦Æ’"
+  }
+  
+  .fa-play-circle:before {
+    content: "Ă¯â€¦â€"
+  }
+  
+  .fa-ticket:before {
+    content: "Ă¯â€¦â€¦"
+  }
+  
+  .fa-minus-square:before {
+    content: "Ă¯â€¦â€ "
+  }
+  
+  .fa-minus-square-o:before {
+    content: "Ă¯â€¦â€¡"
+  }
+  
+  .fa-level-up:before {
+    content: "Ă¯â€¦Ë†"
+  }
+  
+  .fa-level-down:before {
+    content: "Ă¯â€¦â€°"
+  }
+  
+  .fa-check-square:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-pencil-square:before {
+    content: "Ă¯â€¦â€¹"
+  }
+  
+  .fa-external-link-square:before {
+    content: "Ă¯â€¦Å’"
+  }
+  
+  .fa-share-square:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-compass:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-toggle-down:before, .fa-caret-square-o-down:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-toggle-up:before, .fa-caret-square-o-up:before {
+    content: "Ă¯â€¦â€˜"
+  }
+  
+  .fa-toggle-right:before, .fa-caret-square-o-right:before {
+    content: "Ă¯â€¦â€™"
+  }
+  
+  .fa-euro:before, .fa-eur:before {
+    content: "Ă¯â€¦â€œ"
+  }
+  
+  .fa-gbp:before {
+    content: "Ă¯â€¦â€"
+  }
+  
+  .fa-dollar:before, .fa-usd:before {
+    content: "Ă¯â€¦â€¢"
+  }
+  
+  .fa-rupee:before, .fa-inr:before {
+    content: "Ă¯â€¦â€“"
+  }
+  
+  .fa-cny:before, .fa-rmb:before, .fa-yen:before, .fa-jpy:before {
+    content: "Ă¯â€¦â€”"
+  }
+  
+  .fa-ruble:before, .fa-rouble:before, .fa-rub:before {
+    content: "Ă¯â€¦Ëœ"
+  }
+  
+  .fa-won:before, .fa-krw:before {
+    content: "Ă¯â€¦â„¢"
+  }
+  
+  .fa-bitcoin:before, .fa-btc:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-file:before {
+    content: "Ă¯â€¦â€º"
+  }
+  
+  .fa-file-text:before {
+    content: "Ă¯â€¦Å“"
+  }
+  
+  .fa-sort-alpha-asc:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-sort-alpha-desc:before {
+    content: "Ă¯â€¦Â"
+  }
+  
+  .fa-sort-amount-asc:before {
+    content: "Ă¯â€¦ "
+  }
+  
+  .fa-sort-amount-desc:before {
+    content: "Ă¯â€¦Â¡"
+  }
+  
+  .fa-sort-numeric-asc:before {
+    content: "Ă¯â€¦Â¢"
+  }
+  
+  .fa-sort-numeric-desc:before {
+    content: "Ă¯â€¦Â£"
+  }
+  
+  .fa-thumbs-up:before {
+    content: "Ă¯â€¦Â¤"
+  }
+  
+  .fa-thumbs-down:before {
+    content: "Ă¯â€¦Â¥"
+  }
+  
+  .fa-youtube-square:before {
+    content: "Ă¯â€¦Â¦"
+  }
+  
+  .fa-youtube:before {
+    content: "Ă¯â€¦Â§"
+  }
+  
+  .fa-xing:before {
+    content: "Ă¯â€¦Â¨"
+  }
+  
+  .fa-xing-square:before {
+    content: "Ă¯â€¦Â©"
+  }
+  
+  .fa-youtube-play:before {
+    content: "Ă¯â€¦Âª"
+  }
+  
+  .fa-dropbox:before {
+    content: "Ă¯â€¦Â«"
+  }
+  
+  .fa-stack-overflow:before {
+    content: "Ă¯â€¦Â¬"
+  }
+  
+  .fa-instagram:before {
+    content: "Ă¯â€¦Â­"
+  }
+  
+  .fa-flickr:before {
+    content: "Ă¯â€¦Â®"
+  }
+  
+  .fa-adn:before {
+    content: "Ă¯â€¦Â°"
+  }
+  
+  .fa-bitbucket:before {
+    content: "Ă¯â€¦Â±"
+  }
+  
+  .fa-bitbucket-square:before {
+    content: "Ă¯â€¦Â²"
+  }
+  
+  .fa-tumblr:before {
+    content: "Ă¯â€¦Â³"
+  }
+  
+  .fa-tumblr-square:before {
+    content: "Ă¯â€¦Â´"
+  }
+  
+  .fa-long-arrow-down:before {
+    content: "Ă¯â€¦Âµ"
+  }
+  
+  .fa-long-arrow-up:before {
+    content: "Ă¯â€¦Â¶"
+  }
+  
+  .fa-long-arrow-left:before {
+    content: "Ă¯â€¦Â·"
+  }
+  
+  .fa-long-arrow-right:before {
+    content: "Ă¯â€¦Â¸"
+  }
+  
+  .fa-apple:before {
+    content: "Ă¯â€¦Â¹"
+  }
+  
+  .fa-windows:before {
+    content: "Ă¯â€¦Âº"
+  }
+  
+  .fa-android:before {
+    content: "Ă¯â€¦Â»"
+  }
+  
+  .fa-linux:before {
+    content: "Ă¯â€¦Â¼"
+  }
+  
+  .fa-dribbble:before {
+    content: "Ă¯â€¦Â½"
+  }
+  
+  .fa-skype:before {
+    content: "Ă¯â€¦Â¾"
+  }
+  
+  .fa-foursquare:before {
+    content: "Ă¯â€ â‚¬"
+  }
+  
+  .fa-trello:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-female:before {
+    content: "Ă¯â€ â€"
+  }
+  
+  .fa-male:before {
+    content: "Ă¯â€ Æ’"
+  }
+  
+  .fa-gittip:before, .fa-gratipay:before {
+    content: "Ă¯â€ â€"
+  }
+  
+  .fa-sun-o:before {
+    content: "Ă¯â€ â€¦"
+  }
+  
+  .fa-moon-o:before {
+    content: "Ă¯â€ â€ "
+  }
+  
+  .fa-archive:before {
+    content: "Ă¯â€ â€¡"
+  }
+  
+  .fa-bug:before {
+    content: "Ă¯â€ Ë†"
+  }
+  
+  .fa-vk:before {
+    content: "Ă¯â€ â€°"
+  }
+  
+  .fa-weibo:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-renren:before {
+    content: "Ă¯â€ â€¹"
+  }
+  
+  .fa-pagelines:before {
+    content: "Ă¯â€ Å’"
+  }
+  
+  .fa-stack-exchange:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-arrow-circle-o-right:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-arrow-circle-o-left:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-toggle-left:before, .fa-caret-square-o-left:before {
+    content: "Ă¯â€ â€˜"
+  }
+  
+  .fa-dot-circle-o:before {
+    content: "Ă¯â€ â€™"
+  }
+  
+  .fa-wheelchair:before {
+    content: "Ă¯â€ â€œ"
+  }
+  
+  .fa-vimeo-square:before {
+    content: "Ă¯â€ â€"
+  }
+  
+  .fa-turkish-lira:before, .fa-try:before {
+    content: "Ă¯â€ â€¢"
+  }
+  
+  .fa-plus-square-o:before {
+    content: "Ă¯â€ â€“"
+  }
+  
+  .fa-space-shuttle:before {
+    content: "Ă¯â€ â€”"
+  }
+  
+  .fa-slack:before {
+    content: "Ă¯â€ Ëœ"
+  }
+  
+  .fa-envelope-square:before {
+    content: "Ă¯â€ â„¢"
+  }
+  
+  .fa-wordpress:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-openid:before {
+    content: "Ă¯â€ â€º"
+  }
+  
+  .fa-institution:before, .fa-bank:before, .fa-university:before {
+    content: "Ă¯â€ Å“"
+  }
+  
+  .fa-mortar-board:before, .fa-graduation-cap:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-yahoo:before {
+    content: "Ă¯â€ Â"
+  }
+  
+  .fa-google:before {
+    content: "Ă¯â€  "
+  }
+  
+  .fa-reddit:before {
+    content: "Ă¯â€ Â¡"
+  }
+  
+  .fa-reddit-square:before {
+    content: "Ă¯â€ Â¢"
+  }
+  
+  .fa-stumbleupon-circle:before {
+    content: "Ă¯â€ Â£"
+  }
+  
+  .fa-stumbleupon:before {
+    content: "Ă¯â€ Â¤"
+  }
+  
+  .fa-delicious:before {
+    content: "Ă¯â€ Â¥"
+  }
+  
+  .fa-digg:before {
+    content: "Ă¯â€ Â¦"
+  }
+  
+  .fa-pied-piper-pp:before {
+    content: "Ă¯â€ Â§"
+  }
+  
+  .fa-pied-piper-alt:before {
+    content: "Ă¯â€ Â¨"
+  }
+  
+  .fa-drupal:before {
+    content: "Ă¯â€ Â©"
+  }
+  
+  .fa-joomla:before {
+    content: "Ă¯â€ Âª"
+  }
+  
+  .fa-language:before {
+    content: "Ă¯â€ Â«"
+  }
+  
+  .fa-fax:before {
+    content: "Ă¯â€ Â¬"
+  }
+  
+  .fa-building:before {
+    content: "Ă¯â€ Â­"
+  }
+  
+  .fa-child:before {
+    content: "Ă¯â€ Â®"
+  }
+  
+  .fa-paw:before {
+    content: "Ă¯â€ Â°"
+  }
+  
+  .fa-spoon:before {
+    content: "Ă¯â€ Â±"
+  }
+  
+  .fa-cube:before {
+    content: "Ă¯â€ Â²"
+  }
+  
+  .fa-cubes:before {
+    content: "Ă¯â€ Â³"
+  }
+  
+  .fa-behance:before {
+    content: "Ă¯â€ Â´"
+  }
+  
+  .fa-behance-square:before {
+    content: "Ă¯â€ Âµ"
+  }
+  
+  .fa-steam:before {
+    content: "Ă¯â€ Â¶"
+  }
+  
+  .fa-steam-square:before {
+    content: "Ă¯â€ Â·"
+  }
+  
+  .fa-recycle:before {
+    content: "Ă¯â€ Â¸"
+  }
+  
+  .fa-automobile:before, .fa-car:before {
+    content: "Ă¯â€ Â¹"
+  }
+  
+  .fa-cab:before, .fa-taxi:before {
+    content: "Ă¯â€ Âº"
+  }
+  
+  .fa-tree:before {
+    content: "Ă¯â€ Â»"
+  }
+  
+  .fa-spotify:before {
+    content: "Ă¯â€ Â¼"
+  }
+  
+  .fa-deviantart:before {
+    content: "Ă¯â€ Â½"
+  }
+  
+  .fa-soundcloud:before {
+    content: "Ă¯â€ Â¾"
+  }
+  
+  .fa-database:before {
+    content: "Ă¯â€¡â‚¬"
+  }
+  
+  .fa-file-pdf-o:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-file-word-o:before {
+    content: "Ă¯â€¡â€"
+  }
+  
+  .fa-file-excel-o:before {
+    content: "Ă¯â€¡Æ’"
+  }
+  
+  .fa-file-powerpoint-o:before {
+    content: "Ă¯â€¡â€"
+  }
+  
+  .fa-file-photo-o:before, .fa-file-picture-o:before, .fa-file-image-o:before {
+    content: "Ă¯â€¡â€¦"
+  }
+  
+  .fa-file-zip-o:before, .fa-file-archive-o:before {
+    content: "Ă¯â€¡â€ "
+  }
+  
+  .fa-file-sound-o:before, .fa-file-audio-o:before {
+    content: "Ă¯â€¡â€¡"
+  }
+  
+  .fa-file-movie-o:before, .fa-file-video-o:before {
+    content: "Ă¯â€¡Ë†"
+  }
+  
+  .fa-file-code-o:before {
+    content: "Ă¯â€¡â€°"
+  }
+  
+  .fa-vine:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-codepen:before {
+    content: "Ă¯â€¡â€¹"
+  }
+  
+  .fa-jsfiddle:before {
+    content: "Ă¯â€¡Å’"
+  }
+  
+  .fa-life-bouy:before, .fa-life-buoy:before, .fa-life-saver:before, .fa-support:before, .fa-life-ring:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-circle-o-notch:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-ra:before, .fa-resistance:before, .fa-rebel:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-ge:before, .fa-empire:before {
+    content: "Ă¯â€¡â€˜"
+  }
+  
+  .fa-git-square:before {
+    content: "Ă¯â€¡â€™"
+  }
+  
+  .fa-git:before {
+    content: "Ă¯â€¡â€œ"
+  }
+  
+  .fa-y-combinator-square:before, .fa-yc-square:before, .fa-hacker-news:before {
+    content: "Ă¯â€¡â€"
+  }
+  
+  .fa-tencent-weibo:before {
+    content: "Ă¯â€¡â€¢"
+  }
+  
+  .fa-qq:before {
+    content: "Ă¯â€¡â€“"
+  }
+  
+  .fa-wechat:before, .fa-weixin:before {
+    content: "Ă¯â€¡â€”"
+  }
+  
+  .fa-send:before, .fa-paper-plane:before {
+    content: "Ă¯â€¡Ëœ"
+  }
+  
+  .fa-send-o:before, .fa-paper-plane-o:before {
+    content: "Ă¯â€¡â„¢"
+  }
+  
+  .fa-history:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-circle-thin:before {
+    content: "Ă¯â€¡â€º"
+  }
+  
+  .fa-header:before {
+    content: "Ă¯â€¡Å“"
+  }
+  
+  .fa-paragraph:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-sliders:before {
+    content: "Ă¯â€¡Â"
+  }
+  
+  .fa-share-alt:before {
+    content: "Ă¯â€¡ "
+  }
+  
+  .fa-share-alt-square:before {
+    content: "Ă¯â€¡Â¡"
+  }
+  
+  .fa-bomb:before {
+    content: "Ă¯â€¡Â¢"
+  }
+  
+  .fa-soccer-ball-o:before, .fa-futbol-o:before {
+    content: "Ă¯â€¡Â£"
+  }
+  
+  .fa-tty:before {
+    content: "Ă¯â€¡Â¤"
+  }
+  
+  .fa-binoculars:before {
+    content: "Ă¯â€¡Â¥"
+  }
+  
+  .fa-plug:before {
+    content: "Ă¯â€¡Â¦"
+  }
+  
+  .fa-slideshare:before {
+    content: "Ă¯â€¡Â§"
+  }
+  
+  .fa-twitch:before {
+    content: "Ă¯â€¡Â¨"
+  }
+  
+  .fa-yelp:before {
+    content: "Ă¯â€¡Â©"
+  }
+  
+  .fa-newspaper-o:before {
+    content: "Ă¯â€¡Âª"
+  }
+  
+  .fa-wifi:before {
+    content: "Ă¯â€¡Â«"
+  }
+  
+  .fa-calculator:before {
+    content: "Ă¯â€¡Â¬"
+  }
+  
+  .fa-paypal:before {
+    content: "Ă¯â€¡Â­"
+  }
+  
+  .fa-google-wallet:before {
+    content: "Ă¯â€¡Â®"
+  }
+  
+  .fa-cc-visa:before {
+    content: "Ă¯â€¡Â°"
+  }
+  
+  .fa-cc-mastercard:before {
+    content: "Ă¯â€¡Â±"
+  }
+  
+  .fa-cc-discover:before {
+    content: "Ă¯â€¡Â²"
+  }
+  
+  .fa-cc-amex:before {
+    content: "Ă¯â€¡Â³"
+  }
+  
+  .fa-cc-paypal:before {
+    content: "Ă¯â€¡Â´"
+  }
+  
+  .fa-cc-stripe:before {
+    content: "Ă¯â€¡Âµ"
+  }
+  
+  .fa-bell-slash:before {
+    content: "Ă¯â€¡Â¶"
+  }
+  
+  .fa-bell-slash-o:before {
+    content: "Ă¯â€¡Â·"
+  }
+  
+  .fa-trash:before {
+    content: "Ă¯â€¡Â¸"
+  }
+  
+  .fa-copyright:before {
+    content: "Ă¯â€¡Â¹"
+  }
+  
+  .fa-at:before {
+    content: "Ă¯â€¡Âº"
+  }
+  
+  .fa-eyedropper:before {
+    content: "Ă¯â€¡Â»"
+  }
+  
+  .fa-paint-brush:before {
+    content: "Ă¯â€¡Â¼"
+  }
+  
+  .fa-birthday-cake:before {
+    content: "Ă¯â€¡Â½"
+  }
+  
+  .fa-area-chart:before {
+    content: "Ă¯â€¡Â¾"
+  }
+  
+  .fa-pie-chart:before {
+    content: "Ă¯Ë†â‚¬"
+  }
+  
+  .fa-line-chart:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-lastfm:before {
+    content: "Ă¯Ë†â€"
+  }
+  
+  .fa-lastfm-square:before {
+    content: "Ă¯Ë†Æ’"
+  }
+  
+  .fa-toggle-off:before {
+    content: "Ă¯Ë†â€"
+  }
+  
+  .fa-toggle-on:before {
+    content: "Ă¯Ë†â€¦"
+  }
+  
+  .fa-bicycle:before {
+    content: "Ă¯Ë†â€ "
+  }
+  
+  .fa-bus:before {
+    content: "Ă¯Ë†â€¡"
+  }
+  
+  .fa-ioxhost:before {
+    content: "Ă¯Ë†Ë†"
+  }
+  
+  .fa-angellist:before {
+    content: "Ă¯Ë†â€°"
+  }
+  
+  .fa-cc:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-shekel:before, .fa-sheqel:before, .fa-ils:before {
+    content: "Ă¯Ë†â€¹"
+  }
+  
+  .fa-meanpath:before {
+    content: "Ă¯Ë†Å’"
+  }
+  
+  .fa-buysellads:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-connectdevelop:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-dashcube:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-forumbee:before {
+    content: "Ă¯Ë†â€˜"
+  }
+  
+  .fa-leanpub:before {
+    content: "Ă¯Ë†â€™"
+  }
+  
+  .fa-sellsy:before {
+    content: "Ă¯Ë†â€œ"
+  }
+  
+  .fa-shirtsinbulk:before {
+    content: "Ă¯Ë†â€"
+  }
+  
+  .fa-simplybuilt:before {
+    content: "Ă¯Ë†â€¢"
+  }
+  
+  .fa-skyatlas:before {
+    content: "Ă¯Ë†â€“"
+  }
+  
+  .fa-cart-plus:before {
+    content: "Ă¯Ë†â€”"
+  }
+  
+  .fa-cart-arrow-down:before {
+    content: "Ă¯Ë†Ëœ"
+  }
+  
+  .fa-diamond:before {
+    content: "Ă¯Ë†â„¢"
+  }
+  
+  .fa-ship:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-user-secret:before {
+    content: "Ă¯Ë†â€º"
+  }
+  
+  .fa-motorcycle:before {
+    content: "Ă¯Ë†Å“"
+  }
+  
+  .fa-street-view:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-heartbeat:before {
+    content: "Ă¯Ë†Â"
+  }
+  
+  .fa-venus:before {
+    content: "Ă¯Ë†Â¡"
+  }
+  
+  .fa-mars:before {
+    content: "Ă¯Ë†Â¢"
+  }
+  
+  .fa-mercury:before {
+    content: "Ă¯Ë†Â£"
+  }
+  
+  .fa-intersex:before, .fa-transgender:before {
+    content: "Ă¯Ë†Â¤"
+  }
+  
+  .fa-transgender-alt:before {
+    content: "Ă¯Ë†Â¥"
+  }
+  
+  .fa-venus-double:before {
+    content: "Ă¯Ë†Â¦"
+  }
+  
+  .fa-mars-double:before {
+    content: "Ă¯Ë†Â§"
+  }
+  
+  .fa-venus-mars:before {
+    content: "Ă¯Ë†Â¨"
+  }
+  
+  .fa-mars-stroke:before {
+    content: "Ă¯Ë†Â©"
+  }
+  
+  .fa-mars-stroke-v:before {
+    content: "Ă¯Ë†Âª"
+  }
+  
+  .fa-mars-stroke-h:before {
+    content: "Ă¯Ë†Â«"
+  }
+  
+  .fa-neuter:before {
+    content: "Ă¯Ë†Â¬"
+  }
+  
+  .fa-genderless:before {
+    content: "Ă¯Ë†Â­"
+  }
+  
+  .fa-facebook-official:before {
+    content: "Ă¯Ë†Â°"
+  }
+  
+  .fa-pinterest-p:before {
+    content: "Ă¯Ë†Â±"
+  }
+  
+  .fa-whatsapp:before {
+    content: "Ă¯Ë†Â²"
+  }
+  
+  .fa-server:before {
+    content: "Ă¯Ë†Â³"
+  }
+  
+  .fa-user-plus:before {
+    content: "Ă¯Ë†Â´"
+  }
+  
+  .fa-user-times:before {
+    content: "Ă¯Ë†Âµ"
+  }
+  
+  .fa-hotel:before, .fa-bed:before {
+    content: "Ă¯Ë†Â¶"
+  }
+  
+  .fa-viacoin:before {
+    content: "Ă¯Ë†Â·"
+  }
+  
+  .fa-train:before {
+    content: "Ă¯Ë†Â¸"
+  }
+  
+  .fa-subway:before {
+    content: "Ă¯Ë†Â¹"
+  }
+  
+  .fa-medium:before {
+    content: "Ă¯Ë†Âº"
+  }
+  
+  .fa-yc:before, .fa-y-combinator:before {
+    content: "Ă¯Ë†Â»"
+  }
+  
+  .fa-optin-monster:before {
+    content: "Ă¯Ë†Â¼"
+  }
+  
+  .fa-opencart:before {
+    content: "Ă¯Ë†Â½"
+  }
+  
+  .fa-expeditedssl:before {
+    content: "Ă¯Ë†Â¾"
+  }
+  
+  .fa-battery-4:before, .fa-battery:before, .fa-battery-full:before {
+    content: "Ă¯â€°â‚¬"
+  }
+  
+  .fa-battery-3:before, .fa-battery-three-quarters:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-battery-2:before, .fa-battery-half:before {
+    content: "Ă¯â€°â€"
+  }
+  
+  .fa-battery-1:before, .fa-battery-quarter:before {
+    content: "Ă¯â€°Æ’"
+  }
+  
+  .fa-battery-0:before, .fa-battery-empty:before {
+    content: "Ă¯â€°â€"
+  }
+  
+  .fa-mouse-pointer:before {
+    content: "Ă¯â€°â€¦"
+  }
+  
+  .fa-i-cursor:before {
+    content: "Ă¯â€°â€ "
+  }
+  
+  .fa-object-group:before {
+    content: "Ă¯â€°â€¡"
+  }
+  
+  .fa-object-ungroup:before {
+    content: "Ă¯â€°Ë†"
+  }
+  
+  .fa-sticky-note:before {
+    content: "Ă¯â€°â€°"
+  }
+  
+  .fa-sticky-note-o:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-cc-jcb:before {
+    content: "Ă¯â€°â€¹"
+  }
+  
+  .fa-cc-diners-club:before {
+    content: "Ă¯â€°Å’"
+  }
+  
+  .fa-clone:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-balance-scale:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-hourglass-o:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-hourglass-1:before, .fa-hourglass-start:before {
+    content: "Ă¯â€°â€˜"
+  }
+  
+  .fa-hourglass-2:before, .fa-hourglass-half:before {
+    content: "Ă¯â€°â€™"
+  }
+  
+  .fa-hourglass-3:before, .fa-hourglass-end:before {
+    content: "Ă¯â€°â€œ"
+  }
+  
+  .fa-hourglass:before {
+    content: "Ă¯â€°â€"
+  }
+  
+  .fa-hand-grab-o:before, .fa-hand-rock-o:before {
+    content: "Ă¯â€°â€¢"
+  }
+  
+  .fa-hand-stop-o:before, .fa-hand-paper-o:before {
+    content: "Ă¯â€°â€“"
+  }
+  
+  .fa-hand-scissors-o:before {
+    content: "Ă¯â€°â€”"
+  }
+  
+  .fa-hand-lizard-o:before {
+    content: "Ă¯â€°Ëœ"
+  }
+  
+  .fa-hand-spock-o:before {
+    content: "Ă¯â€°â„¢"
+  }
+  
+  .fa-hand-pointer-o:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-hand-peace-o:before {
+    content: "Ă¯â€°â€º"
+  }
+  
+  .fa-trademark:before {
+    content: "Ă¯â€°Å“"
+  }
+  
+  .fa-registered:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-creative-commons:before {
+    content: "Ă¯â€°Â"
+  }
+  
+  .fa-gg:before {
+    content: "Ă¯â€° "
+  }
+  
+  .fa-gg-circle:before {
+    content: "Ă¯â€°Â¡"
+  }
+  
+  .fa-tripadvisor:before {
+    content: "Ă¯â€°Â¢"
+  }
+  
+  .fa-odnoklassniki:before {
+    content: "Ă¯â€°Â£"
+  }
+  
+  .fa-odnoklassniki-square:before {
+    content: "Ă¯â€°Â¤"
+  }
+  
+  .fa-get-pocket:before {
+    content: "Ă¯â€°Â¥"
+  }
+  
+  .fa-wikipedia-w:before {
+    content: "Ă¯â€°Â¦"
+  }
+  
+  .fa-safari:before {
+    content: "Ă¯â€°Â§"
+  }
+  
+  .fa-chrome:before {
+    content: "Ă¯â€°Â¨"
+  }
+  
+  .fa-firefox:before {
+    content: "Ă¯â€°Â©"
+  }
+  
+  .fa-opera:before {
+    content: "Ă¯â€°Âª"
+  }
+  
+  .fa-internet-explorer:before {
+    content: "Ă¯â€°Â«"
+  }
+  
+  .fa-tv:before, .fa-television:before {
+    content: "Ă¯â€°Â¬"
+  }
+  
+  .fa-contao:before {
+    content: "Ă¯â€°Â­"
+  }
+  
+  .fa-500px:before {
+    content: "Ă¯â€°Â®"
+  }
+  
+  .fa-amazon:before {
+    content: "Ă¯â€°Â°"
+  }
+  
+  .fa-calendar-plus-o:before {
+    content: "Ă¯â€°Â±"
+  }
+  
+  .fa-calendar-minus-o:before {
+    content: "Ă¯â€°Â²"
+  }
+  
+  .fa-calendar-times-o:before {
+    content: "Ă¯â€°Â³"
+  }
+  
+  .fa-calendar-check-o:before {
+    content: "Ă¯â€°Â´"
+  }
+  
+  .fa-industry:before {
+    content: "Ă¯â€°Âµ"
+  }
+  
+  .fa-map-pin:before {
+    content: "Ă¯â€°Â¶"
+  }
+  
+  .fa-map-signs:before {
+    content: "Ă¯â€°Â·"
+  }
+  
+  .fa-map-o:before {
+    content: "Ă¯â€°Â¸"
+  }
+  
+  .fa-map:before {
+    content: "Ă¯â€°Â¹"
+  }
+  
+  .fa-commenting:before {
+    content: "Ă¯â€°Âº"
+  }
+  
+  .fa-commenting-o:before {
+    content: "Ă¯â€°Â»"
+  }
+  
+  .fa-houzz:before {
+    content: "Ă¯â€°Â¼"
+  }
+  
+  .fa-vimeo:before {
+    content: "Ă¯â€°Â½"
+  }
+  
+  .fa-black-tie:before {
+    content: "Ă¯â€°Â¾"
+  }
+  
+  .fa-fonticons:before {
+    content: "Ă¯Ââ‚¬"
+  }
+  
+  .fa-reddit-alien:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-edge:before {
+    content: "Ă¯Ââ€"
+  }
+  
+  .fa-credit-card-alt:before {
+    content: "Ă¯ÂÆ’"
+  }
+  
+  .fa-codiepie:before {
+    content: "Ă¯Ââ€"
+  }
+  
+  .fa-modx:before {
+    content: "Ă¯Ââ€¦"
+  }
+  
+  .fa-fort-awesome:before {
+    content: "Ă¯Ââ€ "
+  }
+  
+  .fa-usb:before {
+    content: "Ă¯Ââ€¡"
+  }
+  
+  .fa-product-hunt:before {
+    content: "Ă¯ÂË†"
+  }
+  
+  .fa-mixcloud:before {
+    content: "Ă¯Ââ€°"
+  }
+  
+  .fa-scribd:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-pause-circle:before {
+    content: "Ă¯Ââ€¹"
+  }
+  
+  .fa-pause-circle-o:before {
+    content: "Ă¯ÂÅ’"
+  }
+  
+  .fa-stop-circle:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-stop-circle-o:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-shopping-bag:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-shopping-basket:before {
+    content: "Ă¯Ââ€˜"
+  }
+  
+  .fa-hashtag:before {
+    content: "Ă¯Ââ€™"
+  }
+  
+  .fa-bluetooth:before {
+    content: "Ă¯Ââ€œ"
+  }
+  
+  .fa-bluetooth-b:before {
+    content: "Ă¯Ââ€"
+  }
+  
+  .fa-percent:before {
+    content: "Ă¯Ââ€¢"
+  }
+  
+  .fa-gitlab:before {
+    content: "Ă¯Ââ€“"
+  }
+  
+  .fa-wpbeginner:before {
+    content: "Ă¯Ââ€”"
+  }
+  
+  .fa-wpforms:before {
+    content: "Ă¯ÂËœ"
+  }
+  
+  .fa-envira:before {
+    content: "Ă¯Ââ„¢"
+  }
+  
+  .fa-universal-access:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-wheelchair-alt:before {
+    content: "Ă¯Ââ€º"
+  }
+  
+  .fa-question-circle-o:before {
+    content: "Ă¯ÂÅ“"
+  }
+  
+  .fa-blind:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-audio-description:before {
+    content: "Ă¯ÂÂ"
+  }
+  
+  .fa-volume-control-phone:before {
+    content: "Ă¯Â "
+  }
+  
+  .fa-braille:before {
+    content: "Ă¯ÂÂ¡"
+  }
+  
+  .fa-assistive-listening-systems:before {
+    content: "Ă¯ÂÂ¢"
+  }
+  
+  .fa-asl-interpreting:before, .fa-american-sign-language-interpreting:before {
+    content: "Ă¯ÂÂ£"
+  }
+  
+  .fa-deafness:before, .fa-hard-of-hearing:before, .fa-deaf:before {
+    content: "Ă¯ÂÂ¤"
+  }
+  
+  .fa-glide:before {
+    content: "Ă¯ÂÂ¥"
+  }
+  
+  .fa-glide-g:before {
+    content: "Ă¯ÂÂ¦"
+  }
+  
+  .fa-signing:before, .fa-sign-language:before {
+    content: "Ă¯ÂÂ§"
+  }
+  
+  .fa-low-vision:before {
+    content: "Ă¯ÂÂ¨"
+  }
+  
+  .fa-viadeo:before {
+    content: "Ă¯ÂÂ©"
+  }
+  
+  .fa-viadeo-square:before {
+    content: "Ă¯ÂÂª"
+  }
+  
+  .fa-snapchat:before {
+    content: "Ă¯ÂÂ«"
+  }
+  
+  .fa-snapchat-ghost:before {
+    content: "Ă¯ÂÂ¬"
+  }
+  
+  .fa-snapchat-square:before {
+    content: "Ă¯ÂÂ­"
+  }
+  
+  .fa-pied-piper:before {
+    content: "Ă¯ÂÂ®"
+  }
+  
+  .fa-first-order:before {
+    content: "Ă¯ÂÂ°"
+  }
+  
+  .fa-yoast:before {
+    content: "Ă¯ÂÂ±"
+  }
+  
+  .fa-themeisle:before {
+    content: "Ă¯ÂÂ²"
+  }
+  
+  .fa-google-plus-circle:before, .fa-google-plus-official:before {
+    content: "Ă¯ÂÂ³"
+  }
+  
+  .fa-fa:before, .fa-font-awesome:before {
+    content: "Ă¯ÂÂ´"
+  }
+  
+  .fa-handshake-o:before {
+    content: "Ă¯ÂÂµ"
+  }
+  
+  .fa-envelope-open:before {
+    content: "Ă¯ÂÂ¶"
+  }
+  
+  .fa-envelope-open-o:before {
+    content: "Ă¯ÂÂ·"
+  }
+  
+  .fa-linode:before {
+    content: "Ă¯ÂÂ¸"
+  }
+  
+  .fa-address-book:before {
+    content: "Ă¯ÂÂ¹"
+  }
+  
+  .fa-address-book-o:before {
+    content: "Ă¯ÂÂº"
+  }
+  
+  .fa-vcard:before, .fa-address-card:before {
+    content: "Ă¯ÂÂ»"
+  }
+  
+  .fa-vcard-o:before, .fa-address-card-o:before {
+    content: "Ă¯ÂÂ¼"
+  }
+  
+  .fa-user-circle:before {
+    content: "Ă¯ÂÂ½"
+  }
+  
+  .fa-user-circle-o:before {
+    content: "Ă¯ÂÂ¾"
+  }
+  
+  .fa-user-o:before {
+    content: "Ă¯â€¹â‚¬"
+  }
+  
+  .fa-id-badge:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-drivers-license:before, .fa-id-card:before {
+    content: "Ă¯â€¹â€"
+  }
+  
+  .fa-drivers-license-o:before, .fa-id-card-o:before {
+    content: "Ă¯â€¹Æ’"
+  }
+  
+  .fa-quora:before {
+    content: "Ă¯â€¹â€"
+  }
+  
+  .fa-free-code-camp:before {
+    content: "Ă¯â€¹â€¦"
+  }
+  
+  .fa-telegram:before {
+    content: "Ă¯â€¹â€ "
+  }
+  
+  .fa-thermometer-4:before, .fa-thermometer:before, .fa-thermometer-full:before {
+    content: "Ă¯â€¹â€¡"
+  }
+  
+  .fa-thermometer-3:before, .fa-thermometer-three-quarters:before {
+    content: "Ă¯â€¹Ë†"
+  }
+  
+  .fa-thermometer-2:before, .fa-thermometer-half:before {
+    content: "Ă¯â€¹â€°"
+  }
+  
+  .fa-thermometer-1:before, .fa-thermometer-quarter:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-thermometer-0:before, .fa-thermometer-empty:before {
+    content: "Ă¯â€¹â€¹"
+  }
+  
+  .fa-shower:before {
+    content: "Ă¯â€¹Å’"
+  }
+  
+  .fa-bathtub:before, .fa-s15:before, .fa-bath:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-podcast:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-window-maximize:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-window-minimize:before {
+    content: "Ă¯â€¹â€˜"
+  }
+  
+  .fa-window-restore:before {
+    content: "Ă¯â€¹â€™"
+  }
+  
+  .fa-times-rectangle:before, .fa-window-close:before {
+    content: "Ă¯â€¹â€œ"
+  }
+  
+  .fa-times-rectangle-o:before, .fa-window-close-o:before {
+    content: "Ă¯â€¹â€"
+  }
+  
+  .fa-bandcamp:before {
+    content: "Ă¯â€¹â€¢"
+  }
+  
+  .fa-grav:before {
+    content: "Ă¯â€¹â€“"
+  }
+  
+  .fa-etsy:before {
+    content: "Ă¯â€¹â€”"
+  }
+  
+  .fa-imdb:before {
+    content: "Ă¯â€¹Ëœ"
+  }
+  
+  .fa-ravelry:before {
+    content: "Ă¯â€¹â„¢"
+  }
+  
+  .fa-eercast:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-microchip:before {
+    content: "Ă¯â€¹â€º"
+  }
+  
+  .fa-snowflake-o:before {
+    content: "Ă¯â€¹Å“"
+  }
+  
+  .fa-superpowers:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-wpexplorer:before {
+    content: "Ă¯â€¹Â"
+  }
+  
+  .fa-meetup:before {
+    content: "Ă¯â€¹ "
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0
+  }
+  
+  .sr-only-focusable:active, .sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto
+  }

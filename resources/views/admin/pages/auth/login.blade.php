@@ -19,7 +19,7 @@
             <label for="login__username"><svg class="icon">
                     <use xlink:href="#icon-user"></use>
                 </svg><span class="hidden">Email</span></label>
-            <input id="login__username" type="text" name="email" class="form__input" placeholder="Email" required>
+            <input id="login__username" type="email" name="email" class="form__input" placeholder="Email" required>
         </div>
 
         <div class="form__field">

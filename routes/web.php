@@ -44,7 +44,8 @@ Route::group(['prefix'=>'/'], function(){
     Route::match(['get', 'post'], '/update-cart', [CartController::class, 'update'])->name('cart.update');
     Route::match(['get', 'delete'], '/remove-cart', [CartController::class, 'remove'])->name('cart.remove');
     // Checkout - Thanh toán
-    Route::get('/thanh-toan-don-hang', [OrderController::class, 'checkout'])->name('cart');
+    Route::match(['get', 'post'], '/thanh-toan-don-hang', [OrderController::class, 'checkout'])->name('checkout');
+    Route::get('/thong-tin-hoa-don', [OrderController::class, 'success'])->name('success')->middleware('auth:web');
 });
 
 // Admin
