@@ -386,6 +386,20 @@
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 next_previous">
                             <div class="" style="float: right">
                                 <span class="icon-prev" aria-hidden="true" style="float: left; margin-right: 10px">
+                                    @if($type == 'order')
+                                    <a class="btn <?php if ($prev->count() != 0) {
+                                                        echo '';
+                                                    } else echo 'disabled';
+                                                    ?>" href="<?php if ($prev->count() != 0) {
+                                                                    echo $prev[0]->id;
+                                                                } else echo 'javascript:void(0)';
+                                                                ?>" style="<?php if ($prev->count() != 0) {
+                                                                    echo "";
+                                                                } else echo "cursor: default;";
+                                                                ?>">
+                                        <i class="fas fa-arrow-left" style="font-size: 18px;"></i>
+                                    </a>
+                                    @else
                                     <a class="btn <?php if ($prev->count() != 0) {
                                                         echo '';
                                                     } else echo 'disabled';
@@ -398,8 +412,23 @@
                                                                 ?>">
                                         <i class="fas fa-arrow-left" style="font-size: 18px;"></i>
                                     </a>
+                                    @endif
                                 </span>
                                 <span class="icon-next" aria-hidden="true" style="float: left">
+                                    @if($type == 'order')
+                                    <a class="btn <?php if ($next->count() != 0) {
+                                                        echo '';
+                                                    } else echo 'disabled';
+                                                    ?>" href="<?php if ($next->count() != 0) {
+                                                                    echo $next[0]->id;
+                                                                } else echo 'javascript:void(0)';
+                                                                ?>" style="<?php if ($next->count() != 0) {
+                                                                    echo "";
+                                                                } else echo "cursor: default;";
+                                                                ?>">
+                                        <i class="fas fa-arrow-right" style="font-size: 18px;"></i>
+                                    </a>
+                                    @else
                                     <a class="btn <?php if ($next->count() != 0) {
                                                         echo '';
                                                     } else echo 'disabled';
@@ -412,6 +441,7 @@
                                                                 ?>">
                                         <i class="fas fa-arrow-right" style="font-size: 18px;"></i>
                                     </a>
+                                    @endif
                                 </span>
                             </div>
                         </div>

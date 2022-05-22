@@ -68,7 +68,11 @@ class BrandController extends Controller
             if (!$brand) {
                 abort(404);
             }
-            return view('admin.pages.brand.edit', compact('brand'));
+            $id = $brand->id;
+            $prev = Brand::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            $next = Brand::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            $type = "brand";
+            return view('admin.pages.brand.edit', compact('brand', 'prev', 'next', 'type'));
         }
         $dataBrandUpdate = [
             'name' => $request->name,

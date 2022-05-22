@@ -73,7 +73,11 @@ class CategoryController extends Controller
                 abort(404);
             }
             $list_cat = $this->getCategory();
-            return view('admin.pages.category.edit', compact('category', 'list_cat'));
+            $id = $category->id;
+            $prev = Category::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            $next = Category::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            $type = "category";
+            return view('admin.pages.category.edit', compact('category', 'list_cat', 'prev', 'next', 'type'));
         }
         Category::where('id', $slug)->take(1)->update([
             'name' => $request->name,

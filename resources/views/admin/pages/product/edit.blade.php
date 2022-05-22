@@ -11,6 +11,11 @@
 <form action="{{route('admin.products.edit', $product->id)}}" method="Post" enctype="multipart/form-data">
     @csrf
     <section class="pb-4">
+        @if(session()->has('message'))
+            <div style="color:red; margin-bottom: 20px; text-align: center">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <div class="bg-white border rounded-5">
 
             <section class="w-100 p-4" style="background-color: #eee; border-radius: .5rem .5rem 0 0;">
@@ -103,7 +108,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_capacity" name="product_capacity" type="text" value="{{$product->capacity}}" placeholder="">
+                                            <input id="product_capacity" name="product_capacity" type="number" value="{{$product->capacity}}" placeholder="">
                                         </p>
                                     </div>
                                 </div>
@@ -114,7 +119,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_concentration" name="product_concentration" type="text" value="{{$product->concentration}}" placeholder="">
+                                            <input id="product_concentration" name="product_concentration" type="number" value="{{$product->concentration}}" placeholder="">
                                         </p>
                                     </div>
                                 </div>

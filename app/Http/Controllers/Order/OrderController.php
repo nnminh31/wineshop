@@ -21,12 +21,24 @@ class OrderController extends Controller
             Order::find($request->id)->update(
                 [
                     'processer_id' => auth()->guard('admin')->user()->id,
-                    'status' => 1
+                    'status' => $request->status
                 ]
             );
+            $status = "";
+            if ($request->status == 0) {
+                $status = "Pending";
+            } elseif($request->status == 1) {
+                $status = "Confirm";
+            } elseif($request->status == 2) {
+                $status = "Shipping";
+            } elseif($request->status == 3) {
+                $status = "Completed";
+            } elseif($request->status == 4) {
+                $status = "Cancelled";
+            }
             return response()->json([
                 'order_id' => Order::find($request->id)->id,
-                'status' => "Confirm",
+                'status' => $status,
                 'processer_name' => auth()->guard('admin')->user()->name
             ]);
         }
@@ -39,7 +51,8 @@ class OrderController extends Controller
             $order = Order::find($id);
             $prev = Order::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
             $next = Order::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
-            return view('admin.pages.order.edit', compact('order', 'prev', 'next'));
+            $type = "order";
+            return view('admin.pages.order.edit', compact('order', 'prev', 'next', 'type'));
         }      
     }
 

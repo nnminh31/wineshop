@@ -55,7 +55,24 @@ th, td {
     background: #fff;
     border-color: #e1e1e1;
 }
-
+.btn-primary {
+    background: -webkit-gradient(linear, left top, left bottom, from(#08f), to(#4697fe));
+    background: linear-gradient(to bottom, #4697fe, #08f);
+    border-color: #08f;
+    -webkit-box-shadow: inset 0 1px 0 0 #08f;
+    box-shadow: inset 0 1px 0 0 #549cf9;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+}
+.btn-destroy {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ee6b50), to(#ec5b3e));
+    background: linear-gradient(to bottom, #ee6b50, #ec5b3e);
+    border-color: #e83c19;
+    -webkit-box-shadow: inset 0 1px 0 0 #ef775e;
+    box-shadow: inset 0 1px 0 0 #ef775e;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+}
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
     .table-responsive-block table, .table-responsive-block thead, .table-responsive-block tbody, .table-responsive-block th, .table-responsive-block td, .table-responsive-block tr {
         display: block;
@@ -91,10 +108,10 @@ th, td {
         font-weight: 400;
     }
     .table-responsive-block #order_details td:nth-of-type(1):before {
-        content: "Sản phẩm";
+        content: "Ảnh Sản phẩm";
     }
     .table-responsive-block #order_details td:nth-of-type(2):before {
-        content: "Mã sản phẩm";
+        content: "Sản phẩm";
     }
     .table-responsive-block #order_details td:nth-of-type(3):before {
         content: "Giá";

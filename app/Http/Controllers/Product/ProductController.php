@@ -40,6 +40,11 @@ class ProductController extends Controller
             return view('admin.pages.product.add', compact('list_cat', 'brands'));
         }
 
+        $product_name = Product::where('name', '=', $request->product_name)->exists();
+        if ($product_name) { 
+            return redirect()->back()->with('message', 'Product name cannot be the same');
+        }
+
         $dataProductCreate = [
             'name' => $request->product_name,
             'price' => str_replace( ',', '', $request->product_prỉce),
@@ -87,8 +92,10 @@ class ProductController extends Controller
 
             $prev = Product::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
             $next = Product::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
-            return view('admin.pages.product.edit', compact('list_cat', 'brands', 'product', 'prev', 'next'));
+            $type = "product";
+            return view('admin.pages.product.edit', compact('list_cat', 'brands', 'product', 'prev', 'next', 'type'));
         }
+
         $dataProductUpdate = [
             'name' => $request->product_name,
             'price' => str_replace( ',', '', $request->product_prỉce),
@@ -120,6 +127,6 @@ class ProductController extends Controller
             }
         }
         Product::find($slug)->update($dataProductUpdate);
-        return redirect()->route('admin.products.edit', Product::find($slug)->slug)->with('message', 'Create a user successfully');
+        return redirect()->route('admin.products.edit', Product::find($slug)->slug)->with('message', 'Update a product successfully');
     }
 }

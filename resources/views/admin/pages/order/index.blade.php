@@ -63,18 +63,18 @@ List order
                                     <a class="order_status order_status1" data-id="{{$order->id}}" href="{{route('admin.orders.edit', $order->id)}}">Shipping</a>
                                 @elseif($order->status == 3)
                                     <a class="order_status order_status1" data-id="{{$order->id}}" href="{{route('admin.orders.edit', $order->id)}}">Completed</a>
-                                @elseif($order->status == 3)
+                                @elseif($order->status == 4)
                                     <a class="order_status order_status1" data-id="{{$order->id}}" href="{{route('admin.orders.edit', $order->id)}}">Cancelled</a>
                                 @endif
                             </td>
                             <td style="text-align: right;"><a href="">{{number_format($order->amount, 0,',','.')}} ₫</a></td>
-                            <td><a class="order_status progresser" href="javascript:;">
+                            <td><a class="order_status progresser" data-id="{{$order->id}}" href="javascript:;">
                                 @if($order->status == 0)
-                                    <span class="processing" data-id="{{$order->id}}">
+                                    <span class="processing" data-id="{{$order->id}}" data-status="1">
                                         Process
                                     </span>
                                 @else
-                                    {{$order->processer->name ?? 'Process'}}
+                                        {{$order->processer->name}}
                                 @endif
                             </a></td>
                         </tr>
@@ -102,6 +102,7 @@ List order
     $('.processing').click(function (e) {
         e.preventDefault();
         var id = e.target.dataset.id;
+        var status = e.target.dataset.status;
         var url = $('#process').data('url')
         console.log(id);
         $.ajax({
@@ -111,10 +112,12 @@ List order
         data: {
             _token: $("input[name=_token]").val(),
             id: id,
+            status: status,
         },
         success: function (response) {
             console.log(response)
             $(".order_status1[data-id='"+ response.order_id + "']").text(response.status)
+            $(".progresser[data-id='"+ response.order_id + "']").text(response.processer_name)
             console.log($(".order_status1[data-id='"+ response.order_id + "']"))
         },
         error: function (jqXHR, textStatus, errorThrown) {
