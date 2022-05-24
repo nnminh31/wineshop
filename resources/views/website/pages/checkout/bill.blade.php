@@ -59,7 +59,7 @@
 										<h2 class="section__title">Cảm ơn bạn đã đặt hàng</h2>
 
 										<p class="section__text">
-											Một email xác nhận đã được gửi tới minh@gmail.com. <br>
+											Một email xác nhận đã được gửi tới {{Auth::guard('web')->user()->email}} <br>
 											Xin vui lòng kiểm tra email của bạn
 										</p>
 
