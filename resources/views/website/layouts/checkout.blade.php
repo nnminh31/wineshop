@@ -108,7 +108,7 @@
                         dataType: 'JSON',
                         success: function (respone) {
                             if (respone) {
-                                window.location.href = "{{('success')}}"
+                                window.location.href = "{{route('success')}}"
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
