@@ -90,7 +90,7 @@ class OrderController extends Controller
             'ward' => $request->ward,
             'phone'=> $request->phone,
         ]);
-        // session()->forget('cart');
+        session()->forget('cart');
         return response()->json(['msg' => 'Order successful']);
     }
 

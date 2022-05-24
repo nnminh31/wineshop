@@ -206,6 +206,7 @@ function removeProductFromCart() {
             })
             $(".totals_price").text(data.total_carts)
             $('#vnt-menu-fixed ul li.cart>a .sl').text(data.total_items)
+            $('.count_item_pr').text(data.total_items)
             if (!data.items.length) {
                 $('.btn-proceed-checkout').prop('disabled', true)
                 $('.btn-proceed-checkout-mobile').addClass('disabled')
