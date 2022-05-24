@@ -153,7 +153,7 @@ You searched for {{isset($_GET['s']) ? $_GET['s'] : ''}}
                             <div class="w-25">
                                 <div class="product-item">
                                     <a href="{{route('product', $product->slug)}}" title="{{$product->name}}" class="product-img">
-                                        <img width="225" height="300" src="{{asset('/images/products/'.$product->image)}}" class="attachment-medium size-medium wp-post-image" alt="{{$product->name}}" loading="lazy" srcset="{{asset('/images/products/'.$product->image)}} 225w, https://ruouthuonghieu.com/wp-content/uploads/2018/12/xG008-768x1024.jpg.pagespeed.ic.27O2C0eUIi.webp 768w, https://ruouthuonghieu.com/wp-content/uploads/2018/12/xG008-150x200.jpg.pagespeed.ic.U9EZOKUB9_.webp 150w, {{asset('/images/products/'.$product->image)}} 1152w, {{asset('/images/products/'.$product->image)}} 1920w" sizes="(max-width: 225px) 100vw, 225px">
+                                        <img width="225" height="300" src="{{asset('/images/products/'.$product->image)}}" class="attachment-medium size-medium wp-post-image" alt="{{$product->name}}" loading="lazy" srcset="{{asset('/images/products/'.$product->image)}} 225w, {{asset('/images/products/'.$product->image)}} 768w, {{asset('/images/products/'.$product->image)}} 150w, {{asset('/images/products/'.$product->image)}} 1152w, {{asset('/images/products/'.$product->image)}} 1920w" sizes="(max-width: 225px) 100vw, 225px">
                                     </a>
                                     <div class="product-wrap">
                                         <h3><a href="{{route('product', $product->slug)}}" title="{{$product->name}}" style="text-transform: uppercase;">{{$product->name}}</a></h3>

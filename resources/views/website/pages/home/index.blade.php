@@ -12,12 +12,12 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
                     <div class="owl-stage">
                         <div class="owl-item">
                             <a href="javascript:void(0)">
-                                <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/07/xFJ_1.jpg.pagespeed.ic.Codx1Wq-dS.webp" class="img-fluid w-100" alt="" srcset="">
+                                <img src="{{asset('images/banners/xFJ_1.jpg.pagespeed.ic.DW-0BhjY6-.webp')}}" class="img-fluid w-100" alt="" srcset="">
                             </a>
                         </div>
                         <div class="owl-item">
                             <a href="javascript:void(0)">
-                                <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/07/xFJ_1.jpg.pagespeed.ic.Codx1Wq-dS.webp" class="img-fluid w-100" alt="" srcset="">
+                                <img src="{{asset('images/banners/xFJ_1.jpg.pagespeed.ic.DW-0BhjY6-.webp')}}" class="img-fluid w-100" alt="" srcset="">
                             </a>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
         <div class="container">
             <div class="title-product">
                 <h1>
-                    <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/danh-muc-cho-banner-quang-cao/20-san-pham-ban-chay-nhat/" title="QUÀ TẶNG TẾT 2021">QUÀ TẶNG TẾT 2021</a>
+                    <a href="javascript:void(0)" title="QUÀ TẶNG TẾT 2021">QUÀ TẶNG TẾT 2021</a>
                 </h1>
             </div>
             <div class="slide-pro">
@@ -173,29 +173,29 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
                             <div class="br-news">
                                 <div class="flex-center-between">
                                     <h4>
-                                        <a href="https://ruouthuonghieu.com/category/tin-tuc/" title="Bản tin">Bản
+                                        <a href="javascript:void(0)" title="Bản tin">Bản
                                             tin</a>
                                     </h4>
-                                    <a href="https://ruouthuonghieu.com/category/tin-tuc/" title="Bản tin" target="">Xem thêm
+                                    <a href="javascript:void(0)" title="Bản tin" target="">Xem thêm
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="https://ruouthuonghieu.com/gio-qua-tet/qua-tet-tang-sep-hop-phong-thuy/" title="QUÀ TẾT TẶNG SẾP HỢP PHONG THỦY">
+                                        <a href="javascript:void(0)" title="QUÀ TẾT TẶNG SẾP HỢP PHONG THỦY">
                                             <i class="fa fa-angle-right"></i>
                                             QUÀ TẾT TẶNG SẾP
                                             HỢP PHONG THỦY
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://ruouthuonghieu.com/tin-tuc/happy-birthday-11-year-anniversary/" title="HAPPY BIRTHDAY 11 YEAR ANNIVERSARY"><i class="fa fa-angle-right"></i>
+                                        <a href="javascript:void(0)" title="HAPPY BIRTHDAY 11 YEAR ANNIVERSARY"><i class="fa fa-angle-right"></i>
                                             HAPPY BIRTHDAY
                                             11 YEAR
                                             ANNIVERSARY </a>
                                     </li>
                                     <li>
-                                        <a href="https://ruouthuonghieu.com/tin-tuc/glenfiddich-single-malt-scotch-whisky-hop-qua-tet-2022/" title="GLENFIDDICH SINGLE MALT SCOTCH WHISKY HỘP QUÀ TẾT 2022"><i class="fa fa-angle-right"></i>
+                                        <a href="javascript:void(0)" title="GLENFIDDICH SINGLE MALT SCOTCH WHISKY HỘP QUÀ TẾT 2022"><i class="fa fa-angle-right"></i>
                                             GLENFIDDICH
                                             SINGLE MALT
                                             SCOTCH WHISKY
@@ -203,7 +203,7 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://ruouthuonghieu.com/tin-tuc/goi-y-cac-dong-vang-ngon-dip-le-quoc-khanh-2-9/" title="GỢI Ý CÁC DÒNG VANG NGON DỊP LỄ QUỐC KHÁNH 2 -9"><i class="fa fa-angle-right"></i>
+                                        <a href="javascript:void(0)" title="GỢI Ý CÁC DÒNG VANG NGON DỊP LỄ QUỐC KHÁNH 2 -9"><i class="fa fa-angle-right"></i>
                                             GỢI Ý CÁC DÒNG
                                             VANG NGON DỊP LỄ
                                             QUỐC KHÁNH 2 -9
@@ -220,23 +220,23 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
                     <div class="promo-banner">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/bia-ban-chay-nhat/" title class="zoom">
-                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/08/Banner_4-2.png" alt="" title="">
+                                <a href="javascript:void(0)" title class="zoom">
+                                    <img src="{{asset('images/banners/xBanner_4-2.png.pagespeed.ic.Wjmdejd9P9.png')}}" alt="" title="">
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/bia-ban-chay-nhat/" title class="zoom">
-                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/08/Banner_4-2.png" alt="" title="">
+                                <a href="javascript:void(0)" title class="zoom">
+                                    <img src="{{asset('images/banners/xBanner_3-2.png.pagespeed.ic.HseXGbQVau.png')}}" alt="" title="">
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/bia-ban-chay-nhat/" title class="zoom">
-                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/08/Banner_4-2.png" alt="" title="">
+                                <a href="javascript:void(0)" title class="zoom">
+                                    <img src="{{asset('images/banners/xBanner_1.png.pagespeed.ic.dBFa4nOBJr.png')}}" alt="" title="">
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/bia-ban-chay-nhat/" title class="zoom">
-                                    <img src="https://ruouthuonghieu.com/wp-content/uploads/2020/08/Banner_4-2.png" alt="" title="">
+                                <a href="javascript:void(0)" title class="zoom">
+                                    <img src="{{asset('images/banners/xBanner_2.png.pagespeed.ic.ch2haU4kaT.png')}}" alt="" title="">
                                 </a>
                             </div>
                         </div>
@@ -253,8 +253,7 @@ Trang chủ - Bán rượu chính hãng - Giỏ quà tết sang trọng
         <div class="container">
             <div class="title-block">
                 <h2>
-                    <a href="https://ruouthuonghieu.com/shop-ruou-uy-tin/danh-muc-cho-banner-quang-cao/san-pham-moi/" title="Sản Phẩm Mới" class="text-uppercase">Sản Phẩm
-                        Mới</a>
+                    <a href="javascript:;" title="Sản Phẩm Mới" class="text-uppercase">Sản Phẩm Mới</a>
                 </h2>
             </div>
             <div class="product-slider slider-general owl-carousel owl-theme">

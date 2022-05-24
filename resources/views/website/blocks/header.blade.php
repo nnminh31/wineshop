@@ -101,25 +101,6 @@
                             <ul id="primary-menu" class="menu">
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
                                     <a href="{{route('home')}}" aria-current="page">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-636">
-                                            <a href="https://ruouthuonghieu.com/chung-toi/">Chúng
-                                                tôi</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1224">
-                                            <a href="https://ruouthuonghieu.com/su-dung-ruou-thuong-hieu/">Lưu
-                                                ý sử
-                                                dụng
-                                                website</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5771">
-                                            <a href="https://ruouthuonghieu.com/hop-tac-voi-ruou-thuong-hieu/">Hợp
-                                                tác với
-                                                Rượu
-                                                Thương
-                                                Hiệu</a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 @foreach($categories as $category)
 

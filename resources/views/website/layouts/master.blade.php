@@ -84,22 +84,8 @@
                 <div id="cd-lateral-nav" class="visible-mobile">
                         <ul id="primary-menu-mobile" class="cd-navigation nav-dropdown">
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-614">
-                                        <a href="https://ruouthuonghieu.com/" aria-current="page">Home</a>
-                                        <span class="arrow"></span>
-                                        <ul class="sub-menu">
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-636">
-                                                        <a href="https://ruouthuonghieu.com/chung-toi/">Chúng tôi</a>
-                                                </li>
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1224">
-                                                        <a href="https://ruouthuonghieu.com/su-dung-ruou-thuong-hieu/">Lưu
-                                                                ý sử dụng website</a>
-                                                </li>
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5771">
-                                                        <a href="https://ruouthuonghieu.com/hop-tac-voi-ruou-thuong-hieu/">Hợp
-                                                                tác với Rượu Thương
-                                                                Hiệu</a>
-                                                </li>
-                                        </ul>
+                                        <a href="{{route('home')}}" aria-current="page">Home</a>
+                                        <!-- <span class="arrow"></span> -->
                                 </li>
                                 @foreach($categories as $category)
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-{{$category->id}}">
@@ -128,29 +114,6 @@
                                         </ul>
                                 </li>
                                 @endforeach
-                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-6441">
-                                        <a href="https://ruouthuonghieu.com/tin-tuc/">Kiến thức rượu</a>
-                                        <span class="arrow"></span>
-                                        <ul class="sub-menu">
-                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5803">
-                                                        <a href="https://ruouthuonghieu.com/tin-tuc/wine-tasting-events/">Wine
-                                                                tasting events</a>
-                                                </li>
-                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5802">
-                                                        <a href="https://ruouthuonghieu.com/tin-tuc/ruou-va-mon-an/">Rượu
-                                                                và món Ăn</a>
-                                                </li>
-                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6388">
-                                                        <a href="https://ruouthuonghieu.com/tin-tuc/tin-tuc-ve-ruou/">Tin
-                                                                tức về rượu</a>
-                                                </li>
-                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5801">
-                                                        <a href="https://ruouthuonghieu.com/tin-tuc/pha-che-cocktail/">Pha
-                                                                chế cocktail</a>
-                                                </li>
-                                        </ul>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1390"><a href="https://ruouthuonghieu.com/lien-he/">Liên hệ</a></li>
                         </ul>
                 </div>
                 <!-- End Menu on mobile-->
