@@ -70,8 +70,8 @@
 								<aside class="order-summary order-summary--bordered order-summary--is-collapsed" id="order-summary">
 									<div class="order-summary__header">
 										<div class="order-summary__title">
-											Đơn hàng #{{$order[0]->order_id}}
-											<span class="unprintable">(1)</span>
+											Đơn hàng #{{$order[0]->id}}
+											<!-- <span class="unprintable">({{$order[0]->id}})</span> -->
 										</div>
                                         <style>
                                             .expandable:after {
@@ -139,7 +139,7 @@
 
 													<tr class="total-line total-line--shipping-fee">
 														<th class="total-line__name">Phí vận chuyển</th>
-														<td class="total-line__price">{{$order[0]->shipping_fee}} ₫</td>
+														<td class="total-line__price">{{number_format($order[0]->shipping_fee, 0,',','.')}} ₫</td>
 													</tr>
 
 												</tbody>
