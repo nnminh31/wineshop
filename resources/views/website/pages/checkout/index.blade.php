@@ -256,15 +256,15 @@ Rượu thương hiệu - Kiểm tra đơn hàng
                                     </div>
 
                                     <div class="content-box__row__desc hide" data-bind-show="paymentMethod == 'Chuyển Khoản'">
-                                        <p>- Vietcombank Chi nhánh Sở giao dịch Nguyễn Bình Minh
+                                        <p>- BIDV Chi nhánh Sở giao dịch Nguyễn Nhật Minh
                                         </p>
-                                        <p>0011004240707
+                                        <p>12110000636901
                                         </p>
                                         <p>Ghi chú Madon_SDT (VD: WE1234_0395445571)
                                         </p>
-                                        <p>- Ví MoMo Nguyễn Bình Minh
+                                        <p>- Ví MoMo Nguyễn Nhật Minh
                                         </p>
-                                        <p>SĐT MoMo: 0395445571
+                                        <p>SĐT MoMo: 0911054847
                                         </p>
                                         <p>Ghi chú Madon_SDT (VD: WE1234_0912345678)</p>
 
