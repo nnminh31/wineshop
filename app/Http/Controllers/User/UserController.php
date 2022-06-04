@@ -52,6 +52,16 @@ class UserController extends Controller
         ]);
         $user = User::findOrFail($slug);
         return redirect()->route('admin.users.edit', $user->slug)->with('message', 'Update a user successfully');
+    }
 
+    public function destroy(Request $request, $id)
+    {
+        if ($request->getMethod() == 'GET') {
+            return redirect()->route('admin.users.index');
+        }
+        $user = User::findOrFail($id);
+
+        $user->delete();
+        return response()->json(['msg' => 'Delete User successfully']);
     }
 }

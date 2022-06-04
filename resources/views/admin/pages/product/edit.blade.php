@@ -208,7 +208,7 @@
                     </button>
                 </div>
             </div>
-                          
+
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="p-4 text-right border-top mobile-hidden" style="padding-right: 0 !important;">
                     <button type="submit" class="btn btn-link px-3 btn-success">
@@ -313,20 +313,22 @@
     function delete_product(data) {
         // let id =  $(this).data('id')
         // let url =  $(this).data('url')
-        $.ajax({
-            type: "Delete",
-            url: "{{route('admin.products.delete', $product->id)}}",
-            dataType: 'json',
-            data: {
-                _token: $("input[name=_token]").val(),
-                id: data.id,
-            },
-            success: function (data) {
-                console.log(data)
-                // console.log(data.items)
-                return window.location.href = "{{route('admin.products.index')}}";
-            }
-        })
+        if (confirm('Are you sure you want to delete this?')) {
+            $.ajax({
+                type: "Delete",
+                url: "{{route('admin.products.delete', $product->id)}}",
+                dataType: 'json',
+                data: {
+                    _token: $("input[name=_token]").val(),
+                    id: data.id,
+                },
+                success: function(data) {
+                    console.log(data)
+                    // console.log(data.items)
+                    return window.location.href = "{{route('admin.products.index')}}";
+                }
+            })
+        }
     }
 </script>
 @endsection

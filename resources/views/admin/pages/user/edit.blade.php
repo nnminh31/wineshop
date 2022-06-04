@@ -100,16 +100,31 @@
                 </div>
 
             </section>
-            <div class="p-4 text-right border-top mobile-hidden">
-                <button type="submit" class="btn btn-link px-3 btn-success">
-                    <!-- <i class="fas fa-code me-md-2"></i> -->
-                    <span class="d-md-inline-block" style="color: #fff">
-                        Submit
-                    </span>
-                </button>
+            <div class="container" style="padding: 0">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="p-4 text-left border-top mobile-hidden">
+                            <button type="button" class="btn btn-link px-3 btn-danger" id="{{$user->id}}" route="" onclick="delete_user(this)">
+                                <!-- <i class="fas fa-code me-md-2"></i> -->
+                                <span class="d-md-inline-block" style="color: #fff">
+                                    Delete
+                                </span>
+                            </button>
+                        </div>
+                    </div>
 
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="p-4 text-right border-top mobile-hidden">
+                            <button type="submit" class="btn btn-link px-3 btn-success">
+                                <!-- <i class="fas fa-code me-md-2"></i> -->
+                                <span class="d-md-inline-block" style="color: #fff">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </section>
     <script>
@@ -138,4 +153,26 @@
         }
     </script>
 </form>
+<script>
+    function delete_user(data) {
+        // let id =  $(this).data('id')
+        // let url =  $(this).data('url')
+        if (confirm('Are you sure you want to delete this?')) {
+            $.ajax({
+                type: "Delete",
+                url: "{{route('admin.users.delete', $user->id)}}",
+                dataType: 'json',
+                data: {
+                    _token: $("input[name=_token]").val(),
+                    id: data.id,
+                },
+                success: function(data) {
+                    console.log(data)
+                    // console.log(data.items)
+                    return window.location.href = "{{route('admin.users.index')}}";
+                }
+            })
+        }
+    }
+</script>
 @endsection

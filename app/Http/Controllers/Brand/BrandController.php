@@ -55,7 +55,7 @@ class BrandController extends Controller
             $brand = Brand::create($dataBrandCreate);
 
         } else {
-            $dataBrandCreate['icon'] = 'default.svg';
+            $dataBrandCreate['icon'] = 'default.png';
             $brand = Brand::create($dataBrandCreate);
         }
     
@@ -91,7 +91,7 @@ class BrandController extends Controller
             $file->move(public_path() . '/images/brands/', $pathName);
 
             $dataBrandUpdate['icon'] = $pathName;
-            if($brand->icon !=''){
+            if($brand->icon !='' && $brand->icon != "default.png"){
                 $destinationPath = 'images/brands/'.$brand->icon;
                 if(file_exists($destinationPath)){
                     unlink($destinationPath);
@@ -104,4 +104,19 @@ class BrandController extends Controller
         return redirect()->route('admin.brands.edit', Brand::find($slug)->slug)->with('message', 'Update a brand successfully');
     }
 
+    public function destroy(Request $request, $id)
+    {
+        if ($request->getMethod() == 'GET') {
+            return redirect()->route('admin.brands.index');
+        }
+        $brand = Brand::findOrFail($id);
+        if($brand->icon !='' && $brand->icon != "default.png"){
+            $destinationPath = 'images/brands/'.$brand->icon;
+            if(file_exists($destinationPath)){
+                unlink($destinationPath);
+            }
+        }
+        $brand->delete();
+        return response()->json(['msg' => 'Delete Brand successfully']);
+    }
 }

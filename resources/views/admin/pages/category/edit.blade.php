@@ -125,20 +125,22 @@
     function delete_category(data) {
         // let id =  $(this).data('id')
         // let url =  $(this).data('url')
-        $.ajax({
-            type: "Delete",
-            url: "{{route('admin.categories.delete', $category->id)}}",
-            dataType: 'json',
-            data: {
-                _token: $("input[name=_token]").val(),
-                id: data.id,
-            },
-            success: function (data) {
-                console.log(data)
-                // console.log(data.items)
-                return window.location.href = "{{route('admin.categories.index')}}";
-            }
-        })
+        if (confirm('Are you sure you want to delete this?')) {
+            $.ajax({
+                type: "Delete",
+                url: "{{route('admin.categories.delete', $category->id)}}",
+                dataType: 'json',
+                data: {
+                    _token: $("input[name=_token]").val(),
+                    id: data.id,
+                },
+                success: function(data) {
+                    console.log(data)
+                    // console.log(data.items)
+                    return window.location.href = "{{route('admin.categories.index')}}";
+                }
+            })
+        }
     }
 </script>
 @endsection

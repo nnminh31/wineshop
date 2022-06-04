@@ -60,14 +60,14 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name("admin.users.index");
         Route::match(['get', 'post'], '/create', [UserController::class, 'create'])->name("admin.users.add");
         Route::match(['get', 'post'], '/edit/{slug}', [UserController::class, 'update'])->name("admin.users.edit");
-        // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
+        Route::match(['get', 'delete'], '/delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
     });
     // Brand
     Route::prefix('brands')->group(function () {
         Route::get('/', [BrandController::class, 'index'])->name("admin.brands.index");
         Route::match(['get', 'post'], '/create', [BrandController::class, 'create'])->name("admin.brands.add");
         Route::match(['get', 'post'], '/edit/{slug}', [BrandController::class, 'update'])->name("admin.brands.edit");
-        // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
+        Route::match(['get', 'delete'], '/delete/{id}', [BrandController::class, 'destroy'])->name("admin.brands.delete");
     });
     // Category
     Route::prefix('categories')->group(function () {
