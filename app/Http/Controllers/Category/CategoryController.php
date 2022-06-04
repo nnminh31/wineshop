@@ -85,6 +85,17 @@ class CategoryController extends Controller
             'status' => $request->status,
             'slug' => Str::slug($request->name),
         ]);
-        return redirect()->route('admin.categories.index')->with('message', 'Create a user successfully');
+        return redirect()->route('admin.categories.edit', Category::find($slug)->slug)->with('message', 'Update a category successfully');
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        if ($request->getMethod() == 'GET') {
+            return redirect()->route('admin.categories.index');
+        }
+        $category = Category::findOrFail($id);
+
+        $category->delete();
+        return response()->json(['msg' => 'Delete Category successfully']);
     }
 }

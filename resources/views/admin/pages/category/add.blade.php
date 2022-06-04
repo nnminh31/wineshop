@@ -57,7 +57,7 @@ Create category
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <select name="parent_id" id="parent_id" style="width: 194px;" required>
+                                            <select name="parent_id" id="parent_id" style="width: 194px;">
                                                 <option value="">Chọn cấp bậc</option>
                                                 @foreach($list_cat as $cat)
                                                     <option value="{{$cat->id}}">{{str_repeat('---', $cat->level).$cat->name}}</option>

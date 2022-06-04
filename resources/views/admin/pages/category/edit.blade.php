@@ -49,8 +49,8 @@
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
                                             <select name="status" id="status" style="width: 194px;" required>
-                                                <option value="true" <?= $category->status == 'true' ? "selected" : ""?> >True</option>
-                                                <option value="false" <?= $category->status == 'false' ? "selected" : "" ?> >False</option>
+                                                <option value="true" <?= $category->status == 'true' ? "selected" : "" ?>>True</option>
+                                                <option value="false" <?= $category->status == 'false' ? "selected" : "" ?>>False</option>
                                             </select>
                                         </p>
                                     </div>
@@ -62,14 +62,14 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <select name="parent_id" id="parent_id" style="width: 194px;" required>
+                                            <select name="parent_id" id="parent_id" style="width: 194px;">
                                                 <option value="">Chọn cấp bậc</option>
                                                 @foreach($list_cat as $cat)
-                                                    @if (!empty($category->parent_id) && $category->parent_id == $cat->id)
-                                                        <option value="{{$cat->id}}" selected>{{str_repeat('---', $cat->level).$cat->name}}</option>
-                                                    @else
-                                                        <option value="{{$cat->id}}">{{str_repeat('---', $cat->level).$cat->name}}</option>
-                                                    @endif
+                                                @if (!empty($category->parent_id) && $category->parent_id == $cat->id)
+                                                <option value="{{$cat->id}}" selected>{{str_repeat('---', $cat->level).$cat->name}}</option>
+                                                @else
+                                                <option value="{{$cat->id}}">{{str_repeat('---', $cat->level).$cat->name}}</option>
+                                                @endif
                                                 @endforeach
                                             </select>
                                         </p>
@@ -93,17 +93,52 @@
                 </div>
 
             </section>
-            <div class="p-4 text-right border-top mobile-hidden">
-                <button type="submit" class="btn btn-link px-3 btn-success">
-                    <!-- <i class="fas fa-code me-md-2"></i> -->
-                    <span class="d-md-inline-block" style="color: #fff">
-                        Submit
-                    </span>
-                </button>
+            <div class="container" style="padding: 0">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="p-4 text-left border-top mobile-hidden">
+                            <button type="button" class="btn btn-link px-3 btn-danger" id="{{$category->id}}" route="" onclick="delete_category(this)">
+                                <!-- <i class="fas fa-code me-md-2"></i> -->
+                                <span class="d-md-inline-block" style="color: #fff">
+                                    Delete
+                                </span>
+                            </button>
+                        </div>
+                    </div>
 
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="p-4 text-right border-top mobile-hidden">
+                            <button type="submit" class="btn btn-link px-3 btn-success">
+                                <!-- <i class="fas fa-code me-md-2"></i> -->
+                                <span class="d-md-inline-block" style="color: #fff">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </section>
 </form>
+<script>
+    function delete_category(data) {
+        // let id =  $(this).data('id')
+        // let url =  $(this).data('url')
+        $.ajax({
+            type: "Delete",
+            url: "{{route('admin.categories.delete', $category->id)}}",
+            dataType: 'json',
+            data: {
+                _token: $("input[name=_token]").val(),
+                id: data.id,
+            },
+            success: function (data) {
+                console.log(data)
+                // console.log(data.items)
+                return window.location.href = "{{route('admin.categories.index')}}";
+            }
+        })
+    }
+</script>
 @endsection
