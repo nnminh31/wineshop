@@ -22,18 +22,6 @@
                                 <p class="text-muted mb-2" id="fix_phone">{{$user->phone}}</p>
                             </div>
                         </div>
-                        <div class="card mb-4 mb-lg-0">
-                            <div class="card-body p-0">
-                                <ul class="list-group list-group-flush rounded-3">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                        Address
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                        <p class="mb-0">https://mdbootstrap.com</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-lg-8">
                         <div class="card mb-4">
@@ -44,7 +32,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="name" name="name" type="text" value="{{$user->name}}" placeholder="" onkeyup="edValueNamePress()">
+                                            <input id="name" name="name" type="text" value="{{$user->name}}" placeholder="" onkeyup="edValueNamePress()" required>
                                         </p>
                                     </div>
                                 </div>
@@ -67,7 +55,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="phone" name="phone" type="text" value="{{$user->phone}}" placeholder="" onkeyup="edValuePhonePress()">
+                                            <input id="phone" name="phone" type="text" value="{{$user->phone}}" placeholder="" onkeyup="edValuePhonePress()" required>
                                         </p>
                                     </div>
                                 </div>
@@ -89,45 +77,16 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <select name="role" id="role" style="width: 194px">
+                                            <select name="role" id="role" style="width: 194px" required>
                                                 @foreach($roles as $role)
-                                                    @if($user->role->id == $role->id)
-                                                        <option value="{{$role->id}}" selected>{{$role->name}}</option>
-                                                    @else
-                                                        <option value="{{$role->id}}">{{$role->name}}</option>
-                                                    @endif
+                                                @if($user->role->id == $role->id)
+                                                <option value="{{$role->id}}" selected>{{$role->name}}</option>
+                                                @else
+                                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                                @endif
                                                 @endforeach
                                             </select>
                                         </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card mb-4 mb-md-0">
-                                    <div class="card-body">
-                                        <p class="mb-4"><span class="text-primary font-italic me-1">Order</span></p>
-                                        <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                                        <div class="progress rounded" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                                        <div class="progress rounded" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                                        <div class="progress rounded" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                                        <div class="progress rounded" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                                        <div class="progress rounded mb-2" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -143,8 +102,8 @@
                         Submit
                     </span>
                 </button>
-        
-        </div>
+
+            </div>
 
         </div>
     </section>
@@ -156,6 +115,7 @@
             var lblValue = document.getElementById("fix_name");
             lblValue.innerText = s
         }
+
         function edValueEmailPress() {
             var edValue = document.getElementById("email");
             var s = edValue.value;
@@ -163,6 +123,7 @@
             var lblValue = document.getElementById("fix_email");
             lblValue.innerText = s
         }
+
         function edValuePhonePress() {
             var edValue = document.getElementById("phone");
             var s = edValue.value;
