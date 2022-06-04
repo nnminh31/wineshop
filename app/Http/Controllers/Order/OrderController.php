@@ -49,10 +49,10 @@ class OrderController extends Controller
         if ($request->getMethod() == 'GET') {
             // $count = Order::where('status', 0)->count();
             $order = Order::find($id);
-            $prev = Order::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
-            $next = Order::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            // $prev = Order::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            // $next = Order::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
             $type = "order";
-            return view('admin.pages.order.edit', compact('order', 'prev', 'next', 'type'));
+            return view('admin.pages.order.edit', compact('order', 'type'));
         }      
     }
 

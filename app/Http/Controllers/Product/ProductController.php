@@ -90,10 +90,10 @@ class ProductController extends Controller
             $brands = Brand::all();
             $id = $product->id;
 
-            $prev = Product::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
-            $next = Product::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            // $prev = Product::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            // $next = Product::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
             $type = "product";
-            return view('admin.pages.product.edit', compact('list_cat', 'brands', 'product', 'prev', 'next', 'type'));
+            return view('admin.pages.product.edit', compact('list_cat', 'brands', 'product', 'type'));
         }
 
         $dataProductUpdate = [

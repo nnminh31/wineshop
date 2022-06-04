@@ -69,10 +69,10 @@ class BrandController extends Controller
                 abort(404);
             }
             $id = $brand->id;
-            $prev = Brand::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
-            $next = Brand::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            // $prev = Brand::Where('id', '>', $id)->orderBy('id', 'DESC')->limit(1)->get();
+            // $next = Brand::Where('id', '<', $id)->orderBy('id', 'DESC')->limit(1)->get();
             $type = "brand";
-            return view('admin.pages.brand.edit', compact('brand', 'prev', 'next', 'type'));
+            return view('admin.pages.brand.edit', compact('brand', 'type'));
         }
         $dataBrandUpdate = [
             'name' => $request->name,
