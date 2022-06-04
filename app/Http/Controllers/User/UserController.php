@@ -51,7 +51,7 @@ class UserController extends Controller
             'role_id' => $request->role
         ]);
         $user = User::findOrFail($slug);
-        return redirect()->route('admin.users.edit', $user->slug)->with('message', 'Create a user successfully');
+        return redirect()->route('admin.users.edit', $user->slug)->with('message', 'Update a user successfully');
 
     }
 }

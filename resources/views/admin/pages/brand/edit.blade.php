@@ -10,13 +10,18 @@
 <form action="{{route('admin.brands.edit', $brand->id)}}" method="Post" enctype="multipart/form-data">
     @csrf
     <section class="pb-4">
+        @if(session()->has('message'))
+        <div style="color:red; margin-bottom: 20px; text-align: center">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <div class="bg-white border rounded-5">
 
             <section class="w-100 p-4" style="background-color: #eee; border-radius: .5rem .5rem 0 0;">
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card mb-4">
-                        <div class="card-body text-center">
+                            <div class="card-body text-center">
                                 <img src="{{asset('images/brands/'.$brand->icon)}}" onerror="this.src='https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg'" alt="avatar" class="rounded-circle img-fluid" id="img-avatar" style="width: 250px; height: 250px">
                                 <h5 class="my-3" id="fix_name">Free Shipping</h5>
                                 <input type="file" id="uploadProductImage" style="display:none;" accept="image/x-png,image/gif,image/jpeg" name="icon" onchange="document.getElementById('img-avatar').src = window.URL.createObjectURL(this.files[0])">
@@ -53,8 +58,8 @@
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
                                             <select name="status" id="status" style="width: 194px;" required>
-                                                <option value="true" <?= $brand->status == 'true' ? "selected" : ""?> >True</option>
-                                                <option value="false" <?= $brand->status == 'false' ? "selected" : ""?> >False</option>
+                                                <option value="true" <?= $brand->status == 'true' ? "selected" : "" ?>>True</option>
+                                                <option value="false" <?= $brand->status == 'false' ? "selected" : "" ?>>False</option>
                                             </select>
                                         </p>
                                     </div>
@@ -66,7 +71,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <textarea name="description" id="" style="width: 194px;" rows="10" >{{$brand->description}}</textarea>
+                                            <textarea name="description" id="" style="width: 194px;" rows="10">{{$brand->description}}</textarea>
                                         </p>
                                     </div>
                                 </div>
@@ -78,7 +83,7 @@
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
                                             <select name="type" id="type" style="width: 194px;" required>
-                                                <option value="Rượu mạnh" <?= $brand->type == 'Rượu mạnh' ? "selected" : "" ?> >Rượu mạnh</option>
+                                                <option value="Rượu mạnh" <?= $brand->type == 'Rượu mạnh' ? "selected" : "" ?>>Rượu mạnh</option>
                                                 <option value="Rượu vang" <?= $brand->type == 'Rượu vang' ? "selected" : "" ?>>Rượu vang</option>
                                             </select>
                                         </p>

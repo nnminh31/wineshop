@@ -101,7 +101,7 @@ class BrandController extends Controller
 
         Brand::find($slug)->update($dataBrandUpdate);
 
-        return redirect()->route('admin.brands.edit', Brand::find($slug)->slug)->with('message', 'Create a brand successfully');
+        return redirect()->route('admin.brands.edit', Brand::find($slug)->slug)->with('message', 'Update a brand successfully');
     }
 
 }
