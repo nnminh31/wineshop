@@ -28,7 +28,7 @@ Create product
                                 <input type="file" id="uploadProductImage" style="display:none;" accept="image/x-png,image/gif,image/jpeg" name="product_image" onchange="document.getElementById('img-avatar').src = window.URL.createObjectURL(this.files[0])">
                                 <!-- <p class="text-muted mb-1" id="fix_email">example@example.com</p>
                                 <p class="text-muted mb-2" id="fix_phone">0386334588</p> -->
-                                <input type="button" value="Sửa ảnh" id="upload_product_image">
+                                <input type="button" value="Sửa ảnh" id="upload_product_image" required>
                                 <script>
                                     $('#upload_product_image').click(function(e) {
                                         e.preventDefault();
@@ -79,7 +79,7 @@ Create product
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_name" name="product_name" type="text" value="" placeholder="">
+                                            <input id="product_name" name="product_name" type="text" value="" placeholder="" required>
                                         </p>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@ Create product
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_prỉce" name="product_prỉce" type="text" value="" placeholder="">
+                                            <input id="product_prỉce" name="product_prỉce" type="text" value="" placeholder="" required>
                                         </p>
                                     </div>
                                 </div>

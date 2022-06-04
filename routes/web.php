@@ -76,12 +76,12 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
         Route::match(['get', 'post'], '/edit/{slug}', [CategoryController::class, 'update'])->name("admin.categories.edit");
         // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
     });
-    // Category
+    // Product
     Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name("admin.products.index");
         Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name("admin.products.add");
         Route::match(['get', 'post'], '/edit/{slug}', [ProductController::class, 'update'])->name("admin.products.edit");
-        // Route::post('delete/{id}', [UserController::class, 'destroy'])->name("admin.users.delete");
+        Route::match(['get', 'delete'], '/delete/{id}', [ProductController::class, 'destroy'])->name("admin.products.delete");
     });
     // Order
     Route::prefix('orders')->group(function () {

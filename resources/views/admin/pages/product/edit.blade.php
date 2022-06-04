@@ -12,9 +12,9 @@
     @csrf
     <section class="pb-4">
         @if(session()->has('message'))
-            <div style="color:red; margin-bottom: 20px; text-align: center">
-                {{ session()->get('message') }}
-            </div>
+        <div style="color:red; margin-bottom: 20px; text-align: center">
+            {{ session()->get('message') }}
+        </div>
         @endif
         <div class="bg-white border rounded-5">
 
@@ -28,7 +28,7 @@
                                 <input type="file" id="uploadProductImage" style="display:none;" accept="image/x-png,image/gif,image/jpeg" name="product_image" onchange="document.getElementById('img-avatar').src = window.URL.createObjectURL(this.files[0])">
                                 <!-- <p class="text-muted mb-1" id="fix_email">example@example.com</p>
                                 <p class="text-muted mb-2" id="fix_phone">0386334588</p> -->
-                                <input type="button" value="Sửa ảnh" id="upload_product_image">
+                                <input type="button" value="Sửa ảnh" id="upload_product_image" required>
                                 <script>
                                     $('#upload_product_image').click(function(e) {
                                         e.preventDefault();
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_name" name="product_name" type="text" value="{{$product->name}}" placeholder="">
+                                            <input id="product_name" name="product_name" type="text" value="{{$product->name}}" placeholder="" required>
                                         </p>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <p class="text-muted mb-0">
-                                            <input id="product_prỉce" name="product_prỉce" type="text" value="{{number_format($product->price, 0, ',', ',')}}" placeholder="">
+                                            <input id="product_prỉce" name="product_prỉce" type="text" value="{{number_format($product->price, 0, ',', ',')}}" placeholder="" required>
                                         </p>
                                     </div>
                                 </div>
@@ -176,121 +176,157 @@
                                 <div class="card mb-4">
                                     <div class="card-body">
                                         <textarea name="product_description" id="product_description" rows="6">{{$product->description}}</textarea>
-                                        </div>
-                                        <script>
-                                            CKEDITOR.replace('product_description', {
-                                                height: "200px",
-                                            })
-                                            CKEDITOR.config.autoParagraph = false;
-                                            CKEDITOR.on('instanceReady', function(e) {
-                                                // First time
-                                                // e.editor.document.getBody().setStyle('color', 'red');
-                                                e.editor.document.getBody().setStyle('background-color', '#fff');
-                                            });
-                                        </script>
                                     </div>
+                                    <script>
+                                        CKEDITOR.replace('product_description', {
+                                            height: "200px",
+                                        })
+                                        CKEDITOR.config.autoParagraph = false;
+                                        CKEDITOR.on('instanceReady', function(e) {
+                                            // First time
+                                            // e.editor.document.getBody().setStyle('color', 'red');
+                                            e.editor.document.getBody().setStyle('background-color', '#fff');
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </section>
-            <div class="p-4 text-right border-top mobile-hidden">
-                <button type="submit" class="btn btn-link px-3 btn-success">
-                    <!-- <i class="fas fa-code me-md-2"></i> -->
-                    <span class="d-md-inline-block" style="color: #fff">
-                        Submit
-                    </span>
-                </button>
-
-            </div>
-
         </div>
+
+    </section>
+    <div class="container" style="padding: 0">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="p-4 text-left border-top mobile-hidden" style="padding-left: 0 !important;">
+                    <button type="button" class="btn btn-link px-3 btn-danger" id="{{$product->id}}" route="" onclick="delete_product(this)">
+                        <!-- <i class="fas fa-code me-md-2"></i> -->
+                        <span class="d-md-inline-block" style="color: #fff">
+                            Delete
+                        </span>
+                    </button>
+                </div>
+            </div>
+                          
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="p-4 text-right border-top mobile-hidden" style="padding-right: 0 !important;">
+                    <button type="submit" class="btn btn-link px-3 btn-success">
+                        <!-- <i class="fas fa-code me-md-2"></i> -->
+                        <span class="d-md-inline-block" style="color: #fff">
+                            Submit
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
     </section>
 </form>
 <script>
-             $("#product_prỉce").on({
-                keyup: function() {
-                  formatCurrency($(this));
-                },
-                blur: function() { 
-                  formatCurrency($(this), "blur");
-                }
-            });
+    $("#product_prỉce").on({
+        keyup: function() {
+            formatCurrency($(this));
+        },
+        blur: function() {
+            formatCurrency($(this), "blur");
+        }
+    });
 
-            function formatNumber(n) {
-              let t = n;
-              try{
-                t = parseFloat(n.replace(/\D/g, "")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-              }
-              catch(e){
-                t='';
-              }
-              // format number 1000000 to 1,234,567
-              return t
+    function formatNumber(n) {
+        let t = n;
+        try {
+            t = parseFloat(n.replace(/\D/g, "")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } catch (e) {
+            t = '';
+        }
+        // format number 1000000 to 1,234,567
+        return t
+    }
+
+
+    function formatCurrency(input, blur) {
+        // appends $ to value, validates decimal side
+        // and puts cursor back in right position.
+
+        // get input value
+        var input_val = input.val();
+
+        // don't validate empty input
+        if (input_val === "") {
+            return;
+        }
+
+        // original length
+        var original_len = input_val.length;
+
+        // initial caret position 
+        var caret_pos = input.prop("selectionStart");
+
+        // check for decimal
+        if (input_val.indexOf(".") >= 0) {
+
+            // get position of first decimal
+            // this prevents multiple decimals from
+            // being entered
+            var decimal_pos = input_val.indexOf(".");
+
+            // split number by decimal point
+            var left_side = input_val.substring(0, decimal_pos);
+            var right_side = input_val.substring(decimal_pos);
+
+            // add commas to left side of number
+            left_side = formatNumber(left_side);
+
+            // validate right side
+            right_side = formatNumber(right_side);
+
+            // On blur make sure 2 numbers after decimal
+
+            // Limit decimal to only 2 digits
+            right_side = right_side.substring(0, 2);
+
+            // join number by .
+            input_val = left_side + "." + right_side;
+
+        } else {
+            // no decimal entered
+            // add commas to number
+            // remove all non-digits
+            input_val = formatNumber(input_val);
+            input_val = input_val;
+
+        }
+
+        // send updated string to input
+        input.val(input_val);
+
+        // put caret back in the right position
+        var updated_len = input_val.length;
+        caret_pos = updated_len - original_len + caret_pos;
+        input[0].setSelectionRange(caret_pos, caret_pos);
+    }
+</script>
+<script>
+    function delete_product(data) {
+        // let id =  $(this).data('id')
+        // let url =  $(this).data('url')
+        $.ajax({
+            type: "Delete",
+            url: "{{route('admin.products.delete', $product->id)}}",
+            dataType: 'json',
+            data: {
+                _token: $("input[name=_token]").val(),
+                id: data.id,
+            },
+            success: function (data) {
+                console.log(data)
+                // console.log(data.items)
+                return window.location.href = "{{route('admin.products.index')}}";
             }
-
-
-            function formatCurrency(input, blur) {
-              // appends $ to value, validates decimal side
-              // and puts cursor back in right position.
-              
-              // get input value
-              var input_val = input.val();
-              
-              // don't validate empty input
-              if (input_val === "") { return; }
-              
-              // original length
-              var original_len = input_val.length;
-
-              // initial caret position 
-              var caret_pos = input.prop("selectionStart");
-                
-              // check for decimal
-              if (input_val.indexOf(".") >= 0) {
-
-                // get position of first decimal
-                // this prevents multiple decimals from
-                // being entered
-                var decimal_pos = input_val.indexOf(".");
-
-                // split number by decimal point
-                var left_side = input_val.substring(0, decimal_pos);
-                var right_side = input_val.substring(decimal_pos);
-
-                // add commas to left side of number
-                left_side = formatNumber(left_side);
-
-                // validate right side
-                right_side = formatNumber(right_side);
-                
-                // On blur make sure 2 numbers after decimal
-                
-                // Limit decimal to only 2 digits
-                right_side = right_side.substring(0, 2);
-
-                // join number by .
-                input_val = left_side + "." + right_side;
-
-              } else {
-                // no decimal entered
-                // add commas to number
-                // remove all non-digits
-                input_val = formatNumber(input_val);
-                input_val = input_val;
-                
-              }
-              
-              // send updated string to input
-              input.val(input_val);
-
-              // put caret back in the right position
-              var updated_len = input_val.length;
-              caret_pos = updated_len - original_len + caret_pos;
-              input[0].setSelectionRange(caret_pos, caret_pos);
-            }
-
+        })
+    }
 </script>
 @endsection

@@ -71,7 +71,7 @@ class ProductController extends Controller
             $product = Product::create($dataProductCreate);
 
         } else {
-            $dataProductCreate['image'] = 'default.svg';
+            $dataProductCreate['image'] = 'no-image.jpg';
             $product = Product::create($dataProductCreate);
         }
 
@@ -119,7 +119,7 @@ class ProductController extends Controller
             $file->move(public_path() . '/images/products/', $pathName);
 
             $dataProductUpdate['image'] = $pathName;
-            if($product->image !=''){
+            if($product->image !='' && $product->image != "no-image.jpg"){
                 $destinationPath = 'images/products/'.$product->image;
                 if(file_exists($destinationPath)){
                     unlink($destinationPath);
@@ -128,5 +128,21 @@ class ProductController extends Controller
         }
         Product::find($slug)->update($dataProductUpdate);
         return redirect()->route('admin.products.edit', Product::find($slug)->slug)->with('message', 'Update a product successfully');
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        if ($request->getMethod() == 'GET') {
+            return redirect()->route('admin.products.index');
+        }
+        $product = Product::findOrFail($id);
+        if($product->image !='' && $product->image != "no-image.jpg"){
+            $destinationPath = 'images/products/'.$product->image;
+            if(file_exists($destinationPath)){
+                unlink($destinationPath);
+            }
+        }
+        $product->delete();
+        return response()->json(['msg' => 'Delete Product successfully']);
     }
 }
