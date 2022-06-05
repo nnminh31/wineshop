@@ -24,8 +24,8 @@ List order
 </style>
 <div class="card shadow mb-4">
     <div class="card-header py-3" style="float: left">
-        <h6 class="m-0 font-weight-bold text-primary" style="float: left">Brand</h6>
-        <a href="javascript:;" style="float: right; color: #000; text-decoration: none;">Add</a>
+        <h6 class="m-0 font-weight-bold text-primary" style="float: left">Order</h6>
+        <a href="javascript:;" style="float: right; color: #000; text-decoration: none; display: none;">Add</a>
     </div>
     <div class="card-body">
         <div class="table-responsive" id="table-responsive">
