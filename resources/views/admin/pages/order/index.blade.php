@@ -43,9 +43,15 @@ List order
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $count = 0;
+                        @endphp
                         @foreach($orders as $order)
+                        @php
+                            $count++
+                        @endphp
                         <tr>
-                            <td><a href="{{route('admin.orders.edit', $order->id)}}">#{{$order->id}}</a></td>
+                            <td><a href="{{route('admin.orders.edit', $order->id)}}">{{$count}}</a></td>
                             <td>
                                 <a href="{{route('admin.orders.edit', $order->id)}}">
                                     {{$order->created_at->format('d/m/Y H:i')}}
@@ -97,6 +103,16 @@ List order
         {{$orders->links('vendor.pagination.custom')}}
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "paging": false,
+            "order": [
+                [2, "desc"]
+            ]
+        });
+    });
+</script>
 <script>
   $(document).ready(function () {
     $('.processing').click(function (e) {

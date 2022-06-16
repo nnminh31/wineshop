@@ -509,16 +509,6 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "paging": false,
-                "order": [
-                    [1, "desc"]
-                ]
-            });
-        });
-    </script>
-    <script>
         var div = document.getElementById('table-responsive');
 
         var hasHorizontalScrollbar = div.scrollWidth > div.clientWidth;
