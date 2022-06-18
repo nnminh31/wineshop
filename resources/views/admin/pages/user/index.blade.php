@@ -56,3 +56,13 @@ List user
     </div>
 </div>
 @endsection
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "paging": false,
+            "order": [
+                [4, "desc"]
+            ]
+        });
+    });
+</script>

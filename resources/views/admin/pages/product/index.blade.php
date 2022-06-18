@@ -9,7 +9,7 @@ List product
 
 <div class="card shadow mb-4">
     <div class="card-header py-3" style="float: left">
-        <h6 class="m-0 font-weight-bold text-primary" style="float: left">Category</h6>
+        <h6 class="m-0 font-weight-bold text-primary" style="float: left">Product</h6>
         <a href="{{route('admin.products.add')}}" style="float: right">Add</a>
     </div>
     <div class="card-body">
