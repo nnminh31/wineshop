@@ -9,6 +9,11 @@ Create user
 <form action="{{route('admin.users.add')}}" method="Post">
     @csrf
     <section class="pb-4">
+        @if(session()->has('message'))
+        <div style="color:red; margin-bottom: 20px; text-align: center">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <div class="bg-white border rounded-5">
 
             <section class="w-100 p-4" style="background-color: #eee; border-radius: .5rem .5rem 0 0;">

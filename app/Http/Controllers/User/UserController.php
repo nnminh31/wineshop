@@ -23,6 +23,10 @@ class UserController extends Controller
             $roles = Role::latest()->get();
             return view('admin.pages.user.add', compact('roles'));
         }
+        $email = User::where('email', '=', $request->email)->exists();
+        if ($email) { 
+            return redirect()->back()->with('message', 'This email already exists');
+        }
         User::create([
             'name' => $request->name,
             'email' => $request->email,
