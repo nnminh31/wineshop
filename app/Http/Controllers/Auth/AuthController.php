@@ -38,15 +38,12 @@ class AuthController extends Controller
         }
         $account = [
             'email' => $request->email,
-            'password'=> $request->password
+            'password'=> $request->password,
+            'role_id' => 1,
         ];
-       
         if (Auth::guard('admin')->attempt($account)) {
-            if (Auth::guard('admin')->user()->role->name == 'admin') {
-                return redirect()->route('admin.users.index');
-                // dd("Thanh công");
-            }
-            return redirect()->back()->with('message', 'Tài khoản hoặc mật khẩu không đúng');    
+            return redirect()->route('admin.users.index');
+            // dd("Thanh công");  
         } else {
             return redirect()->back()->with('message', 'Tài khoản hoặc mật khẩu không đúng');
         }
@@ -75,10 +72,11 @@ class AuthController extends Controller
         }
         $account = [
             'email' => $request->email,
-            'password'=> $request->password
+            'password'=> $request->password,
+            'role_id' => 2,
         ];
        
-        if (Auth::guard('web')->attempt($account) && Auth::guard('web')->user()->role->name == 'user') {
+        if (Auth::guard('web')->attempt($account)) {
 
             if ($request->returnUrl) {
                 return response()->json(['success' => true, 'check' => true]);
