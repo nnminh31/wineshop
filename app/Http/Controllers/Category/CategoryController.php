@@ -53,17 +53,19 @@ class CategoryController extends Controller
             $list_cat = $this->getCategory();
             return view('admin.pages.category.add', compact('list_cat'));
         }
-        Category::create([
-            'name' => $request->name,
-            // 'description' => $request->description,
-            'parent_id' => $request->parent_id,
-            'slug' => STR::slug($request->name),
-            'status' => $request->status,
-            'user_id' => Auth::guard('admin')->user()->id,
-        ]);
-
-        return redirect()->route('admin.categories.index')->with('message', 'Create a category successfully');
-
+        try {
+            Category::create([
+                'name' => $request->name,
+                // 'description' => $request->description,
+                'parent_id' => $request->parent_id,
+                'slug' => STR::slug($request->name),
+                'status' => $request->status,
+                'user_id' => Auth::guard('admin')->user()->id,
+            ]);
+            return redirect()->route('admin.categories.index')->with('message', 'Create a category successfully');
+        } catch (\Exception $exception) {
+            return redirect()->route('admin.categories.add')->with('message', 'This category already exists');
+        }
     }
 
     public function update(Request $request, $slug) {
@@ -79,13 +81,17 @@ class CategoryController extends Controller
             $type = "category";
             return view('admin.pages.category.edit', compact('category', 'list_cat', 'type'));
         }
-        Category::where('id', $slug)->take(1)->update([
-            'name' => $request->name,
-            'parent_id' => $request->parent_id,
-            'status' => $request->status,
-            'slug' => Str::slug($request->name),
-        ]);
-        return redirect()->route('admin.categories.edit', Category::find($slug)->slug)->with('message', 'Update a category successfully');
+        try {
+            Category::where('id', $slug)->take(1)->update([
+                'name' => $request->name,
+                'parent_id' => $request->parent_id,
+                'status' => $request->status,
+                'slug' => Str::slug($request->name),
+            ]);
+            return redirect()->route('admin.categories.edit', Category::find($slug)->slug)->with('message', 'Update a category successfully');
+        } catch (\Exception $exception) {
+            return redirect()->route('admin.categories.edit', Category::find($slug)->slug)->with('message', 'Category name cannot be the same');
+        }
     }
 
     public function destroy(Request $request, $id)

@@ -40,42 +40,40 @@ class ProductController extends Controller
             return view('admin.pages.product.add', compact('list_cat', 'brands'));
         }
 
-        $product_name = Product::where('name', '=', $request->product_name)->exists();
-        if ($product_name) { 
-            return redirect()->back()->with('message', 'Product name cannot be the same');
+        try {
+            $dataProductCreate = [
+                'name' => $request->product_name,
+                'price' => str_replace( ',', '', $request->product_prỉce),
+                'capacity' => $request->product_capacity,
+                'concentration' =>  $request->product_concentration,
+                'country' =>  $request->product_country,
+                'area' =>  $request->product_area,
+                'description' => $request->product_description,
+                'slug' => STR::slug($request->product_name),
+                'status' => $request->product_status,
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
+                'user_id' => Auth::guard('admin')->user()->id,
+            ];
+    
+            if ($request->hasFile('product_image')) {
+                $file = $request->file('product_image');
+                $fileName = $file->getClientOriginalName();
+                $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/images/products/', $pathName);
+    
+                $dataProductCreate['image'] = $pathName;
+    
+                $product = Product::create($dataProductCreate);
+    
+            } else {
+                $dataProductCreate['image'] = 'no-image.jpg';
+                $product = Product::create($dataProductCreate);
+            }
+            return redirect()->route('admin.products.index')->with('message', 'Create a product successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.products.add')->with('message', 'This product already exists');
         }
-
-        $dataProductCreate = [
-            'name' => $request->product_name,
-            'price' => str_replace( ',', '', $request->product_prỉce),
-            'capacity' => $request->product_capacity,
-            'concentration' =>  $request->product_concentration,
-            'country' =>  $request->product_country,
-            'area' =>  $request->product_area,
-            'description' => $request->product_description,
-            'slug' => STR::slug($request->product_name),
-            'status' => $request->product_status,
-            'category_id' => $request->category_id,
-            'brand_id' => $request->brand_id,
-            'user_id' => Auth::guard('admin')->user()->id,
-        ];
-
-        if ($request->hasFile('product_image')) {
-            $file = $request->file('product_image');
-            $fileName = $file->getClientOriginalName();
-            $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . '/images/products/', $pathName);
-
-            $dataProductCreate['image'] = $pathName;
-
-            $product = Product::create($dataProductCreate);
-
-        } else {
-            $dataProductCreate['image'] = 'no-image.jpg';
-            $product = Product::create($dataProductCreate);
-        }
-
-        return redirect()->route('admin.products.index')->with('message', 'Create a product successfully');
     }
 
     public function update(Request $request, $slug)
@@ -95,39 +93,42 @@ class ProductController extends Controller
             $type = "product";
             return view('admin.pages.product.edit', compact('list_cat', 'brands', 'product', 'type'));
         }
+        try {
+            $dataProductUpdate = [
+                'name' => $request->product_name,
+                'price' => str_replace( ',', '', $request->product_prỉce),
+                'capacity' => $request->product_capacity,
+                'concentration' =>  $request->product_concentration,
+                'country' =>  $request->product_country,
+                'area' =>  $request->product_area,
+                'description' => $request->product_description,
+                'slug' => STR::slug($request->product_name),
+                'status' => $request->product_status,
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
+                'user_id' => Auth::guard('admin')->user()->id,
+            ];
 
-        $dataProductUpdate = [
-            'name' => $request->product_name,
-            'price' => str_replace( ',', '', $request->product_prỉce),
-            'capacity' => $request->product_capacity,
-            'concentration' =>  $request->product_concentration,
-            'country' =>  $request->product_country,
-            'area' =>  $request->product_area,
-            'description' => $request->product_description,
-            'slug' => STR::slug($request->product_name),
-            'status' => $request->product_status,
-            'category_id' => $request->category_id,
-            'brand_id' => $request->brand_id,
-            'user_id' => Auth::guard('admin')->user()->id,
-        ];
+            if ($request->hasFile('product_image')) {
+                $product = Product::findOrFail($slug);
+                $file = $request->file('product_image');
+                $fileName = $file->getClientOriginalName();
+                $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/images/products/', $pathName);
 
-        if ($request->hasFile('product_image')) {
-            $product = Product::findOrFail($slug);
-            $file = $request->file('product_image');
-            $fileName = $file->getClientOriginalName();
-            $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . '/images/products/', $pathName);
-
-            $dataProductUpdate['image'] = $pathName;
-            if($product->image !='' && $product->image != "no-image.jpg"){
-                $destinationPath = 'images/products/'.$product->image;
-                if(file_exists($destinationPath)){
-                    unlink($destinationPath);
+                $dataProductUpdate['image'] = $pathName;
+                if($product->image !='' && $product->image != "no-image.jpg"){
+                    $destinationPath = 'images/products/'.$product->image;
+                    if(file_exists($destinationPath)){
+                        unlink($destinationPath);
+                    }
                 }
             }
+            Product::find($slug)->update($dataProductUpdate);
+            return redirect()->route('admin.products.edit', Product::find($slug)->slug)->with('message', 'Update a product successfully');
+        } catch (\Exception $exception) {
+            return redirect()->route('admin.products.edit', Product::find($slug)->slug)->with('message', 'Product name cannot be the same');
         }
-        Product::find($slug)->update($dataProductUpdate);
-        return redirect()->route('admin.products.edit', Product::find($slug)->slug)->with('message', 'Update a product successfully');
     }
 
     public function destroy(Request $request, $id)

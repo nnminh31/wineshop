@@ -36,30 +36,34 @@ class BrandController extends Controller
             $brands = Brand::all();
             return view('admin.pages.brand.add', compact('brands'));
         }
-        $dataBrandCreate = [
-            'name' => $request->name,
-            'description' => $request->description,
-            'type' => $request->type,
-            'slug' => STR::slug($request->name),
-            'status' => $request->status,
-            'user_id' => Auth::guard('admin')->user()->id,
-        ];
-        if ($request->hasFile('icon')) {
-            $file = $request->file('icon');
-            $fileName = $file->getClientOriginalName();
-            $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . '/images/brands/', $pathName);
+        try {
+            $dataBrandCreate = [
+                'name' => $request->name,
+                'description' => $request->description,
+                'type' => $request->type,
+                'slug' => STR::slug($request->name),
+                'status' => $request->status,
+                'user_id' => Auth::guard('admin')->user()->id,
+            ];
+            if ($request->hasFile('icon')) {
+                $file = $request->file('icon');
+                $fileName = $file->getClientOriginalName();
+                $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/images/brands/', $pathName);
 
-            $dataBrandCreate['icon'] = $pathName; 
+                $dataBrandCreate['icon'] = $pathName; 
 
-            $brand = Brand::create($dataBrandCreate);
+                $brand = Brand::create($dataBrandCreate);
 
-        } else {
-            $dataBrandCreate['icon'] = 'default.png';
-            $brand = Brand::create($dataBrandCreate);
+            } else {
+                $dataBrandCreate['icon'] = 'default.png';
+                $brand = Brand::create($dataBrandCreate);
+            }
+            return redirect()->route('admin.brands.index')->with('message', 'Create a brand successfully');
+        } catch (\Exception $exception) {
+            return redirect()->route('admin.brands.add')->with('message', 'This brand already exists');
         }
     
-        return redirect()->route('admin.brands.index')->with('message', 'Create a brand successfully');
     }
 
     public function update(Request $request, $slug) {
@@ -74,34 +78,38 @@ class BrandController extends Controller
             $type = "brand";
             return view('admin.pages.brand.edit', compact('brand', 'type'));
         }
-        $dataBrandUpdate = [
-            'name' => $request->name,
-            'description' => $request->description,
-            'type' => $request->type,
-            'slug' => STR::slug($request->name),
-            'status' => $request->status,
-            'user_id' => Auth::guard('admin')->user()->id,
-        ];
+        try {
+            $dataBrandUpdate = [
+                'name' => $request->name,
+                'description' => $request->description,
+                'type' => $request->type,
+                'slug' => STR::slug($request->name),
+                'status' => $request->status,
+                'user_id' => Auth::guard('admin')->user()->id,
+            ];
 
-        if ($request->hasFile('icon')) {
-            $brand = Brand::findOrFail($slug);
-            $file = $request->file('icon');
-            $fileName = $file->getClientOriginalName();
-            $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . '/images/brands/', $pathName);
+            if ($request->hasFile('icon')) {
+                $brand = Brand::findOrFail($slug);
+                $file = $request->file('icon');
+                $fileName = $file->getClientOriginalName();
+                $pathName =  STR::random(5) . '-' . date('his') . '-' . STR::random(3) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/images/brands/', $pathName);
 
-            $dataBrandUpdate['icon'] = $pathName;
-            if($brand->icon !='' && $brand->icon != "default.png"){
-                $destinationPath = 'images/brands/'.$brand->icon;
-                if(file_exists($destinationPath)){
-                    unlink($destinationPath);
+                $dataBrandUpdate['icon'] = $pathName;
+                if($brand->icon !='' && $brand->icon != "default.png"){
+                    $destinationPath = 'images/brands/'.$brand->icon;
+                    if(file_exists($destinationPath)){
+                        unlink($destinationPath);
+                    }
                 }
             }
+
+            Brand::find($slug)->update($dataBrandUpdate);
+
+            return redirect()->route('admin.brands.edit', Brand::find($slug)->slug)->with('message', 'Update a brand successfully');
+        } catch (\Exception $exception) {
+            return redirect()->route('admin.brands.edit', Brand::find($slug)->slug)->with('message', 'Brand name cannot be the same');
         }
-
-        Brand::find($slug)->update($dataBrandUpdate);
-
-        return redirect()->route('admin.brands.edit', Brand::find($slug)->slug)->with('message', 'Update a brand successfully');
     }
 
     public function destroy(Request $request, $id)
