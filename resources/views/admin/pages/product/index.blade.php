@@ -6,7 +6,7 @@ Manage product
 List product
 @endsection
 @section('content')
-
+<script src="//code.jquery.com/jquery.js"></script>
 <div class="card shadow mb-4">
     <div class="card-header py-3" style="float: left">
         <h6 class="m-0 font-weight-bold text-primary" style="float: left">Product</h6>
@@ -14,7 +14,7 @@ List product
     </div>
     <div class="card-body">
         <div class="table-responsive" id="table-responsive" style="overflow-x:auto;">
-            <table id="" class="table table-striped table-bordered" style="width:100%">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -82,4 +82,14 @@ List product
         {{$products->links('vendor.pagination.custom')}}
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "paging": false,
+            "order": [
+                [1, "desc"]
+            ]
+        });
+    });
+</script>
 @endsection

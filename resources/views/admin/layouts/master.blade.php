@@ -143,12 +143,12 @@
                 </a>
             </li>
             <!-- Nav Item - User Categories Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Roles</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">

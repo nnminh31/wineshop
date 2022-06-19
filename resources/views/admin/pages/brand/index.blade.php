@@ -6,6 +6,7 @@ Manage brand
 List brand
 @endsection
 @section('content')
+<script src="//code.jquery.com/jquery.js"></script>
 <div class="card shadow mb-4">
     <div class="card-header py-3" style="float: left">
         <h6 class="m-0 font-weight-bold text-primary" style="float: left">Brand</h6>
@@ -61,5 +62,14 @@ List brand
         {{$brands->links('vendor.pagination.custom')}}
     </div>
 </div>
-
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "paging": false,
+            "order": [
+                [4, "desc"]
+            ]
+        });
+    });
+</script>
 @endsection
