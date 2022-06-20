@@ -230,6 +230,9 @@
     function redirect_to_url() {
         redirect("{{route('cart')}}")
     }
+    function redirect_to_checkout() {
+        redirect("{{route('checkout')}}")
+    }
 </script>
 <script>
     $('.see-detail').click(function(e) {

@@ -102,27 +102,51 @@ function addToCart(e) {
         console.log(data)
         sleep(1000)
         $("body").addClass("stopScroll")
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            html: "Bạn đã thêm <a style='color: #800020;'> [ " + `${data.items.name}` + " ] </a> vào giỏ hàng thành công !",
-            timer: 1500,
-            showConfirmButton: true,
-            showCancelButton: true,
-            cancelButtonText: "Tiếp tục mua hàng",
-            confirmButtonText: 'Thực hiện thanh toán',
-            customClass: {
-                actions: 'my-actions',
-                cancelButton: 'order-1 btn btn-danger',
-                confirmButton: 'order-2 btn btn-success btn-proceed-checkout',
-            },
-        }).then(function(result) {
-            if (result.isConfirmed) {
-                redirect_to_url()
-            }
-            $("body").removeClass("stopScroll")
-        });
-        $('#vnt-menu-fixed ul li.cart>a .sl').text(data.total_items)
+        if (data.error) {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                html: data.error,
+                timer: 3000,
+                showConfirmButton: true,
+                showCancelButton: true,
+                cancelButtonText: "Tiếp tục mua hàng",
+                confirmButtonText: 'Xem giỏ hàng',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 btn btn-danger',
+                    confirmButton: 'order-2 btn btn-success btn-proceed-checkout',
+                },
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    redirect_to_url()
+                }
+                $("body").removeClass("stopScroll")
+            });
+        } 
+        if (data.message) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                html: "Bạn đã thêm <a style='color: #800020;'> [ " + `${data.items.name}` + " ] </a> vào giỏ hàng thành công !",
+                timer: 1500,
+                showConfirmButton: true,
+                showCancelButton: true,
+                cancelButtonText: "Tiếp tục mua hàng",
+                confirmButtonText: 'Thực hiện thanh toán',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 btn btn-danger',
+                    confirmButton: 'order-2 btn btn-success btn-proceed-checkout',
+                },
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    redirect_to_checkout()
+                }
+                $("body").removeClass("stopScroll")
+            });
+            $('#vnt-menu-fixed ul li.cart>a .sl').text(data.total_items)
+        }
       }
     })
 }

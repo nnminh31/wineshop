@@ -40,6 +40,16 @@ class CartController extends Controller
                     // 'user_id' => Auth::guard('web')->user()->id
                 ];
             }
+            if ($request->quantity > 30 | $cart[$id]['quantity'] > 30) {
+                return response()->json([
+                    'error' => "Bạn chỉ được phép thêm tối đa <a style='color: red; font-weight: bold'> 30 </a> sản phẩm <a style='color: #800020;'> [".  $product->name ." ]</a> vào giỏ hàng",
+                ]);
+            }
+            if ($request->quantity > $product->quantity) {
+                return response()->json([
+                    'error' => "Số lượng sản phẩm <a style='color: #800020;'> [".  $product->name ." ]</a>chỉ còn <a style='color: red; font-weight: bold'> $product->quantity </a> sản phẩm",
+                ]);
+            }
             session()->put('cart', $cart);
             foreach(session()->get('cart') as $id => $cartItem) {
                 $total_items++;
