@@ -44,6 +44,7 @@ class ProductController extends Controller
             $dataProductCreate = [
                 'name' => $request->product_name,
                 'price' => str_replace( ',', '', $request->product_prỉce),
+                'quantity' => $request->product_quantity,
                 'capacity' => $request->product_capacity,
                 'concentration' =>  $request->product_concentration,
                 'country' =>  $request->product_country,
@@ -96,6 +97,7 @@ class ProductController extends Controller
         try {
             $dataProductUpdate = [
                 'name' => $request->product_name,
+                'quantity' => $request->product_quantity,
                 'price' => str_replace( ',', '', $request->product_prỉce),
                 'capacity' => $request->product_capacity,
                 'concentration' =>  $request->product_concentration,

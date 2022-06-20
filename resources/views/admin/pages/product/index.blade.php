@@ -21,6 +21,7 @@ List product
                         <th scope="col">Image</th>
                         <th scope="col">Description</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Category</th>
                         <th scope="col">Brand</th>
                         <th scope="col">Creator</th>
@@ -41,13 +42,15 @@ List product
                             ?>><a href="{{route('admin.products.edit', $product->slug)}}">
                                 <?php
                                 if ($product->description != null) {
-                                    echo $product->description;
+                                    // echo substr($product->description, 0, 210);
+                                    echo substr_replace(strip_tags($product->description), "...", 110);
                                 } else {
                                     echo "----";
                                 }
                                 ?>
                             </a></td>
                         <td><a href="{{route('admin.products.edit', $product->slug)}}">{{number_format($product->price, 0, ',', '.')}}</a></td>
+                        <td><a href="{{route('admin.products.edit', $product->slug)}}">{{$product->quantity}}</a></td>
                         <td <?php
                             if (!isset($product->category->name)) {
                                 echo 'class="text-center"';
@@ -71,6 +74,7 @@ List product
                         <th>Image</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         <th>Category</th>
                         <th>Brand</th>
                         <th>Creator</th>

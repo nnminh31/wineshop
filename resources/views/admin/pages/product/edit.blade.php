@@ -104,6 +104,17 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
+                                        <p class="mb-0">Quantity</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">
+                                            <input id="product_quantity" name="product_quantity" type="number" value="{{$product->quantity}}" placeholder="" required>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
                                         <p class="mb-0">Capacity</p>
                                     </div>
                                     <div class="col-sm-9">
