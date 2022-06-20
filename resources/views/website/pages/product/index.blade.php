@@ -147,9 +147,9 @@
                                         @csrf
                                         <div class="form-group form_button_details">
                                             <div class="custom input_number_product custom-btn-number form-control">
-                                                <button class="btn_num num_1 button button_qty btn-minus cart_update" data-id="{{$product->id}}" type="button">-</button>
+                                                <button class="btn_num num_1 button button_qty btn-minus" data-id="{{$product->id}}" type="button">-</button>
                                                 <input type="number" id="qtym" name="product_qty" value="1" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control prd_quantity cart_product_qty_{{$product->id}} quantity input-quantity-{{$product->id}}" data-id="{{$product->id}}">
-                                                <button class="btn_num num_2 button button_qty btn-plus cart_update" data-id="{{$product->id}}" type="button">+</button>
+                                                <button class="btn_num num_2 button button_qty btn-plus" data-id="{{$product->id}}" type="button">+</button>
                                             </div>
                                             <div class="button_actions">
                                                 <input class="hidden" type="hidden" name="variantId" value="{{$product->id}}">
