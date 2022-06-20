@@ -108,7 +108,7 @@ List order
         $('#example').DataTable({
             "paging": false,
             "order": [
-                [2, "desc"]
+                [6, "asc"]
             ]
         });
     });

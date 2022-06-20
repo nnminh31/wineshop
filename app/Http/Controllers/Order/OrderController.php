@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\User;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -35,6 +36,12 @@ class OrderController extends Controller
                 $status = "Completed";
             } elseif($request->status == 4) {
                 $status = "Cancelled";
+                $order = Order::find($request->id);
+                foreach($order->orderDetails as $order):
+                    $product = Product::find($order->product_id);
+                    $product->quantity += $order->quantity;
+                    $product->save();
+                endforeach;
             }
             return response()->json([
                 'order_id' => Order::find($request->id)->id,
@@ -77,6 +84,9 @@ class OrderController extends Controller
             'created_at' => Carbon::now(),
         ]);
         foreach (session()->get('cart') as $item){
+            $product = Product::find($item['id']);
+            $product->quantity -= $item['quantity'];
+            $product->save();
             $order->orderDetails()->create([
                 'product_id' => $item['id'],
                 'quantity' => $item['quantity'],
