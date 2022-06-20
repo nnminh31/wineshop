@@ -171,14 +171,51 @@ function update_qty(urlCart, id, quantity) {
         },
         success: function (data) {
             console.log(data)
+            sleep(1000)
             // console.log(data.items)
-            $(".cart-price .price").each(function(index, element) {
-                $(this).text(data.items[index].amount)
-            })
-            for (var i = 0; i < data.items.length; i++) {
-                $(".input-quantity-"+data.items[i].id).val(data.items[i].quantity)
+            if (data.error) {
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    html: data.error,
+                    timer: 3000,
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonText: "Tiếp tục mua hàng",
+                    customClass: {
+                        actions: 'my-actions',
+                        cancelButton: 'order-1 btn btn-danger',
+                    },
+                }).then(function(result) {
+                    $("body").removeClass("stopScroll")
+                });
+            
+                $(".input-quantity-" + data.id).val(data.quantity)
             }
-            $(".totals_price").text(data.total_carts)
+            if (data.message) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    html: data.message,
+                    timer: 2000,
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonText: "Tiếp tục mua hàng",
+                    customClass: {
+                        actions: 'my-actions',
+                        cancelButton: 'order-1 btn btn-danger',
+                    },
+                }).then(function(result) {
+                    $("body").removeClass("stopScroll")
+                });
+                $(".cart-price .price").each(function(index, element) {
+                    $(this).text(data.items[index].amount)
+                })
+                for (var i = 0; i < data.items.length; i++) {
+                    $(".input-quantity-"+data.items[i].id).val(data.items[i].quantity)
+                }
+                $(".totals_price").text(data.total_carts)
+            }
         }
     })
 }

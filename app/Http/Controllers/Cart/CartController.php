@@ -84,7 +84,24 @@ class CartController extends Controller
         $total_carts = 0;
         $id = $request->id;
         try {
+            $item_ins = Product::find($id);
             $carts = session()->get('cart');
+            if ($request->quantity > 30 | $carts[$id]['quantity'] > 30) {
+                sleep(1.5);
+                return response()->json([
+                    'id' => $item_ins->id,
+                    'quantity' => $carts[$id]['quantity'],
+                    'error' => "Bạn chỉ được phép thêm tối đa <a style='color: red; font-weight: bold'> 30 </a> sản phẩm <a style='color: #800020;'> [".  $item_ins->name ." ]</a> vào giỏ hàng",
+                ]);
+            }
+            if ($request->quantity > $item_ins->quantity) {
+                sleep(1.5);
+                return response()->json([
+                    'id' => $item_ins->id,
+                    'quantity' => $carts[$id]['quantity'],
+                    'error' => "Số lượng sản phẩm <a style='color: #800020;'> [".  $item_ins->name ." ]</a> chỉ còn <a style='color: red; font-weight: bold'> $item_ins->quantity </a> sản phẩm",
+                ]);
+            }
             $carts[$id]['quantity'] = $request->quantity;
             session()->put('cart', $carts);
             foreach(session()->get('cart') as $id => $cartItem) {
@@ -113,8 +130,8 @@ class CartController extends Controller
             return response()->json([
                 'total_items' =>  $total_items,
                 'items' => $data,
-                'message' => "Update product from cart successfully",
-                'total_carts' => number_format($total_carts, 0, ',','.')." ₫"
+                'message' => "Update product <a style='color: #800020;'> [ " . $item_ins->name . " ] </a> from cart successfully",
+                'total_carts' => number_format($total_carts, 0, ',','.')."₫"
             ]);
         } catch (\Throwable $th) {
             session()->flush();
