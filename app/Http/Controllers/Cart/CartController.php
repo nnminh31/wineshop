@@ -103,7 +103,7 @@ class CartController extends Controller
                     'amount' => number_format($amount, 0, ',','.')."₫",
                     'image' => $product->image,
                     'link' => route('product', $product->slug),
-                    'quantity' => $request->quantity,
+                    'quantity' => $carts[$product->id]['quantity'],
                     'brand' => $product->brand->name ?? "No brand",
                     'category' => $product->category->name ?? "No category",
                 ];

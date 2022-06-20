@@ -175,6 +175,9 @@ function update_qty(urlCart, id, quantity) {
             $(".cart-price .price").each(function(index, element) {
                 $(this).text(data.items[index].amount)
             })
+            for (var i = 0; i < data.items.length; i++) {
+                $(".input-quantity-"+data.items[i].id).val(data.items[i].quantity)
+            }
             $(".totals_price").text(data.total_carts)
         }
     })
@@ -190,22 +193,22 @@ function updateInputCart() {
     let urlCart = $('.update_cart_url').data('url')
     let id = $(this).data('id')
     let quantity = $(this).val();
-    if (product_qty.val() <= 0) {
+    if (quantity <= 0) {
         $(".btn_num.num_1").prop('disabled', true)
-        product_qty.val(1)
+        quantity = 1
     } else {
         $(".btn_num.num_1").prop('disabled', false)
-        product_qty.val(product_qty.val())
+        quantity = $(this).val()
     }
-    quantity = product_qty.val()
+    // quantity = product_qty.val()
     // let curent_quantity = $(this).data('value');
 
     // if (quantity <= 1 ) {
     //     quantity = 1
     // }
     // if quantity
-    $('input[name=product_qty1]').val(quantity)
-    $('input[name=product_qty2]').val(quantity)
+    // $('input[name=product_qty1]').val(quantity)
+    // $('input[name=product_qty2]').val(quantity)
     update_qty(urlCart, id, quantity)
 
 }
