@@ -42,7 +42,7 @@ class UserController extends Controller
     public function update(Request $request, $slug)
     {
         if ($request->getMethod() == 'GET') {
-            $user = User::where('slug', $slug)->first();
+            $user = User::where('email', $slug)->first();
             $roles = Role::latest()->get();
             return view('admin.pages.user.edit', compact('user', 'roles'));
         }
